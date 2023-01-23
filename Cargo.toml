@@ -1,0 +1,16 @@
+[package]
+name = "sdl3-sys"
+description = "Rust bindings to version 3 of the SDL library."
+repository = "https://github.com/Lokathor/sdl3-sys-rs"
+version = "0.0.1+sdl3-dev-2023-01-23"
+edition = "2021"
+license = "Zlib"
+
+[features]
+# Requires Nightly
+const_trait_impl = []
+
+[build-dependencies]
+cmake = { version = "0.1" }
+
+[dependencies]
