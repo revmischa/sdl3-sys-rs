@@ -1,3 +1,5 @@
+#![allow(unused_macros)]
+
 #[cfg(not(feature = "const_trait_impl"))]
 macro_rules! make_bit_ops_impls_for {
   ($ty_name:ty) => {

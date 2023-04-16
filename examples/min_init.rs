@@ -1,4 +1,4 @@
-use sdl3_sys::init::{SDL_Init, SDL_Quit, SDL_INIT_EVERYTHING};
+use sdl3_sys::{SDL_Init, SDL_Quit, SDL_INIT_EVERYTHING};
 
 fn main() {
   if unsafe { SDL_Init(SDL_INIT_EVERYTHING) } == 0 {

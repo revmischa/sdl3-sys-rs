@@ -1,4 +1,5 @@
 #![allow(unused_imports, dead_code, unused_variables)]
+#![allow(clippy::if_same_then_else)]
 
 #[cfg(feature = "bindgen")]
 extern crate bindgen;
@@ -33,8 +34,8 @@ macro_rules! add_msvc_includes_to_bindings {
 fn init_submodule(sdl_path: &Path) {
   if !sdl_path.join("CMakeLists.txt").exists() {
     Command::new("git")
-      .args(&["submodule", "update", "--init"])
-      .current_dir(sdl_path.clone())
+      .args(["submodule", "update", "--init"])
+      .current_dir(sdl_path)
       .status()
       .expect("Git is needed to retrieve the SDL source files");
   }
@@ -390,15 +391,17 @@ fn copy_library_file(src_path: &Path, target_path: &Path) {
   for path in &[target_path, &deps_path] {
     let dst_path = path.join(src_path.file_name().expect("Path missing filename"));
 
-    fs::copy(&src_path, &dst_path).expect(&format!(
-      "Failed to copy sdl3 dynamic library from {} to {}",
-      src_path.to_string_lossy(),
-      dst_path.to_string_lossy()
-    ));
+    fs::copy(src_path, &dst_path).unwrap_or_else(|err| {
+      panic!(
+        "Failed to copy sdl3 dynamic library from {} to {}: {err:?}",
+        src_path.to_string_lossy(),
+        dst_path.to_string_lossy()
+      )
+    });
   }
 }
 
-fn copy_dynamic_libraries(sdl3_compiled_path: &PathBuf, target_os: &str) {
+fn copy_dynamic_libraries(sdl3_compiled_path: &Path, target_os: &str) {
   let target_path = find_cargo_target_dir();
 
   // Windows binaries do not embed library search paths, so successfully
@@ -855,5 +858,5 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
 }
 
 fn get_os_from_triple(triple: &str) -> Option<&str> {
-  triple.splitn(3, "-").nth(2)
+  triple.splitn(3, '-').nth(2)
 }
