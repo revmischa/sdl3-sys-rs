@@ -17,12 +17,13 @@ sdl3_ttf = []
 sdl3_gfx = []
 
 [dependencies]
+# TODO: remove this and use `core::ffi` instead for C types.
 libc = "^0.2"
 
 [build-dependencies]
 version-compare = "0.1"
-cfg-if = "^1.0"
-bindgen = { version = "0.65.1", optional = true}
+cfg-if = "1"
+bindgen = { version = "0.65.1", optional = true }
 pkg-config = { version = "0.3", optional = true }
 vcpkg = { version = "0.2.12", optional = true }
 cmake = { version = "0.1.50", optional = true }
