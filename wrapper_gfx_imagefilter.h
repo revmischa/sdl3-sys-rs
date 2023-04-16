@@ -1,1 +1,1 @@
-#include <SDL2/SDL2_imageFilter.h>
+#include <SDL3/SDL3_imageFilter.h>

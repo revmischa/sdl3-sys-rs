@@ -14,11 +14,7 @@ use core::ffi::{c_int as int, *};
 #[macro_use]
 mod macros;
 
-pub mod error;
-pub mod init;
-pub mod messagebox;
 pub mod prelude;
-pub mod video;
 
 include!(concat!(env!("OUT_DIR"), "/sdl_bindings.rs"));
 

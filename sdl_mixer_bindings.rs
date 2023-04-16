@@ -25,7 +25,7 @@ pub type Uint16 = u16;
 pub type Uint32 = u32;
 pub type Sint64 = i64;
 extern "C" {
-    pub fn Mix_Linked_Version() -> *const SDL_version;
+  pub fn Mix_Linked_Version() -> *const SDL_version;
 }
 pub const MIX_InitFlags_MIX_INIT_FLAC: MIX_InitFlags = 1;
 pub const MIX_InitFlags_MIX_INIT_MOD: MIX_InitFlags = 2;
@@ -35,71 +35,51 @@ pub const MIX_InitFlags_MIX_INIT_MID: MIX_InitFlags = 32;
 pub const MIX_InitFlags_MIX_INIT_OPUS: MIX_InitFlags = 64;
 pub type MIX_InitFlags = u32;
 extern "C" {
-    pub fn Mix_Init(flags: libc::c_int) -> libc::c_int;
+  pub fn Mix_Init(flags: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_Quit();
+  pub fn Mix_Quit();
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Mix_Chunk {
-    pub allocated: libc::c_int,
-    pub abuf: *mut Uint8,
-    pub alen: Uint32,
-    pub volume: Uint8,
+  pub allocated: libc::c_int,
+  pub abuf: *mut Uint8,
+  pub alen: Uint32,
+  pub volume: Uint8,
 }
 #[test]
 fn bindgen_test_layout_Mix_Chunk() {
-    assert_eq!(
-        ::core::mem::size_of::<Mix_Chunk>(),
-        24usize,
-        concat!("Size of: ", stringify!(Mix_Chunk))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<Mix_Chunk>(),
-        8usize,
-        concat!("Alignment of ", stringify!(Mix_Chunk))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<Mix_Chunk>())).allocated as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(Mix_Chunk),
-            "::",
-            stringify!(allocated)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<Mix_Chunk>())).abuf as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(Mix_Chunk),
-            "::",
-            stringify!(abuf)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<Mix_Chunk>())).alen as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(Mix_Chunk),
-            "::",
-            stringify!(alen)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<Mix_Chunk>())).volume as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(Mix_Chunk),
-            "::",
-            stringify!(volume)
-        )
-    );
+  assert_eq!(
+    ::core::mem::size_of::<Mix_Chunk>(),
+    24usize,
+    concat!("Size of: ", stringify!(Mix_Chunk))
+  );
+  assert_eq!(
+    ::core::mem::align_of::<Mix_Chunk>(),
+    8usize,
+    concat!("Alignment of ", stringify!(Mix_Chunk))
+  );
+  assert_eq!(
+    unsafe { &(*(::core::ptr::null::<Mix_Chunk>())).allocated as *const _ as usize },
+    0usize,
+    concat!("Offset of field: ", stringify!(Mix_Chunk), "::", stringify!(allocated))
+  );
+  assert_eq!(
+    unsafe { &(*(::core::ptr::null::<Mix_Chunk>())).abuf as *const _ as usize },
+    8usize,
+    concat!("Offset of field: ", stringify!(Mix_Chunk), "::", stringify!(abuf))
+  );
+  assert_eq!(
+    unsafe { &(*(::core::ptr::null::<Mix_Chunk>())).alen as *const _ as usize },
+    16usize,
+    concat!("Offset of field: ", stringify!(Mix_Chunk), "::", stringify!(alen))
+  );
+  assert_eq!(
+    unsafe { &(*(::core::ptr::null::<Mix_Chunk>())).volume as *const _ as usize },
+    20usize,
+    concat!("Offset of field: ", stringify!(Mix_Chunk), "::", stringify!(volume))
+  );
 }
 pub const Mix_Fading_MIX_NO_FADING: Mix_Fading = 0;
 pub const Mix_Fading_MIX_FADING_OUT: Mix_Fading = 1;
@@ -120,297 +100,271 @@ pub type Mix_MusicType = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _Mix_Music {
-    _unused: [u8; 0],
+  _unused: [u8; 0],
 }
 pub type Mix_Music = _Mix_Music;
 extern "C" {
-    pub fn Mix_OpenAudio(
-        frequency: libc::c_int,
-        format: Uint16,
-        channels: libc::c_int,
-        chunksize: libc::c_int,
-    ) -> libc::c_int;
+  pub fn Mix_OpenAudio(
+    frequency: libc::c_int, format: Uint16, channels: libc::c_int, chunksize: libc::c_int,
+  ) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_OpenAudioDevice(
-        frequency: libc::c_int,
-        format: Uint16,
-        channels: libc::c_int,
-        chunksize: libc::c_int,
-        device: *const libc::c_char,
-        allowed_changes: libc::c_int,
-    ) -> libc::c_int;
+  pub fn Mix_OpenAudioDevice(
+    frequency: libc::c_int, format: Uint16, channels: libc::c_int, chunksize: libc::c_int,
+    device: *const libc::c_char, allowed_changes: libc::c_int,
+  ) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_AllocateChannels(numchans: libc::c_int) -> libc::c_int;
+  pub fn Mix_AllocateChannels(numchans: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_QuerySpec(
-        frequency: *mut libc::c_int,
-        format: *mut Uint16,
-        channels: *mut libc::c_int,
-    ) -> libc::c_int;
+  pub fn Mix_QuerySpec(
+    frequency: *mut libc::c_int, format: *mut Uint16, channels: *mut libc::c_int,
+  ) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_LoadWAV_RW(src: *mut SDL_RWops, freesrc: libc::c_int) -> *mut Mix_Chunk;
+  pub fn Mix_LoadWAV_RW(src: *mut SDL_RWops, freesrc: libc::c_int) -> *mut Mix_Chunk;
 }
 extern "C" {
-    pub fn Mix_LoadMUS(file: *const libc::c_char) -> *mut Mix_Music;
+  pub fn Mix_LoadMUS(file: *const libc::c_char) -> *mut Mix_Music;
 }
 extern "C" {
-    pub fn Mix_LoadMUS_RW(src: *mut SDL_RWops, freesrc: libc::c_int) -> *mut Mix_Music;
+  pub fn Mix_LoadMUS_RW(src: *mut SDL_RWops, freesrc: libc::c_int) -> *mut Mix_Music;
 }
 extern "C" {
-    pub fn Mix_LoadMUSType_RW(
-        src: *mut SDL_RWops,
-        type_: Mix_MusicType,
-        freesrc: libc::c_int,
-    ) -> *mut Mix_Music;
+  pub fn Mix_LoadMUSType_RW(
+    src: *mut SDL_RWops, type_: Mix_MusicType, freesrc: libc::c_int,
+  ) -> *mut Mix_Music;
 }
 extern "C" {
-    pub fn Mix_QuickLoad_WAV(mem: *mut Uint8) -> *mut Mix_Chunk;
+  pub fn Mix_QuickLoad_WAV(mem: *mut Uint8) -> *mut Mix_Chunk;
 }
 extern "C" {
-    pub fn Mix_QuickLoad_RAW(mem: *mut Uint8, len: Uint32) -> *mut Mix_Chunk;
+  pub fn Mix_QuickLoad_RAW(mem: *mut Uint8, len: Uint32) -> *mut Mix_Chunk;
 }
 extern "C" {
-    pub fn Mix_FreeChunk(chunk: *mut Mix_Chunk);
+  pub fn Mix_FreeChunk(chunk: *mut Mix_Chunk);
 }
 extern "C" {
-    pub fn Mix_FreeMusic(music: *mut Mix_Music);
+  pub fn Mix_FreeMusic(music: *mut Mix_Music);
 }
 extern "C" {
-    pub fn Mix_GetNumChunkDecoders() -> libc::c_int;
+  pub fn Mix_GetNumChunkDecoders() -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GetChunkDecoder(index: libc::c_int) -> *const libc::c_char;
+  pub fn Mix_GetChunkDecoder(index: libc::c_int) -> *const libc::c_char;
 }
 extern "C" {
-    pub fn Mix_HasChunkDecoder(name: *const libc::c_char) -> SDL_bool;
+  pub fn Mix_HasChunkDecoder(name: *const libc::c_char) -> SDL_bool;
 }
 extern "C" {
-    pub fn Mix_GetNumMusicDecoders() -> libc::c_int;
+  pub fn Mix_GetNumMusicDecoders() -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GetMusicDecoder(index: libc::c_int) -> *const libc::c_char;
+  pub fn Mix_GetMusicDecoder(index: libc::c_int) -> *const libc::c_char;
 }
 extern "C" {
-    pub fn Mix_HasMusicDecoder(name: *const libc::c_char) -> SDL_bool;
+  pub fn Mix_HasMusicDecoder(name: *const libc::c_char) -> SDL_bool;
 }
 extern "C" {
-    pub fn Mix_GetMusicType(music: *const Mix_Music) -> Mix_MusicType;
+  pub fn Mix_GetMusicType(music: *const Mix_Music) -> Mix_MusicType;
 }
 extern "C" {
-    pub fn Mix_SetPostMix(
-        mix_func: ::core::option::Option<
-            unsafe extern "C" fn(udata: *mut libc::c_void, stream: *mut Uint8, len: libc::c_int),
-        >,
-        arg: *mut libc::c_void,
-    );
+  pub fn Mix_SetPostMix(
+    mix_func: ::core::option::Option<
+      unsafe extern "C" fn(udata: *mut libc::c_void, stream: *mut Uint8, len: libc::c_int),
+    >,
+    arg: *mut libc::c_void,
+  );
 }
 extern "C" {
-    pub fn Mix_HookMusic(
-        mix_func: ::core::option::Option<
-            unsafe extern "C" fn(udata: *mut libc::c_void, stream: *mut Uint8, len: libc::c_int),
-        >,
-        arg: *mut libc::c_void,
-    );
+  pub fn Mix_HookMusic(
+    mix_func: ::core::option::Option<
+      unsafe extern "C" fn(udata: *mut libc::c_void, stream: *mut Uint8, len: libc::c_int),
+    >,
+    arg: *mut libc::c_void,
+  );
 }
 extern "C" {
-    pub fn Mix_HookMusicFinished(music_finished: ::core::option::Option<unsafe extern "C" fn()>);
+  pub fn Mix_HookMusicFinished(music_finished: ::core::option::Option<unsafe extern "C" fn()>);
 }
 extern "C" {
-    pub fn Mix_GetMusicHookData() -> *mut libc::c_void;
+  pub fn Mix_GetMusicHookData() -> *mut libc::c_void;
 }
 extern "C" {
-    pub fn Mix_ChannelFinished(
-        channel_finished: ::core::option::Option<unsafe extern "C" fn(channel: libc::c_int)>,
-    );
+  pub fn Mix_ChannelFinished(
+    channel_finished: ::core::option::Option<unsafe extern "C" fn(channel: libc::c_int)>,
+  );
 }
 pub type Mix_EffectFunc_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        chan: libc::c_int,
-        stream: *mut libc::c_void,
-        len: libc::c_int,
-        udata: *mut libc::c_void,
-    ),
+  unsafe extern "C" fn(
+    chan: libc::c_int,
+    stream: *mut libc::c_void,
+    len: libc::c_int,
+    udata: *mut libc::c_void,
+  ),
 >;
 pub type Mix_EffectDone_t =
-    ::core::option::Option<unsafe extern "C" fn(chan: libc::c_int, udata: *mut libc::c_void)>;
+  ::core::option::Option<unsafe extern "C" fn(chan: libc::c_int, udata: *mut libc::c_void)>;
 extern "C" {
-    pub fn Mix_RegisterEffect(
-        chan: libc::c_int,
-        f: Mix_EffectFunc_t,
-        d: Mix_EffectDone_t,
-        arg: *mut libc::c_void,
-    ) -> libc::c_int;
+  pub fn Mix_RegisterEffect(
+    chan: libc::c_int, f: Mix_EffectFunc_t, d: Mix_EffectDone_t, arg: *mut libc::c_void,
+  ) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_UnregisterEffect(channel: libc::c_int, f: Mix_EffectFunc_t) -> libc::c_int;
+  pub fn Mix_UnregisterEffect(channel: libc::c_int, f: Mix_EffectFunc_t) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_UnregisterAllEffects(channel: libc::c_int) -> libc::c_int;
+  pub fn Mix_UnregisterAllEffects(channel: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_SetPanning(channel: libc::c_int, left: Uint8, right: Uint8) -> libc::c_int;
+  pub fn Mix_SetPanning(channel: libc::c_int, left: Uint8, right: Uint8) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_SetPosition(channel: libc::c_int, angle: Sint16, distance: Uint8) -> libc::c_int;
+  pub fn Mix_SetPosition(channel: libc::c_int, angle: Sint16, distance: Uint8) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_SetDistance(channel: libc::c_int, distance: Uint8) -> libc::c_int;
+  pub fn Mix_SetDistance(channel: libc::c_int, distance: Uint8) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_SetReverseStereo(channel: libc::c_int, flip: libc::c_int) -> libc::c_int;
+  pub fn Mix_SetReverseStereo(channel: libc::c_int, flip: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_ReserveChannels(num: libc::c_int) -> libc::c_int;
+  pub fn Mix_ReserveChannels(num: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GroupChannel(which: libc::c_int, tag: libc::c_int) -> libc::c_int;
+  pub fn Mix_GroupChannel(which: libc::c_int, tag: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GroupChannels(from: libc::c_int, to: libc::c_int, tag: libc::c_int) -> libc::c_int;
+  pub fn Mix_GroupChannels(from: libc::c_int, to: libc::c_int, tag: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GroupAvailable(tag: libc::c_int) -> libc::c_int;
+  pub fn Mix_GroupAvailable(tag: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GroupCount(tag: libc::c_int) -> libc::c_int;
+  pub fn Mix_GroupCount(tag: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GroupOldest(tag: libc::c_int) -> libc::c_int;
+  pub fn Mix_GroupOldest(tag: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GroupNewer(tag: libc::c_int) -> libc::c_int;
+  pub fn Mix_GroupNewer(tag: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_PlayChannelTimed(
-        channel: libc::c_int,
-        chunk: *mut Mix_Chunk,
-        loops: libc::c_int,
-        ticks: libc::c_int,
-    ) -> libc::c_int;
+  pub fn Mix_PlayChannelTimed(
+    channel: libc::c_int, chunk: *mut Mix_Chunk, loops: libc::c_int, ticks: libc::c_int,
+  ) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_PlayMusic(music: *mut Mix_Music, loops: libc::c_int) -> libc::c_int;
+  pub fn Mix_PlayMusic(music: *mut Mix_Music, loops: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_FadeInMusic(
-        music: *mut Mix_Music,
-        loops: libc::c_int,
-        ms: libc::c_int,
-    ) -> libc::c_int;
+  pub fn Mix_FadeInMusic(music: *mut Mix_Music, loops: libc::c_int, ms: libc::c_int)
+    -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_FadeInMusicPos(
-        music: *mut Mix_Music,
-        loops: libc::c_int,
-        ms: libc::c_int,
-        position: f64,
-    ) -> libc::c_int;
+  pub fn Mix_FadeInMusicPos(
+    music: *mut Mix_Music, loops: libc::c_int, ms: libc::c_int, position: f64,
+  ) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_FadeInChannelTimed(
-        channel: libc::c_int,
-        chunk: *mut Mix_Chunk,
-        loops: libc::c_int,
-        ms: libc::c_int,
-        ticks: libc::c_int,
-    ) -> libc::c_int;
+  pub fn Mix_FadeInChannelTimed(
+    channel: libc::c_int, chunk: *mut Mix_Chunk, loops: libc::c_int, ms: libc::c_int,
+    ticks: libc::c_int,
+  ) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_Volume(channel: libc::c_int, volume: libc::c_int) -> libc::c_int;
+  pub fn Mix_Volume(channel: libc::c_int, volume: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_VolumeChunk(chunk: *mut Mix_Chunk, volume: libc::c_int) -> libc::c_int;
+  pub fn Mix_VolumeChunk(chunk: *mut Mix_Chunk, volume: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_VolumeMusic(volume: libc::c_int) -> libc::c_int;
+  pub fn Mix_VolumeMusic(volume: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_HaltChannel(channel: libc::c_int) -> libc::c_int;
+  pub fn Mix_HaltChannel(channel: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_HaltGroup(tag: libc::c_int) -> libc::c_int;
+  pub fn Mix_HaltGroup(tag: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_HaltMusic() -> libc::c_int;
+  pub fn Mix_HaltMusic() -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_ExpireChannel(channel: libc::c_int, ticks: libc::c_int) -> libc::c_int;
+  pub fn Mix_ExpireChannel(channel: libc::c_int, ticks: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_FadeOutChannel(which: libc::c_int, ms: libc::c_int) -> libc::c_int;
+  pub fn Mix_FadeOutChannel(which: libc::c_int, ms: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_FadeOutGroup(tag: libc::c_int, ms: libc::c_int) -> libc::c_int;
+  pub fn Mix_FadeOutGroup(tag: libc::c_int, ms: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_FadeOutMusic(ms: libc::c_int) -> libc::c_int;
+  pub fn Mix_FadeOutMusic(ms: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_FadingMusic() -> Mix_Fading;
+  pub fn Mix_FadingMusic() -> Mix_Fading;
 }
 extern "C" {
-    pub fn Mix_FadingChannel(which: libc::c_int) -> Mix_Fading;
+  pub fn Mix_FadingChannel(which: libc::c_int) -> Mix_Fading;
 }
 extern "C" {
-    pub fn Mix_Pause(channel: libc::c_int);
+  pub fn Mix_Pause(channel: libc::c_int);
 }
 extern "C" {
-    pub fn Mix_Resume(channel: libc::c_int);
+  pub fn Mix_Resume(channel: libc::c_int);
 }
 extern "C" {
-    pub fn Mix_Paused(channel: libc::c_int) -> libc::c_int;
+  pub fn Mix_Paused(channel: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_PauseMusic();
+  pub fn Mix_PauseMusic();
 }
 extern "C" {
-    pub fn Mix_ResumeMusic();
+  pub fn Mix_ResumeMusic();
 }
 extern "C" {
-    pub fn Mix_RewindMusic();
+  pub fn Mix_RewindMusic();
 }
 extern "C" {
-    pub fn Mix_PausedMusic() -> libc::c_int;
+  pub fn Mix_PausedMusic() -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_SetMusicPosition(position: f64) -> libc::c_int;
+  pub fn Mix_SetMusicPosition(position: f64) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_Playing(channel: libc::c_int) -> libc::c_int;
+  pub fn Mix_Playing(channel: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_PlayingMusic() -> libc::c_int;
+  pub fn Mix_PlayingMusic() -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_SetMusicCMD(command: *const libc::c_char) -> libc::c_int;
+  pub fn Mix_SetMusicCMD(command: *const libc::c_char) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_SetSynchroValue(value: libc::c_int) -> libc::c_int;
+  pub fn Mix_SetSynchroValue(value: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GetSynchroValue() -> libc::c_int;
+  pub fn Mix_GetSynchroValue() -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_SetSoundFonts(paths: *const libc::c_char) -> libc::c_int;
+  pub fn Mix_SetSoundFonts(paths: *const libc::c_char) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GetSoundFonts() -> *const libc::c_char;
+  pub fn Mix_GetSoundFonts() -> *const libc::c_char;
 }
 extern "C" {
-    pub fn Mix_EachSoundFont(
-        function: ::core::option::Option<
-            unsafe extern "C" fn(arg1: *const libc::c_char, arg2: *mut libc::c_void) -> libc::c_int,
-        >,
-        data: *mut libc::c_void,
-    ) -> libc::c_int;
+  pub fn Mix_EachSoundFont(
+    function: ::core::option::Option<
+      unsafe extern "C" fn(arg1: *const libc::c_char, arg2: *mut libc::c_void) -> libc::c_int,
+    >,
+    data: *mut libc::c_void,
+  ) -> libc::c_int;
 }
 extern "C" {
-    pub fn Mix_GetChunk(channel: libc::c_int) -> *mut Mix_Chunk;
+  pub fn Mix_GetChunk(channel: libc::c_int) -> *mut Mix_Chunk;
 }
 extern "C" {
-    pub fn Mix_CloseAudio();
+  pub fn Mix_CloseAudio();
 }
