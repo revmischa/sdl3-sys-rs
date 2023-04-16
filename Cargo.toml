@@ -2,48 +2,28 @@
 name = "sdl3-sys"
 description = "Rust bindings to version 3 of the SDL library."
 repository = "https://github.com/Lokathor/sdl3-sys-rs"
-version = "0.0.1+sdl3-dev-2023-01-23"
+version = "0.0.2+sdl3-dev-2023-04-16"
 edition = "2021"
-license = "Zlib"
+license = "Zlib OR Apache-2.0 OR MIT"
+
+[features]
+default = []
+use_mac_framework = []
+static_link = []
+bundled = ["cmake"]
+sdl3_mixer = []
+sdl3_image = []
+sdl3_ttf = []
+sdl3_gfx = []
 
 [dependencies]
 libc = "^0.2"
 
-[build-dependencies.bindgen]
-version = "^0.65.1"
-optional = true
-
-[build-dependencies.pkg-config]
-version = "^0.3"
-optional = true
-
-[build-dependencies.vcpkg]
-version = "^0.2.12"
-optional = true
-
-[build-dependencies.cmake]
-version = "^0.1"
-optional = true
-
-[build-dependencies.flate2]
-version = "^1"
-optional = true
-
 [build-dependencies]
 version-compare = "0.1"
 cfg-if = "^1.0"
-
-[features]
-# Requires Nightly
-const_trait_impl = []
-default = []
-use-pkgconfig = ["pkg-config"]
-use-vcpkg = ["vcpkg"]
-use-bindgen = ["bindgen"]
-static-link = []
-use_mac_framework = []
-bundled = ["cmake"]
-mixer = []
-image = []
-ttf = []
-gfx = []
+bindgen = { version = "0.65.1", optional = true}
+pkg-config = { version = "0.3", optional = true }
+vcpkg = { version = "0.2.12", optional = true }
+cmake = { version = "0.1.50", optional = true }
+flate2 = { version = "1", optional = true }

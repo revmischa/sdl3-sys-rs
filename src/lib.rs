@@ -21,14 +21,14 @@ pub mod prelude;
 
 include!(concat!(env!("OUT_DIR"), "/sdl_bindings.rs"));
 
-#[cfg(feature = "mixer")]
+#[cfg(feature = "sdl3_mixer")]
 pub mod mixer;
 
-#[cfg(feature = "image")]
+#[cfg(feature = "sdl3_image")]
 pub mod image;
 
-#[cfg(feature = "ttf")]
+#[cfg(feature = "sdl3_ttf")]
 pub mod ttf;
 
-#[cfg(feature = "gfx")]
+#[cfg(feature = "sdl3_gfx")]
 pub mod gfx;

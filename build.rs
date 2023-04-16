@@ -41,43 +41,43 @@ fn init_submodule(sdl_path: &Path) {
   }
 }
 
-#[cfg(feature = "use-pkgconfig")]
+#[cfg(feature = "pkg-config")]
 fn pkg_config_print(statik: bool, lib_name: &str) {
   pkg_config::Config::new().statik(statik).probe(lib_name).unwrap();
 }
 
-#[cfg(feature = "use-pkgconfig")]
+#[cfg(feature = "pkg-config")]
 fn get_pkg_config() {
   let statik: bool = if cfg!(feature = "static-link") { true } else { false };
 
   pkg_config_print(statik, "sdl3");
-  if cfg!(feature = "image") {
+  if cfg!(feature = "sdl3_image") {
     pkg_config_print(statik, "sdl3_image");
   }
-  if cfg!(feature = "ttf") {
+  if cfg!(feature = "sdl3_ttf") {
     pkg_config_print(statik, "sdl3_ttf");
   }
-  if cfg!(feature = "mixer") {
+  if cfg!(feature = "sdl3_mixer") {
     pkg_config_print(statik, "sdl3_mixer");
   }
-  if cfg!(feature = "gfx") {
+  if cfg!(feature = "sdl3_gfx") {
     pkg_config_print(statik, "sdl3_gfx");
   }
 }
 
-#[cfg(feature = "use-vcpkg")]
+#[cfg(feature = "vcpkg")]
 fn get_vcpkg_config() {
-  vcpkg::find_package("sdl3").unwrap();
+  vcpkg::find_package("sdl3_sdl3").unwrap();
   if cfg!(feature = "image") {
     vcpkg::find_package("sdl3-image").unwrap();
   }
-  if cfg!(feature = "ttf") {
+  if cfg!(feature = "sdl3_ttf") {
     vcpkg::find_package("sdl3-ttf").unwrap();
   }
-  if cfg!(feature = "mixer") {
+  if cfg!(feature = "sdl3_mixer") {
     vcpkg::find_package("sdl3-mixer").unwrap();
   }
-  if cfg!(feature = "gfx") {
+  if cfg!(feature = "sdl3_gfx") {
     vcpkg::find_package("sdl3-gfx").unwrap();
   }
 }
@@ -172,14 +172,14 @@ fn compute_include_paths(fallback_path: String) -> Vec<String> {
 }
 
 fn link_sdl3(target_os: &str) {
-  #[cfg(all(feature = "use-pkgconfig", not(feature = "bundled")))]
+  #[cfg(all(feature = "pkg-config", not(feature = "bundled")))]
   {
     // prints the appropriate linking parameters when using pkg-config
     // useless when using "bundled"
     get_pkg_config();
   }
 
-  #[cfg(all(feature = "use-vcpkg", not(feature = "bundled")))]
+  #[cfg(all(feature = "vcpkg", not(feature = "bundled")))]
   {
     // prints the appropriate linking parameters when using pkg-config
     // useless when using "bundled"
@@ -205,7 +205,7 @@ fn link_sdl3(target_os: &str) {
 
     // pkg-config automatically prints this output when probing,
     // however pkg_config isn't used with the feature "bundled"
-    if cfg!(feature = "bundled") || cfg!(not(feature = "use-pkgconfig")) {
+    if cfg!(feature = "bundled") || cfg!(not(feature = "pkg-config")) {
       if cfg!(feature = "use_mac_framework") && target_os == "darwin" {
         println!("cargo:rustc-flags=-l framework=sdl3");
       } else if target_os != "emscripten" {
@@ -217,7 +217,7 @@ fn link_sdl3(target_os: &str) {
   #[cfg(feature = "static-link")]
   {
     if cfg!(feature = "bundled")
-      || (cfg!(feature = "use-pkgconfig") == false && cfg!(feature = "use-vcpkg") == false)
+      || (cfg!(feature = "pkg-config") == false && cfg!(feature = "vcpkg") == false)
     {
       println!("cargo:rustc-link-lib=static=sdl3main");
       if target_os.contains("windows") {
@@ -272,9 +272,9 @@ fn link_sdl3(target_os: &str) {
   // ':filename' syntax is used for renaming of libraries, which basically
   // leaves it up to the user to make a symlink to the shared object so
   // -lsdl3_mixer can find it.
-  #[cfg(all(not(feature = "use-pkgconfig"), not(feature = "static-link")))]
+  #[cfg(all(not(feature = "pkg-config"), not(feature = "static-link")))]
   {
-    if cfg!(feature = "mixer") {
+    if cfg!(feature = "sdl3_mixer") {
       if target_os.contains("linux")
         || target_os.contains("freebsd")
         || target_os.contains("openbsd")
@@ -290,7 +290,7 @@ fn link_sdl3(target_os: &str) {
         }
       }
     }
-    if cfg!(feature = "image") {
+    if cfg!(feature = "sdl3_image") {
       if target_os.contains("linux")
         || target_os.contains("freebsd")
         || target_os.contains("openbsd")
@@ -306,7 +306,7 @@ fn link_sdl3(target_os: &str) {
         }
       }
     }
-    if cfg!(feature = "ttf") {
+    if cfg!(feature = "sdl3_ttf") {
       if target_os.contains("linux")
         || target_os.contains("freebsd")
         || target_os.contains("openbsd")
@@ -322,7 +322,7 @@ fn link_sdl3(target_os: &str) {
         }
       }
     }
-    if cfg!(feature = "gfx") {
+    if cfg!(feature = "sdl3_gfx") {
       if target_os.contains("linux")
         || target_os.contains("freebsd")
         || target_os.contains("openbsd")
@@ -501,20 +501,20 @@ fn copy_pregenerated_bindings() {
   fs::copy(crate_path.join("sdl_bindings.rs"), out_path.join("sdl_bindings.rs"))
     .expect("Couldn't find pregenerated bindings!");
 
-  if cfg!(feature = "image") {
+  if cfg!(feature = "sdl3_image") {
     fs::copy(crate_path.join("sdl_image_bindings.rs"), out_path.join("sdl_image_bindings.rs"))
       .expect("Couldn't find pregenerated SDL_image bindings!");
   }
-  if cfg!(feature = "ttf") {
+  if cfg!(feature = "sdl3_ttf") {
     fs::copy(crate_path.join("sdl_ttf_bindings.rs"), out_path.join("sdl_ttf_bindings.rs"))
       .expect("Couldn't find pregenerated SDL_ttf bindings!");
   }
-  if cfg!(feature = "mixer") {
+  if cfg!(feature = "sdl3_mixer") {
     fs::copy(crate_path.join("sdl_mixer_bindings.rs"), out_path.join("sdl_mixer_bindings.rs"))
       .expect("Couldn't find pregenerated SDL_mixer bindings!");
   }
 
-  if cfg!(feature = "gfx") {
+  if cfg!(feature = "sdl3_gfx") {
     fs::copy(
       crate_path.join("sdl_gfx_framerate_bindings.rs"),
       out_path.join("sdl_gfx_framerate_bindings.rs"),
@@ -575,22 +575,22 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
     bindings = bindings.clang_arg("-target");
     bindings = bindings.clang_arg(target.clone());
 
-    if cfg!(feature = "image") {
+    if cfg!(feature = "sdl3_image") {
       image_bindings = image_bindings.clang_arg("-target");
       image_bindings = image_bindings.clang_arg(target.clone());
     }
 
-    if cfg!(feature = "ttf") {
+    if cfg!(feature = "sdl3_ttf") {
       ttf_bindings = ttf_bindings.clang_arg("-target");
       ttf_bindings = ttf_bindings.clang_arg(target.clone());
     }
 
-    if cfg!(feature = "mixer") {
+    if cfg!(feature = "sdl3_mixer") {
       mixer_bindings = mixer_bindings.clang_arg("-target");
       mixer_bindings = mixer_bindings.clang_arg(target.clone());
     }
 
-    if cfg!(feature = "gfx") {
+    if cfg!(feature = "sdl3_gfx") {
       gfx_framerate_bindings = gfx_framerate_bindings.clang_arg("-target");
       gfx_framerate_bindings = gfx_framerate_bindings.clang_arg(target.clone());
 
@@ -607,16 +607,16 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
 
   for headers_path in headers_paths {
     bindings = bindings.clang_arg(format!("-I{}", headers_path));
-    if cfg!(feature = "image") {
+    if cfg!(feature = "sdl3_image") {
       image_bindings = image_bindings.clang_arg(format!("-I{}", headers_path));
     }
-    if cfg!(feature = "ttf") {
+    if cfg!(feature = "sdl3_ttf") {
       ttf_bindings = ttf_bindings.clang_arg(format!("-I{}", headers_path));
     }
-    if cfg!(feature = "mixer") {
+    if cfg!(feature = "sdl3_mixer") {
       mixer_bindings = mixer_bindings.clang_arg(format!("-I{}", headers_path));
     }
-    if cfg!(feature = "gfx") {
+    if cfg!(feature = "sdl3_gfx") {
       gfx_framerate_bindings = gfx_framerate_bindings.clang_arg(format!("-I{}", headers_path));
       gfx_primitives_bindings = gfx_primitives_bindings.clang_arg(format!("-I{}", headers_path));
       gfx_imagefilter_bindings = gfx_imagefilter_bindings.clang_arg(format!("-I{}", headers_path));
@@ -626,16 +626,16 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
 
   if target_os == "windows-msvc" {
     add_msvc_includes_to_bindings!(bindings);
-    if cfg!(feature = "image") {
+    if cfg!(feature = "sdl3_image") {
       add_msvc_includes_to_bindings!(image_bindings);
     }
-    if cfg!(feature = "ttf") {
+    if cfg!(feature = "sdl3_ttf") {
       add_msvc_includes_to_bindings!(ttf_bindings);
     }
-    if cfg!(feature = "mixer") {
+    if cfg!(feature = "sdl3_mixer") {
       add_msvc_includes_to_bindings!(mixer_bindings);
     }
-    if cfg!(feature = "gfx") {
+    if cfg!(feature = "sdl3_gfx") {
       add_msvc_includes_to_bindings!(gfx_framerate_bindings);
       add_msvc_includes_to_bindings!(gfx_primitives_bindings);
       add_msvc_includes_to_bindings!(gfx_imagefilter_bindings);
@@ -647,19 +647,19 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
   if target_os == "linux-gnu" {
     bindings = bindings.clang_arg("-DSDL_VIDEO_DRIVER_X11");
     bindings = bindings.clang_arg("-DSDL_VIDEO_DRIVER_WAYLAND");
-    if cfg!(feature = "image") {
+    if cfg!(feature = "sdl3_image") {
       image_bindings = image_bindings.clang_arg("-DSDL_VIDEO_DRIVER_X11");
       image_bindings = image_bindings.clang_arg("-DSDL_VIDEO_DRIVER_WAYLAND");
     }
-    if cfg!(feature = "ttf") {
+    if cfg!(feature = "sdl3_ttf") {
       ttf_bindings = ttf_bindings.clang_arg("-DSDL_VIDEO_DRIVER_X11");
       ttf_bindings = ttf_bindings.clang_arg("-DSDL_VIDEO_DRIVER_WAYLAND");
     }
-    if cfg!(feature = "mixer") {
+    if cfg!(feature = "sdl3_mixer") {
       mixer_bindings = mixer_bindings.clang_arg("-DSDL_VIDEO_DRIVER_X11");
       mixer_bindings = mixer_bindings.clang_arg("-DSDL_VIDEO_DRIVER_WAYLAND");
     }
-    if cfg!(feature = "gfx") {
+    if cfg!(feature = "sdl3_gfx") {
       gfx_framerate_bindings = gfx_framerate_bindings.clang_arg("-DSDL_VIDEO_DRIVER_X11");
       gfx_framerate_bindings = gfx_framerate_bindings.clang_arg("-DSDL_VIDEO_DRIVER_WAYLAND");
       gfx_primitives_bindings = gfx_primitives_bindings.clang_arg("-DSDL_VIDEO_DRIVER_X11");
@@ -686,7 +686,7 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
 
   bindings.write_to_file(out_path.join("sdl_bindings.rs")).expect("Couldn't write bindings!");
 
-  if cfg!(feature = "image") {
+  if cfg!(feature = "sdl3_image") {
     let image_bindings = image_bindings
       .header("wrapper_image.h")
       .blocklist_type("FP_NAN")
@@ -709,7 +709,7 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
       .expect("Couldn't write image_bindings!");
   }
 
-  if cfg!(feature = "ttf") {
+  if cfg!(feature = "sdl3_ttf") {
     let ttf_bindings = ttf_bindings
       .header("wrapper_ttf.h")
       .blocklist_type("FP_NAN")
@@ -732,7 +732,7 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
       .expect("Couldn't write ttf_bindings!");
   }
 
-  if cfg!(feature = "mixer") {
+  if cfg!(feature = "sdl3_mixer") {
     let mixer_bindings = mixer_bindings
       .header("wrapper_mixer.h")
       .blocklist_type("FP_NAN")
@@ -758,7 +758,7 @@ fn generate_bindings(target: &str, host: &str, headers_paths: &[String]) {
       .expect("Couldn't write mixer_bindings!");
   }
 
-  if cfg!(feature = "gfx") {
+  if cfg!(feature = "sdl3_gfx") {
     let gfx_framerate_bindings = gfx_framerate_bindings
       .header("wrapper_gfx_framerate.h")
       .blocklist_type("FP_NAN")
