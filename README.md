@@ -1,7 +1,19 @@
-# sdl3-sys-rs
+# sdl3-sys
 
 Rust bindings to version 3 of the [SDL library](https://github.com/libsdl-org/SDL).
 
-**Status:** This is just a minimal test of the building/linking process.
-I'm waiting for a stable version of SDL3 to be released before filling out the crate properly.
-Until then, an unknown amount of SDL might change at any time, and tracking that closely wouldn't be much use.
+## Building
+
+This requires the SDL3 C library and header files.
+
+To build SDL3 from source:
+
+```shell
+cargo build -F bindgen -F bundled
+```
+
+To use the SDL3 library installed in your system:
+
+```shell
+cargo build -F bindgen -F pkg-config
+```

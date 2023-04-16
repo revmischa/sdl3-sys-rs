@@ -6,11 +6,44 @@ version = "0.0.1+sdl3-dev-2023-01-23"
 edition = "2021"
 license = "Zlib"
 
+[dependencies]
+libc = "^0.2"
+
+[build-dependencies.bindgen]
+version = "^0.65.1"
+optional = true
+
+[build-dependencies.pkg-config]
+version = "^0.3"
+optional = true
+
+[build-dependencies.vcpkg]
+version = "^0.2.12"
+optional = true
+
+[build-dependencies.cmake]
+version = "^0.1"
+optional = true
+
+[build-dependencies.flate2]
+version = "^1"
+optional = true
+
+[build-dependencies]
+version-compare = "0.1"
+cfg-if = "^1.0"
+
 [features]
 # Requires Nightly
 const_trait_impl = []
-
-[build-dependencies]
-cmake = { version = "0.1" }
-
-[dependencies]
+default = []
+use-pkgconfig = ["pkg-config"]
+use-vcpkg = ["vcpkg"]
+use-bindgen = ["bindgen"]
+static-link = []
+use_mac_framework = []
+bundled = ["cmake"]
+mixer = []
+image = []
+ttf = []
+gfx = []
