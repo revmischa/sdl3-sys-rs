@@ -8,62 +8,87 @@ pub type Uint32 = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FPSmanager {
-  pub framecount: Uint32,
-  pub rateticks: f32,
-  pub baseticks: Uint32,
-  pub lastticks: Uint32,
-  pub rate: Uint32,
+    pub framecount: Uint32,
+    pub rateticks: f32,
+    pub baseticks: Uint32,
+    pub lastticks: Uint32,
+    pub rate: Uint32,
 }
 #[test]
 fn bindgen_test_layout_FPSmanager() {
-  assert_eq!(
-    ::core::mem::size_of::<FPSmanager>(),
-    20usize,
-    concat!("Size of: ", stringify!(FPSmanager))
-  );
-  assert_eq!(
-    ::core::mem::align_of::<FPSmanager>(),
-    4usize,
-    concat!("Alignment of ", stringify!(FPSmanager))
-  );
-  assert_eq!(
-    unsafe { &(*(::core::ptr::null::<FPSmanager>())).framecount as *const _ as usize },
-    0usize,
-    concat!("Offset of field: ", stringify!(FPSmanager), "::", stringify!(framecount))
-  );
-  assert_eq!(
-    unsafe { &(*(::core::ptr::null::<FPSmanager>())).rateticks as *const _ as usize },
-    4usize,
-    concat!("Offset of field: ", stringify!(FPSmanager), "::", stringify!(rateticks))
-  );
-  assert_eq!(
-    unsafe { &(*(::core::ptr::null::<FPSmanager>())).baseticks as *const _ as usize },
-    8usize,
-    concat!("Offset of field: ", stringify!(FPSmanager), "::", stringify!(baseticks))
-  );
-  assert_eq!(
-    unsafe { &(*(::core::ptr::null::<FPSmanager>())).lastticks as *const _ as usize },
-    12usize,
-    concat!("Offset of field: ", stringify!(FPSmanager), "::", stringify!(lastticks))
-  );
-  assert_eq!(
-    unsafe { &(*(::core::ptr::null::<FPSmanager>())).rate as *const _ as usize },
-    16usize,
-    concat!("Offset of field: ", stringify!(FPSmanager), "::", stringify!(rate))
-  );
+    assert_eq!(
+        ::core::mem::size_of::<FPSmanager>(),
+        20usize,
+        concat!("Size of: ", stringify!(FPSmanager))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<FPSmanager>(),
+        4usize,
+        concat!("Alignment of ", stringify!(FPSmanager))
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<FPSmanager>())).framecount as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FPSmanager),
+            "::",
+            stringify!(framecount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<FPSmanager>())).rateticks as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FPSmanager),
+            "::",
+            stringify!(rateticks)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<FPSmanager>())).baseticks as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FPSmanager),
+            "::",
+            stringify!(baseticks)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<FPSmanager>())).lastticks as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FPSmanager),
+            "::",
+            stringify!(lastticks)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<FPSmanager>())).rate as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(FPSmanager),
+            "::",
+            stringify!(rate)
+        )
+    );
 }
 extern "C" {
-  pub fn SDL_initFramerate(manager: *mut FPSmanager);
+    pub fn SDL_initFramerate(manager: *mut FPSmanager);
 }
 extern "C" {
-  pub fn SDL_setFramerate(manager: *mut FPSmanager, rate: Uint32) -> libc::c_int;
+    pub fn SDL_setFramerate(manager: *mut FPSmanager, rate: Uint32) -> libc::c_int;
 }
 extern "C" {
-  pub fn SDL_getFramerate(manager: *mut FPSmanager) -> libc::c_int;
+    pub fn SDL_getFramerate(manager: *mut FPSmanager) -> libc::c_int;
 }
 extern "C" {
-  pub fn SDL_getFramecount(manager: *mut FPSmanager) -> libc::c_int;
+    pub fn SDL_getFramecount(manager: *mut FPSmanager) -> libc::c_int;
 }
 extern "C" {
-  pub fn SDL_framerateDelay(manager: *mut FPSmanager) -> Uint32;
+    pub fn SDL_framerateDelay(manager: *mut FPSmanager) -> Uint32;
 }

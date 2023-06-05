@@ -9,334 +9,663 @@ pub type Uint8 = u8;
 pub type Sint16 = i16;
 pub type Uint32 = u32;
 extern "C" {
-  pub fn pixelColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn pixelColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn pixelRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn pixelRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn hlineColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, x2: Sint16, y: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn hlineColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        x2: Sint16,
+        y: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn hlineRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, x2: Sint16, y: Sint16, r: Uint8, g: Uint8, b: Uint8,
-    a: Uint8,
-  ) -> libc::c_int;
+    pub fn hlineRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        x2: Sint16,
+        y: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn vlineColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y1: Sint16, y2: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn vlineColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y1: Sint16,
+        y2: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn vlineRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y1: Sint16, y2: Sint16, r: Uint8, g: Uint8, b: Uint8,
-    a: Uint8,
-  ) -> libc::c_int;
+    pub fn vlineRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y1: Sint16,
+        y2: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn rectangleColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn rectangleColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn rectangleRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, r: Uint8,
-    g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn rectangleRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn roundedRectangleColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, rad: Sint16,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn roundedRectangleColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        rad: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn roundedRectangleRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, rad: Sint16,
-    r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn roundedRectangleRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        rad: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn boxColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn boxColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn boxRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, r: Uint8,
-    g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn boxRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn roundedBoxColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, rad: Sint16,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn roundedBoxColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        rad: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn roundedBoxRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, rad: Sint16,
-    r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn roundedBoxRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        rad: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn lineColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn lineColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn lineRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, r: Uint8,
-    g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn lineRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aalineColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn aalineColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aalineRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, r: Uint8,
-    g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn aalineRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn thickLineColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, width: Uint8,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn thickLineColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        width: Uint8,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn thickLineRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, width: Uint8,
-    r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn thickLineRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        width: Uint8,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn circleColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn circleColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn circleRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, r: Uint8, g: Uint8, b: Uint8,
-    a: Uint8,
-  ) -> libc::c_int;
+    pub fn circleRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn arcColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, start: Sint16, end: Sint16,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn arcColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        start: Sint16,
+        end: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn arcRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, start: Sint16, end: Sint16,
-    r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn arcRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        start: Sint16,
+        end: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aacircleColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn aacircleColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aacircleRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, r: Uint8, g: Uint8, b: Uint8,
-    a: Uint8,
-  ) -> libc::c_int;
+    pub fn aacircleRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledCircleColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, r: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn filledCircleColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        r: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledCircleRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, r: Uint8, g: Uint8, b: Uint8,
-    a: Uint8,
-  ) -> libc::c_int;
+    pub fn filledCircleRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn ellipseColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rx: Sint16, ry: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn ellipseColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rx: Sint16,
+        ry: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn ellipseRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rx: Sint16, ry: Sint16, r: Uint8, g: Uint8,
-    b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn ellipseRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rx: Sint16,
+        ry: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aaellipseColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rx: Sint16, ry: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn aaellipseColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rx: Sint16,
+        ry: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aaellipseRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rx: Sint16, ry: Sint16, r: Uint8, g: Uint8,
-    b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn aaellipseRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rx: Sint16,
+        ry: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledEllipseColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rx: Sint16, ry: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn filledEllipseColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rx: Sint16,
+        ry: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledEllipseRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rx: Sint16, ry: Sint16, r: Uint8, g: Uint8,
-    b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn filledEllipseRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rx: Sint16,
+        ry: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn pieColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, start: Sint16, end: Sint16,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn pieColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        start: Sint16,
+        end: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn pieRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, start: Sint16, end: Sint16,
-    r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn pieRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        start: Sint16,
+        end: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledPieColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, start: Sint16, end: Sint16,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn filledPieColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        start: Sint16,
+        end: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledPieRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, rad: Sint16, start: Sint16, end: Sint16,
-    r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn filledPieRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        rad: Sint16,
+        start: Sint16,
+        end: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn trigonColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, x3: Sint16,
-    y3: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn trigonColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        x3: Sint16,
+        y3: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn trigonRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, x3: Sint16,
-    y3: Sint16, r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn trigonRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        x3: Sint16,
+        y3: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aatrigonColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, x3: Sint16,
-    y3: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn aatrigonColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        x3: Sint16,
+        y3: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aatrigonRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, x3: Sint16,
-    y3: Sint16, r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn aatrigonRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        x3: Sint16,
+        y3: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledTrigonColor(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, x3: Sint16,
-    y3: Sint16, color: Uint32,
-  ) -> libc::c_int;
+    pub fn filledTrigonColor(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        x3: Sint16,
+        y3: Sint16,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledTrigonRGBA(
-    renderer: *mut SDL_Renderer, x1: Sint16, y1: Sint16, x2: Sint16, y2: Sint16, x3: Sint16,
-    y3: Sint16, r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn filledTrigonRGBA(
+        renderer: *mut SDL_Renderer,
+        x1: Sint16,
+        y1: Sint16,
+        x2: Sint16,
+        y2: Sint16,
+        x3: Sint16,
+        y3: Sint16,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn polygonColor(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn polygonColor(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn polygonRGBA(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int, r: Uint8,
-    g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn polygonRGBA(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aapolygonColor(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn aapolygonColor(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn aapolygonRGBA(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int, r: Uint8,
-    g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn aapolygonRGBA(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledPolygonColor(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int,
-    color: Uint32,
-  ) -> libc::c_int;
+    pub fn filledPolygonColor(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn filledPolygonRGBA(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int, r: Uint8,
-    g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn filledPolygonRGBA(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn texturedPolygon(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int,
-    texture: *mut SDL_Surface, texture_dx: libc::c_int, texture_dy: libc::c_int,
-  ) -> libc::c_int;
+    pub fn texturedPolygon(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        texture: *mut SDL_Surface,
+        texture_dx: libc::c_int,
+        texture_dy: libc::c_int,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn bezierColor(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int,
-    s: libc::c_int, color: Uint32,
-  ) -> libc::c_int;
+    pub fn bezierColor(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        s: libc::c_int,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn bezierRGBA(
-    renderer: *mut SDL_Renderer, vx: *const Sint16, vy: *const Sint16, n: libc::c_int,
-    s: libc::c_int, r: Uint8, g: Uint8, b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn bezierRGBA(
+        renderer: *mut SDL_Renderer,
+        vx: *const Sint16,
+        vy: *const Sint16,
+        n: libc::c_int,
+        s: libc::c_int,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn gfxPrimitivesSetFont(fontdata: *const libc::c_void, cw: Uint32, ch: Uint32);
+    pub fn gfxPrimitivesSetFont(fontdata: *const libc::c_void, cw: Uint32, ch: Uint32);
 }
 extern "C" {
-  pub fn gfxPrimitivesSetFontRotation(rotation: Uint32);
+    pub fn gfxPrimitivesSetFontRotation(rotation: Uint32);
 }
 extern "C" {
-  pub fn characterColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, c: libc::c_char, color: Uint32,
-  ) -> libc::c_int;
+    pub fn characterColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        c: libc::c_char,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn characterRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, c: libc::c_char, r: Uint8, g: Uint8,
-    b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn characterRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        c: libc::c_char,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn stringColor(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, s: *const libc::c_char, color: Uint32,
-  ) -> libc::c_int;
+    pub fn stringColor(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        s: *const libc::c_char,
+        color: Uint32,
+    ) -> libc::c_int;
 }
 extern "C" {
-  pub fn stringRGBA(
-    renderer: *mut SDL_Renderer, x: Sint16, y: Sint16, s: *const libc::c_char, r: Uint8, g: Uint8,
-    b: Uint8, a: Uint8,
-  ) -> libc::c_int;
+    pub fn stringRGBA(
+        renderer: *mut SDL_Renderer,
+        x: Sint16,
+        y: Sint16,
+        s: *const libc::c_char,
+        r: Uint8,
+        g: Uint8,
+        b: Uint8,
+        a: Uint8,
+    ) -> libc::c_int;
 }
