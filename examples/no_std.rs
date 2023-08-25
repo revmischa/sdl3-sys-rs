@@ -7,14 +7,14 @@ fn main() {
     unsafe {
         let mut _window: *mut SDL_Window = null_mut();
         let mut _surface: *mut SDL_Surface = null_mut();
-        if SDL_InitSubSystem(SDL_InitFlags::SDL_INIT_VIDEO) {
+        if SDL_InitSubSystem(SDL_InitFlags::SDL_INIT_VIDEO as u32) != 0 {
             panic!("failed to initialize sdl with video");
         };
         _window = SDL_CreateWindow(
             b"hello_sdl" as *const _ as *const i8,
             SDL_WINDOWPOS_UNDEFINED_MASK as i32,
             SDL_WINDOWPOS_UNDEFINED_MASK as i32,
-            SDL_WindowFlags::SDL_WINDOW_SHOWN as u32,
+            0,
         );
 
         if _window == null_mut() {

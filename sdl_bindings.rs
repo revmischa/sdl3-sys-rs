@@ -35,7 +35,7 @@ pub const __STDC_IEC_60559_COMPLEX__: u32 = 201404;
 pub const __STDC_ISO_10646__: u32 = 201706;
 pub const __GNU_LIBRARY__: u32 = 6;
 pub const __GLIBC__: u32 = 2;
-pub const __GLIBC_MINOR__: u32 = 36;
+pub const __GLIBC_MINOR__: u32 = 37;
 pub const _SYS_CDEFS_H: u32 = 1;
 pub const __glibc_c99_flexarr_available: u32 = 1;
 pub const __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI: u32 = 0;
@@ -314,6 +314,7 @@ pub const SDL_BYTEORDER: u32 = 1234;
 pub const SDL_FLOATWORDORDER: u32 = 1234;
 pub const SDL_MUTEX_TIMEDOUT: u32 = 1;
 pub const SDL_MUTEX_MAXWAIT: i32 = -1;
+pub const SDL_RWLOCK_TIMEDOUT: u32 = 1;
 pub const SDL_RWOPS_UNKNOWN: u32 = 0;
 pub const SDL_RWOPS_WINFILE: u32 = 1;
 pub const SDL_RWOPS_STDFILE: u32 = 2;
@@ -327,20 +328,20 @@ pub const SDL_AUDIO_MASK_BITSIZE: u32 = 255;
 pub const SDL_AUDIO_MASK_DATATYPE: u32 = 256;
 pub const SDL_AUDIO_MASK_ENDIAN: u32 = 4096;
 pub const SDL_AUDIO_MASK_SIGNED: u32 = 32768;
-pub const AUDIO_U8: u32 = 8;
-pub const AUDIO_S8: u32 = 32776;
-pub const AUDIO_S16LSB: u32 = 32784;
-pub const AUDIO_S16MSB: u32 = 36880;
-pub const AUDIO_S16: u32 = 32784;
-pub const AUDIO_S32LSB: u32 = 32800;
-pub const AUDIO_S32MSB: u32 = 36896;
-pub const AUDIO_S32: u32 = 32800;
-pub const AUDIO_F32LSB: u32 = 33056;
-pub const AUDIO_F32MSB: u32 = 37152;
-pub const AUDIO_F32: u32 = 33056;
-pub const AUDIO_S16SYS: u32 = 32784;
-pub const AUDIO_S32SYS: u32 = 32800;
-pub const AUDIO_F32SYS: u32 = 33056;
+pub const SDL_AUDIO_U8: u32 = 8;
+pub const SDL_AUDIO_S8: u32 = 32776;
+pub const SDL_AUDIO_S16LSB: u32 = 32784;
+pub const SDL_AUDIO_S16MSB: u32 = 36880;
+pub const SDL_AUDIO_S16: u32 = 32784;
+pub const SDL_AUDIO_S32LSB: u32 = 32800;
+pub const SDL_AUDIO_S32MSB: u32 = 36896;
+pub const SDL_AUDIO_S32: u32 = 32800;
+pub const SDL_AUDIO_F32LSB: u32 = 33056;
+pub const SDL_AUDIO_F32MSB: u32 = 37152;
+pub const SDL_AUDIO_F32: u32 = 33056;
+pub const SDL_AUDIO_S16SYS: u32 = 32784;
+pub const SDL_AUDIO_S32SYS: u32 = 32800;
+pub const SDL_AUDIO_F32SYS: u32 = 33056;
 pub const SDL_AUDIO_ALLOW_FREQUENCY_CHANGE: u32 = 1;
 pub const SDL_AUDIO_ALLOW_FORMAT_CHANGE: u32 = 2;
 pub const SDL_AUDIO_ALLOW_CHANNELS_CHANGE: u32 = 4;
@@ -406,14 +407,13 @@ pub const SDL_HINT_ACCELEROMETER_AS_JOYSTICK: &[u8; 30usize] = b"SDL_ACCELEROMET
 pub const SDL_HINT_ALLOW_ALT_TAB_WHILE_GRABBED: &[u8; 32usize] =
     b"SDL_ALLOW_ALT_TAB_WHILE_GRABBED\0";
 pub const SDL_HINT_ALLOW_TOPMOST: &[u8; 18usize] = b"SDL_ALLOW_TOPMOST\0";
-pub const SDL_HINT_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION: &[u8; 44usize] =
-    b"SDL_ANDROID_APK_EXPANSION_MAIN_FILE_VERSION\0";
-pub const SDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION: &[u8; 45usize] =
-    b"SDL_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION\0";
 pub const SDL_HINT_ANDROID_BLOCK_ON_PAUSE: &[u8; 27usize] = b"SDL_ANDROID_BLOCK_ON_PAUSE\0";
 pub const SDL_HINT_ANDROID_BLOCK_ON_PAUSE_PAUSEAUDIO: &[u8; 38usize] =
     b"SDL_ANDROID_BLOCK_ON_PAUSE_PAUSEAUDIO\0";
 pub const SDL_HINT_ANDROID_TRAP_BACK_BUTTON: &[u8; 29usize] = b"SDL_ANDROID_TRAP_BACK_BUTTON\0";
+pub const SDL_HINT_ANDROID_ALLOW_RECREATE_ACTIVITY: &[u8; 36usize] =
+    b"SDL_ANDROID_ALLOW_RECREATE_ACTIVITY\0";
+pub const SDL_HINT_APP_ID: &[u8; 11usize] = b"SDL_APP_ID\0";
 pub const SDL_HINT_APP_NAME: &[u8; 13usize] = b"SDL_APP_NAME\0";
 pub const SDL_HINT_APPLE_TV_CONTROLLER_UI_EVENTS: &[u8; 34usize] =
     b"SDL_APPLE_TV_CONTROLLER_UI_EVENTS\0";
@@ -423,7 +423,6 @@ pub const SDL_HINT_AUDIO_CATEGORY: &[u8; 19usize] = b"SDL_AUDIO_CATEGORY\0";
 pub const SDL_HINT_AUDIO_DEVICE_APP_NAME: &[u8; 26usize] = b"SDL_AUDIO_DEVICE_APP_NAME\0";
 pub const SDL_HINT_AUDIO_DEVICE_STREAM_NAME: &[u8; 29usize] = b"SDL_AUDIO_DEVICE_STREAM_NAME\0";
 pub const SDL_HINT_AUDIO_DEVICE_STREAM_ROLE: &[u8; 29usize] = b"SDL_AUDIO_DEVICE_STREAM_ROLE\0";
-pub const SDL_HINT_AUDIO_RESAMPLING_MODE: &[u8; 26usize] = b"SDL_AUDIO_RESAMPLING_MODE\0";
 pub const SDL_HINT_AUTO_UPDATE_JOYSTICKS: &[u8; 26usize] = b"SDL_AUTO_UPDATE_JOYSTICKS\0";
 pub const SDL_HINT_AUTO_UPDATE_SENSORS: &[u8; 24usize] = b"SDL_AUTO_UPDATE_SENSORS\0";
 pub const SDL_HINT_BMP_SAVE_LEGACY_FORMAT: &[u8; 27usize] = b"SDL_BMP_SAVE_LEGACY_FORMAT\0";
@@ -432,9 +431,11 @@ pub const SDL_HINT_EMSCRIPTEN_ASYNCIFY: &[u8; 24usize] = b"SDL_EMSCRIPTEN_ASYNCI
 pub const SDL_HINT_EMSCRIPTEN_CANVAS_SELECTOR: &[u8; 31usize] = b"SDL_EMSCRIPTEN_CANVAS_SELECTOR\0";
 pub const SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT: &[u8; 32usize] =
     b"SDL_EMSCRIPTEN_KEYBOARD_ELEMENT\0";
-pub const SDL_HINT_ENABLE_STEAM_CONTROLLERS: &[u8; 29usize] = b"SDL_ENABLE_STEAM_CONTROLLERS\0";
+pub const SDL_HINT_ENABLE_SCREEN_KEYBOARD: &[u8; 27usize] = b"SDL_ENABLE_SCREEN_KEYBOARD\0";
 pub const SDL_HINT_EVENT_LOGGING: &[u8; 18usize] = b"SDL_EVENT_LOGGING\0";
 pub const SDL_HINT_FORCE_RAISEWINDOW: &[u8; 27usize] = b"SDL_HINT_FORCE_RAISEWINDOW\0";
+pub const SDL_HINT_WINDOW_ACTIVATE_WHEN_RAISED: &[u8; 32usize] =
+    b"SDL_WINDOW_ACTIVATE_WHEN_RAISED\0";
 pub const SDL_HINT_FRAMEBUFFER_ACCELERATION: &[u8; 29usize] = b"SDL_FRAMEBUFFER_ACCELERATION\0";
 pub const SDL_HINT_GAMECONTROLLERCONFIG: &[u8; 25usize] = b"SDL_GAMECONTROLLERCONFIG\0";
 pub const SDL_HINT_GAMECONTROLLERCONFIG_FILE: &[u8; 30usize] = b"SDL_GAMECONTROLLERCONFIG_FILE\0";
@@ -445,7 +446,11 @@ pub const SDL_HINT_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT: &[u8; 41usize] =
     b"SDL_GAMECONTROLLER_IGNORE_DEVICES_EXCEPT\0";
 pub const SDL_HINT_GAMECONTROLLER_USE_BUTTON_LABELS: &[u8; 37usize] =
     b"SDL_GAMECONTROLLER_USE_BUTTON_LABELS\0";
+pub const SDL_HINT_GAMECONTROLLER_SENSOR_FUSION: &[u8; 33usize] =
+    b"SDL_GAMECONTROLLER_SENSOR_FUSION\0";
 pub const SDL_HINT_GRAB_KEYBOARD: &[u8; 18usize] = b"SDL_GRAB_KEYBOARD\0";
+pub const SDL_HINT_HIDAPI_ENUMERATE_ONLY_CONTROLLERS: &[u8; 38usize] =
+    b"SDL_HIDAPI_ENUMERATE_ONLY_CONTROLLERS\0";
 pub const SDL_HINT_HIDAPI_IGNORE_DEVICES: &[u8; 26usize] = b"SDL_HIDAPI_IGNORE_DEVICES\0";
 pub const SDL_HINT_IME_INTERNAL_EDITING: &[u8; 25usize] = b"SDL_IME_INTERNAL_EDITING\0";
 pub const SDL_HINT_IME_SHOW_UI: &[u8; 16usize] = b"SDL_IME_SHOW_UI\0";
@@ -499,6 +504,7 @@ pub const SDL_HINT_JOYSTICK_RAWINPUT_CORRELATE_XINPUT: &[u8; 39usize] =
     b"SDL_JOYSTICK_RAWINPUT_CORRELATE_XINPUT\0";
 pub const SDL_HINT_JOYSTICK_ROG_CHAKRAM: &[u8; 25usize] = b"SDL_JOYSTICK_ROG_CHAKRAM\0";
 pub const SDL_HINT_JOYSTICK_THREAD: &[u8; 20usize] = b"SDL_JOYSTICK_THREAD\0";
+pub const SDL_HINT_JOYSTICK_WGI: &[u8; 17usize] = b"SDL_JOYSTICK_WGI\0";
 pub const SDL_HINT_KMSDRM_REQUIRE_DRM_MASTER: &[u8; 30usize] = b"SDL_KMSDRM_REQUIRE_DRM_MASTER\0";
 pub const SDL_HINT_JOYSTICK_DEVICE: &[u8; 20usize] = b"SDL_JOYSTICK_DEVICE\0";
 pub const SDL_HINT_LINUX_DIGITAL_HATS: &[u8; 23usize] = b"SDL_LINUX_DIGITAL_HATS\0";
@@ -565,6 +571,7 @@ pub const SDL_HINT_VIDEO_WAYLAND_PREFER_LIBDECOR: &[u8; 34usize] =
     b"SDL_VIDEO_WAYLAND_PREFER_LIBDECOR\0";
 pub const SDL_HINT_VIDEO_WAYLAND_MODE_EMULATION: &[u8; 33usize] =
     b"SDL_VIDEO_WAYLAND_MODE_EMULATION\0";
+pub const SDL_HINT_VIDEO_WAYLAND_MODE_SCALING: &[u8; 31usize] = b"SDL_VIDEO_WAYLAND_MODE_SCALING\0";
 pub const SDL_HINT_VIDEO_WAYLAND_EMULATE_MOUSE_WARP: &[u8; 37usize] =
     b"SDL_VIDEO_WAYLAND_EMULATE_MOUSE_WARP\0";
 pub const SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT: &[u8; 36usize] =
@@ -579,6 +586,7 @@ pub const SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR: &[u8; 39usize] =
     b"SDL_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR\0";
 pub const SDL_HINT_VIDEO_X11_NET_WM_PING: &[u8; 26usize] = b"SDL_VIDEO_X11_NET_WM_PING\0";
 pub const SDL_HINT_VIDEO_X11_WINDOW_VISUALID: &[u8; 30usize] = b"SDL_VIDEO_X11_WINDOW_VISUALID\0";
+pub const SDL_HINT_VIDEO_X11_SCALING_FACTOR: &[u8; 29usize] = b"SDL_VIDEO_X11_SCALING_FACTOR\0";
 pub const SDL_HINT_VIDEO_X11_XRANDR: &[u8; 21usize] = b"SDL_VIDEO_X11_XRANDR\0";
 pub const SDL_HINT_WAVE_FACT_CHUNK: &[u8; 20usize] = b"SDL_WAVE_FACT_CHUNK\0";
 pub const SDL_HINT_WAVE_RIFF_CHUNK_SIZE: &[u8; 25usize] = b"SDL_WAVE_RIFF_CHUNK_SIZE\0";
@@ -599,8 +607,7 @@ pub const SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4: &[u8; 31usize] = b"SDL_WINDOWS_NO
 pub const SDL_HINT_WINDOWS_USE_D3D9EX: &[u8; 23usize] = b"SDL_WINDOWS_USE_D3D9EX\0";
 pub const SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN: &[u8; 44usize] =
     b"SDL_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN\0";
-pub const SDL_HINT_WINDOW_NO_ACTIVATION_WHEN_SHOWN: &[u8; 36usize] =
-    b"SDL_WINDOW_NO_ACTIVATION_WHEN_SHOWN\0";
+pub const SDL_HINT_WINDOW_ACTIVATE_WHEN_SHOWN: &[u8; 31usize] = b"SDL_WINDOW_ACTIVATE_WHEN_SHOWN\0";
 pub const SDL_HINT_WINRT_HANDLE_BACK_BUTTON: &[u8; 29usize] = b"SDL_WINRT_HANDLE_BACK_BUTTON\0";
 pub const SDL_HINT_WINRT_PRIVACY_POLICY_LABEL: &[u8; 31usize] = b"SDL_WINRT_PRIVACY_POLICY_LABEL\0";
 pub const SDL_HINT_WINRT_PRIVACY_POLICY_URL: &[u8; 29usize] = b"SDL_WINRT_PRIVACY_POLICY_URL\0";
@@ -617,6 +624,11 @@ pub const SDL_HINT_VIDEO_DRIVER: &[u8; 17usize] = b"SDL_VIDEO_DRIVER\0";
 pub const SDL_HINT_AUDIO_DRIVER: &[u8; 17usize] = b"SDL_AUDIO_DRIVER\0";
 pub const SDL_HINT_KMSDRM_DEVICE_INDEX: &[u8; 24usize] = b"SDL_KMSDRM_DEVICE_INDEX\0";
 pub const SDL_HINT_TRACKPAD_IS_TOUCH_ONLY: &[u8; 27usize] = b"SDL_TRACKPAD_IS_TOUCH_ONLY\0";
+pub const SDL_HINT_GDK_TEXTINPUT_TITLE: &[u8; 24usize] = b"SDL_GDK_TEXTINPUT_TITLE\0";
+pub const SDL_HINT_GDK_TEXTINPUT_DESCRIPTION: &[u8; 30usize] = b"SDL_GDK_TEXTINPUT_DESCRIPTION\0";
+pub const SDL_HINT_GDK_TEXTINPUT_DEFAULT: &[u8; 26usize] = b"SDL_GDK_TEXTINPUT_DEFAULT\0";
+pub const SDL_HINT_GDK_TEXTINPUT_SCOPE: &[u8; 24usize] = b"SDL_GDK_TEXTINPUT_SCOPE\0";
+pub const SDL_HINT_GDK_TEXTINPUT_MAX_LENGTH: &[u8; 29usize] = b"SDL_GDK_TEXTINPUT_MAX_LENGTH\0";
 pub const SDL_MAX_LOG_MESSAGE: u32 = 4096;
 pub const SDL_NONSHAPEABLE_WINDOW: i32 = -1;
 pub const SDL_INVALID_SHAPE_ARGUMENT: i32 = -2;
@@ -2020,6 +2032,9 @@ extern "C" {
     pub fn SDL_wcslen(wstr: *const wchar_t) -> usize;
 }
 extern "C" {
+    pub fn SDL_wcsnlen(wstr: *const wchar_t, maxlen: usize) -> usize;
+}
+extern "C" {
     pub fn SDL_wcslcpy(dst: *mut wchar_t, src: *const wchar_t, maxlen: usize) -> usize;
 }
 extern "C" {
@@ -2044,7 +2059,17 @@ extern "C" {
     pub fn SDL_wcsncasecmp(str1: *const wchar_t, str2: *const wchar_t, len: usize) -> libc::c_int;
 }
 extern "C" {
+    pub fn SDL_wcstol(
+        str_: *const wchar_t,
+        endp: *mut *mut wchar_t,
+        base: libc::c_int,
+    ) -> libc::c_long;
+}
+extern "C" {
     pub fn SDL_strlen(str_: *const libc::c_char) -> usize;
+}
+extern "C" {
+    pub fn SDL_strnlen(str_: *const libc::c_char, maxlen: usize) -> usize;
 }
 extern "C" {
     pub fn SDL_strlcpy(dst: *mut libc::c_char, src: *const libc::c_char, maxlen: usize) -> usize;
@@ -2061,6 +2086,9 @@ extern "C" {
 }
 extern "C" {
     pub fn SDL_strdup(str_: *const libc::c_char) -> *mut libc::c_char;
+}
+extern "C" {
+    pub fn SDL_strndup(str_: *const libc::c_char, maxlen: usize) -> *mut libc::c_char;
 }
 extern "C" {
     pub fn SDL_strrev(str_: *mut libc::c_char) -> *mut libc::c_char;
@@ -2090,7 +2118,7 @@ extern "C" {
     ) -> *mut libc::c_char;
 }
 extern "C" {
-    pub fn SDL_strtokr(
+    pub fn SDL_strtok_r(
         s1: *mut libc::c_char,
         s2: *const libc::c_char,
         saveptr: *mut *mut libc::c_char,
@@ -2220,10 +2248,22 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
+    pub fn SDL_swprintf(text: *mut wchar_t, maxlen: usize, fmt: *const wchar_t, ...)
+        -> libc::c_int;
+}
+extern "C" {
     pub fn SDL_vsnprintf(
         text: *mut libc::c_char,
         maxlen: usize,
         fmt: *const libc::c_char,
+        ap: *mut __va_list_tag,
+    ) -> libc::c_int;
+}
+extern "C" {
+    pub fn SDL_vswprintf(
+        text: *mut wchar_t,
+        maxlen: usize,
+        fmt: *const wchar_t,
         ap: *mut __va_list_tag,
     ) -> libc::c_int;
 }
@@ -2670,93 +2710,125 @@ extern "C" {
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct SDL_mutex {
+pub struct SDL_Mutex {
     _unused: [u8; 0],
 }
 extern "C" {
     #[doc = " Create a new mutex.\n\n All newly-created mutexes begin in the _unlocked_ state.\n\n Calls to SDL_LockMutex() will not return while the mutex is locked by\n another thread. See SDL_TryLockMutex() to attempt to lock without blocking.\n\n SDL mutexes are reentrant.\n\n \\returns the initialized and unlocked mutex or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroyMutex\n \\sa SDL_LockMutex\n \\sa SDL_TryLockMutex\n \\sa SDL_UnlockMutex"]
-    pub fn SDL_CreateMutex() -> *mut SDL_mutex;
+    pub fn SDL_CreateMutex() -> *mut SDL_Mutex;
 }
 extern "C" {
     #[doc = " Lock the mutex.\n\n This will block until the mutex is available, which is to say it is in the\n unlocked state and the OS has chosen the caller as the next thread to lock\n it. Of all threads waiting to lock the mutex, only one may do so at a time.\n\n It is legal for the owning thread to lock an already-locked mutex. It must\n unlock it the same number of times before it is actually made available for\n other threads in the system (this is known as a \"recursive mutex\").\n\n \\param mutex the mutex to lock\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
-    pub fn SDL_LockMutex(mutex: *mut SDL_mutex) -> libc::c_int;
+    pub fn SDL_LockMutex(mutex: *mut SDL_Mutex) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Try to lock a mutex without blocking.\n\n This works just like SDL_LockMutex(), but if the mutex is not available,\n this function returns `SDL_MUTEX_TIMEOUT` immediately.\n\n This technique is useful if you need exclusive access to a resource but\n don't want to wait for it, and will return to it to try again later.\n\n \\param mutex the mutex to try to lock\n \\returns 0, `SDL_MUTEX_TIMEDOUT`, or -1 on error; call SDL_GetError() for\n          more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateMutex\n \\sa SDL_DestroyMutex\n \\sa SDL_LockMutex\n \\sa SDL_UnlockMutex"]
-    pub fn SDL_TryLockMutex(mutex: *mut SDL_mutex) -> libc::c_int;
+    #[doc = " Try to lock a mutex without blocking.\n\n This works just like SDL_LockMutex(), but if the mutex is not available,\n this function returns `SDL_MUTEX_TIMEDOUT` immediately.\n\n This technique is useful if you need exclusive access to a resource but\n don't want to wait for it, and will return to it to try again later.\n\n \\param mutex the mutex to try to lock\n \\returns 0, `SDL_MUTEX_TIMEDOUT`, or -1 on error; call SDL_GetError() for\n          more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateMutex\n \\sa SDL_DestroyMutex\n \\sa SDL_LockMutex\n \\sa SDL_UnlockMutex"]
+    pub fn SDL_TryLockMutex(mutex: *mut SDL_Mutex) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Unlock the mutex.\n\n It is legal for the owning thread to lock an already-locked mutex. It must\n unlock it the same number of times before it is actually made available for\n other threads in the system (this is known as a \"recursive mutex\").\n\n It is an error to unlock a mutex that has not been locked by the current\n thread, and doing so results in undefined behavior.\n\n It is also an error to unlock a mutex that isn't locked at all.\n\n \\param mutex the mutex to unlock.\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
-    pub fn SDL_UnlockMutex(mutex: *mut SDL_mutex) -> libc::c_int;
+    #[doc = " Unlock the mutex.\n\n It is legal for the owning thread to lock an already-locked mutex. It must\n unlock it the same number of times before it is actually made available for\n other threads in the system (this is known as a \"recursive mutex\").\n\n It is illegal to unlock a mutex that has not been locked by the current\n thread, and doing so results in undefined behavior.\n\n \\param mutex the mutex to unlock.\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_UnlockMutex(mutex: *mut SDL_Mutex) -> libc::c_int;
 }
 extern "C" {
     #[doc = " Destroy a mutex created with SDL_CreateMutex().\n\n This function must be called on any mutex that is no longer needed. Failure\n to destroy a mutex will result in a system memory or resource leak. While\n it is safe to destroy a mutex that is _unlocked_, it is not safe to attempt\n to destroy a locked mutex, and may result in undefined behavior depending\n on the platform.\n\n \\param mutex the mutex to destroy\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateMutex\n \\sa SDL_LockMutex\n \\sa SDL_TryLockMutex\n \\sa SDL_UnlockMutex"]
-    pub fn SDL_DestroyMutex(mutex: *mut SDL_mutex);
+    pub fn SDL_DestroyMutex(mutex: *mut SDL_Mutex);
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct SDL_semaphore {
+pub struct SDL_RWLock {
     _unused: [u8; 0],
 }
-pub type SDL_sem = SDL_semaphore;
 extern "C" {
-    #[doc = " Create a semaphore.\n\n This function creates a new semaphore and initializes it with the value\n `initial_value`. Each wait operation on the semaphore will atomically\n decrement the semaphore value and potentially block if the semaphore value\n is 0. Each post operation will atomically increment the semaphore value and\n wake waiting threads and allow them to retry the wait operation.\n\n \\param initial_value the starting value of the semaphore\n \\returns a new semaphore or NULL on failure; call SDL_GetError() for more\n          information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroySemaphore\n \\sa SDL_SemPost\n \\sa SDL_SemTryWait\n \\sa SDL_SemValue\n \\sa SDL_SemWait\n \\sa SDL_SemWaitTimeout"]
-    pub fn SDL_CreateSemaphore(initial_value: Uint32) -> *mut SDL_sem;
+    #[doc = " Create a new read/write lock.\n\n A read/write lock is useful for situations where you have multiple threads\n trying to access a resource that is rarely updated. All threads requesting\n a read-only lock will be allowed to run in parallel; if a thread requests a\n write lock, it will be provided exclusive access. This makes it safe for\n multiple threads to use a resource at the same time if they promise not to\n change it, and when it has to be changed, the rwlock will serve as a\n gateway to make sure those changes can be made safely.\n\n In the right situation, a rwlock can be more efficient than a mutex, which\n only lets a single thread proceed at a time, even if it won't be modifying\n the data.\n\n All newly-created read/write locks begin in the _unlocked_ state.\n\n Calls to SDL_LockRWLockForReading() and SDL_LockRWLockForWriting will not\n return while the rwlock is locked _for writing_ by another thread. See\n SDL_TryLockRWLockForReading() and SDL_TryLockRWLockForWriting() to attempt\n to lock without blocking.\n\n SDL read/write locks are only recursive for read-only locks! They are not\n guaranteed to be fair, or provide access in a FIFO manner! They are not\n guaranteed to favor writers. You may not lock a rwlock for both read-only\n and write access at the same time from the same thread (so you can't\n promote your read-only lock to a write lock without unlocking first).\n\n \\returns the initialized and unlocked read/write lock or NULL on failure;\n          call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroyRWLock\n \\sa SDL_LockRWLockForReading\n \\sa SDL_TryLockRWLockForReading\n \\sa SDL_LockRWLockForWriting\n \\sa SDL_TryLockRWLockForWriting\n \\sa SDL_UnlockRWLock"]
+    pub fn SDL_CreateRWLock() -> *mut SDL_RWLock;
 }
 extern "C" {
-    #[doc = " Destroy a semaphore.\n\n It is not safe to destroy a semaphore if there are threads currently\n waiting on it.\n\n \\param sem the semaphore to destroy\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_SemPost\n \\sa SDL_SemTryWait\n \\sa SDL_SemValue\n \\sa SDL_SemWait\n \\sa SDL_SemWaitTimeout"]
-    pub fn SDL_DestroySemaphore(sem: *mut SDL_sem);
+    #[doc = " Lock the read/write lock for _read only_ operations.\n\n This will block until the rwlock is available, which is to say it is not\n locked for writing by any other thread. Of all threads waiting to lock the\n rwlock, all may do so at the same time as long as they are requesting\n read-only access; if a thread wants to lock for writing, only one may do so\n at a time, and no other threads, read-only or not, may hold the lock at the\n same time.\n\n It is legal for the owning thread to lock an already-locked rwlock for\n reading. It must unlock it the same number of times before it is actually\n made available for other threads in the system (this is known as a\n \"recursive rwlock\").\n\n Note that locking for writing is not recursive (this is only available to\n read-only locks).\n\n It is illegal to request a read-only lock from a thread that already holds\n the write lock. Doing so results in undefined behavior. Unlock the write\n lock before requesting a read-only lock. (But, of course, if you have the\n write lock, you don't need further locks to read in any case.)\n\n \\param rwlock the read/write lock to lock\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_UnlockRWLock"]
+    pub fn SDL_LockRWLockForReading(rwlock: *mut SDL_RWLock) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Wait until a semaphore has a positive value and then decrements it.\n\n This function suspends the calling thread until either the semaphore\n pointed to by `sem` has a positive value or the call is interrupted by a\n signal or error. If the call is successful it will atomically decrement the\n semaphore value.\n\n This function is the equivalent of calling SDL_SemWaitTimeout() with a time\n length of `SDL_MUTEX_MAXWAIT`.\n\n \\param sem the semaphore wait on\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_DestroySemaphore\n \\sa SDL_SemPost\n \\sa SDL_SemTryWait\n \\sa SDL_SemValue\n \\sa SDL_SemWait\n \\sa SDL_SemWaitTimeout"]
-    pub fn SDL_SemWait(sem: *mut SDL_sem) -> libc::c_int;
+    #[doc = " Lock the read/write lock for _write_ operations.\n\n This will block until the rwlock is available, which is to say it is not\n locked for reading or writing by any other thread. Only one thread may hold\n the lock when it requests write access; all other threads, whether they\n also want to write or only want read-only access, must wait until the\n writer thread has released the lock.\n\n It is illegal for the owning thread to lock an already-locked rwlock for\n writing (read-only may be locked recursively, writing can not). Doing so\n results in undefined behavior.\n\n It is illegal to request a write lock from a thread that already holds a\n read-only lock. Doing so results in undefined behavior. Unlock the\n read-only lock before requesting a write lock.\n\n \\param rwlock the read/write lock to lock\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_UnlockRWLock"]
+    pub fn SDL_LockRWLockForWriting(rwlock: *mut SDL_RWLock) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " See if a semaphore has a positive value and decrement it if it does.\n\n This function checks to see if the semaphore pointed to by `sem` has a\n positive value and atomically decrements the semaphore value if it does. If\n the semaphore doesn't have a positive value, the function immediately\n returns SDL_MUTEX_TIMEDOUT.\n\n \\param sem the semaphore to wait on\n \\returns 0 if the wait succeeds, `SDL_MUTEX_TIMEDOUT` if the wait would\n          block, or a negative error code on failure; call SDL_GetError()\n          for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_DestroySemaphore\n \\sa SDL_SemPost\n \\sa SDL_SemValue\n \\sa SDL_SemWait\n \\sa SDL_SemWaitTimeout"]
-    pub fn SDL_SemTryWait(sem: *mut SDL_sem) -> libc::c_int;
+    #[doc = " Try to lock a read/write lock _for reading_ without blocking.\n\n This works just like SDL_LockRWLockForReading(), but if the rwlock is not\n available, then this function returns `SDL_RWLOCK_TIMEDOUT` immediately.\n\n This technique is useful if you need access to a resource but don't want to\n wait for it, and will return to it to try again later.\n\n Trying to lock for read-only access can succeed if other threads are\n holding read-only locks, as this won't prevent access.\n\n \\param rwlock the rwlock to try to lock\n \\returns 0, `SDL_RWLOCK_TIMEDOUT`, or -1 on error; call SDL_GetError() for\n          more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateRWLock\n \\sa SDL_DestroyRWLock\n \\sa SDL_TryLockRWLockForReading\n \\sa SDL_UnlockRWLock"]
+    pub fn SDL_TryLockRWLockForReading(rwlock: *mut SDL_RWLock) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Wait until a semaphore has a positive value and then decrements it.\n\n This function suspends the calling thread until either the semaphore\n pointed to by `sem` has a positive value, the call is interrupted by a\n signal or error, or the specified time has elapsed. If the call is\n successful it will atomically decrement the semaphore value.\n\n \\param sem the semaphore to wait on\n \\param timeoutMS the length of the timeout, in milliseconds\n \\returns 0 if the wait succeeds, `SDL_MUTEX_TIMEDOUT` if the wait does not\n          succeed in the allotted time, or a negative error code on failure;\n          call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_DestroySemaphore\n \\sa SDL_SemPost\n \\sa SDL_SemTryWait\n \\sa SDL_SemValue\n \\sa SDL_SemWait"]
-    pub fn SDL_SemWaitTimeout(sem: *mut SDL_sem, timeoutMS: Sint32) -> libc::c_int;
+    #[doc = " Try to lock a read/write lock _for writing_ without blocking.\n\n This works just like SDL_LockRWLockForWriting(), but if the rwlock is not\n available, this function returns `SDL_RWLOCK_TIMEDOUT` immediately.\n\n This technique is useful if you need exclusive access to a resource but\n don't want to wait for it, and will return to it to try again later.\n\n It is illegal for the owning thread to lock an already-locked rwlock for\n writing (read-only may be locked recursively, writing can not). Doing so\n results in undefined behavior.\n\n It is illegal to request a write lock from a thread that already holds a\n read-only lock. Doing so results in undefined behavior. Unlock the\n read-only lock before requesting a write lock.\n\n \\param rwlock the rwlock to try to lock\n \\returns 0, `SDL_RWLOCK_TIMEDOUT`, or -1 on error; call SDL_GetError() for\n          more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateRWLock\n \\sa SDL_DestroyRWLock\n \\sa SDL_TryLockRWLockForWriting\n \\sa SDL_UnlockRWLock"]
+    pub fn SDL_TryLockRWLockForWriting(rwlock: *mut SDL_RWLock) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Atomically increment a semaphore's value and wake waiting threads.\n\n \\param sem the semaphore to increment\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_DestroySemaphore\n \\sa SDL_SemTryWait\n \\sa SDL_SemValue\n \\sa SDL_SemWait\n \\sa SDL_SemWaitTimeout"]
-    pub fn SDL_SemPost(sem: *mut SDL_sem) -> libc::c_int;
+    #[doc = " Unlock the read/write lock.\n\n Use this function to unlock the rwlock, whether it was locked for read-only\n or write operations.\n\n It is legal for the owning thread to lock an already-locked read-only lock.\n It must unlock it the same number of times before it is actually made\n available for other threads in the system (this is known as a \"recursive\n rwlock\").\n\n It is illegal to unlock a rwlock that has not been locked by the current\n thread, and doing so results in undefined behavior.\n\n \\param rwlock the rwlock to unlock.\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_UnlockRWLock(rwlock: *mut SDL_RWLock) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Destroy a read/write lock created with SDL_CreateRWLock().\n\n This function must be called on any read/write lock that is no longer\n needed. Failure to destroy a rwlock will result in a system memory or\n resource leak. While it is safe to destroy a rwlock that is _unlocked_, it\n is not safe to attempt to destroy a locked rwlock, and may result in\n undefined behavior depending on the platform.\n\n \\param rwlock the rwlock to destroy\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateRWLock\n \\sa SDL_LockRWLockForReading\n \\sa SDL_LockRWLockForWriting\n \\sa SDL_TryLockRWLockForReading\n \\sa SDL_TryLockRWLockForWriting\n \\sa SDL_UnlockRWLock"]
+    pub fn SDL_DestroyRWLock(rwlock: *mut SDL_RWLock);
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct SDL_Semaphore {
+    _unused: [u8; 0],
+}
+extern "C" {
+    #[doc = " Create a semaphore.\n\n This function creates a new semaphore and initializes it with the value\n `initial_value`. Each wait operation on the semaphore will atomically\n decrement the semaphore value and potentially block if the semaphore value\n is 0. Each post operation will atomically increment the semaphore value and\n wake waiting threads and allow them to retry the wait operation.\n\n \\param initial_value the starting value of the semaphore\n \\returns a new semaphore or NULL on failure; call SDL_GetError() for more\n          information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroySemaphore\n \\sa SDL_PostSemaphore\n \\sa SDL_TryWaitSemaphore\n \\sa SDL_GetSemaphoreValue\n \\sa SDL_WaitSemaphore\n \\sa SDL_WaitSemaphoreTimeout"]
+    pub fn SDL_CreateSemaphore(initial_value: Uint32) -> *mut SDL_Semaphore;
+}
+extern "C" {
+    #[doc = " Destroy a semaphore.\n\n It is not safe to destroy a semaphore if there are threads currently\n waiting on it.\n\n \\param sem the semaphore to destroy\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_PostSemaphore\n \\sa SDL_TryWaitSemaphore\n \\sa SDL_GetSemaphoreValue\n \\sa SDL_WaitSemaphore\n \\sa SDL_WaitSemaphoreTimeout"]
+    pub fn SDL_DestroySemaphore(sem: *mut SDL_Semaphore);
+}
+extern "C" {
+    #[doc = " Wait until a semaphore has a positive value and then decrements it.\n\n This function suspends the calling thread until either the semaphore\n pointed to by `sem` has a positive value or the call is interrupted by a\n signal or error. If the call is successful it will atomically decrement the\n semaphore value.\n\n This function is the equivalent of calling SDL_WaitSemaphoreTimeout() with\n a time length of `SDL_MUTEX_MAXWAIT`.\n\n \\param sem the semaphore wait on\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_DestroySemaphore\n \\sa SDL_PostSemaphore\n \\sa SDL_TryWaitSemaphore\n \\sa SDL_GetSemaphoreValue\n \\sa SDL_WaitSemaphore\n \\sa SDL_WaitSemaphoreTimeout"]
+    pub fn SDL_WaitSemaphore(sem: *mut SDL_Semaphore) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " See if a semaphore has a positive value and decrement it if it does.\n\n This function checks to see if the semaphore pointed to by `sem` has a\n positive value and atomically decrements the semaphore value if it does. If\n the semaphore doesn't have a positive value, the function immediately\n returns SDL_MUTEX_TIMEDOUT.\n\n \\param sem the semaphore to wait on\n \\returns 0 if the wait succeeds, `SDL_MUTEX_TIMEDOUT` if the wait would\n          block, or a negative error code on failure; call SDL_GetError()\n          for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_DestroySemaphore\n \\sa SDL_PostSemaphore\n \\sa SDL_GetSemaphoreValue\n \\sa SDL_WaitSemaphore\n \\sa SDL_WaitSemaphoreTimeout"]
+    pub fn SDL_TryWaitSemaphore(sem: *mut SDL_Semaphore) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Wait until a semaphore has a positive value and then decrements it.\n\n This function suspends the calling thread until either the semaphore\n pointed to by `sem` has a positive value, the call is interrupted by a\n signal or error, or the specified time has elapsed. If the call is\n successful it will atomically decrement the semaphore value.\n\n \\param sem the semaphore to wait on\n \\param timeoutMS the length of the timeout, in milliseconds\n \\returns 0 if the wait succeeds, `SDL_MUTEX_TIMEDOUT` if the wait does not\n          succeed in the allotted time, or a negative error code on failure;\n          call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_DestroySemaphore\n \\sa SDL_PostSemaphore\n \\sa SDL_TryWaitSemaphore\n \\sa SDL_GetSemaphoreValue\n \\sa SDL_WaitSemaphore"]
+    pub fn SDL_WaitSemaphoreTimeout(sem: *mut SDL_Semaphore, timeoutMS: Sint32) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Atomically increment a semaphore's value and wake waiting threads.\n\n \\param sem the semaphore to increment\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore\n \\sa SDL_DestroySemaphore\n \\sa SDL_TryWaitSemaphore\n \\sa SDL_GetSemaphoreValue\n \\sa SDL_WaitSemaphore\n \\sa SDL_WaitSemaphoreTimeout"]
+    pub fn SDL_PostSemaphore(sem: *mut SDL_Semaphore) -> libc::c_int;
 }
 extern "C" {
     #[doc = " Get the current value of a semaphore.\n\n \\param sem the semaphore to query\n \\returns the current value of the semaphore.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSemaphore"]
-    pub fn SDL_SemValue(sem: *mut SDL_sem) -> Uint32;
+    pub fn SDL_GetSemaphoreValue(sem: *mut SDL_Semaphore) -> Uint32;
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct SDL_cond {
+pub struct SDL_Condition {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[doc = " Create a condition variable.\n\n \\returns a new condition variable or NULL on failure; call SDL_GetError()\n          for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CondBroadcast\n \\sa SDL_CondSignal\n \\sa SDL_CondWait\n \\sa SDL_CondWaitTimeout\n \\sa SDL_DestroyCond"]
-    pub fn SDL_CreateCond() -> *mut SDL_cond;
+    #[doc = " Create a condition variable.\n\n \\returns a new condition variable or NULL on failure; call SDL_GetError()\n          for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BroadcastCondition\n \\sa SDL_SignalCondition\n \\sa SDL_WaitCondition\n \\sa SDL_WaitConditionTimeout\n \\sa SDL_DestroyCondition"]
+    pub fn SDL_CreateCondition() -> *mut SDL_Condition;
 }
 extern "C" {
-    #[doc = " Destroy a condition variable.\n\n \\param cond the condition variable to destroy\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CondBroadcast\n \\sa SDL_CondSignal\n \\sa SDL_CondWait\n \\sa SDL_CondWaitTimeout\n \\sa SDL_CreateCond"]
-    pub fn SDL_DestroyCond(cond: *mut SDL_cond);
+    #[doc = " Destroy a condition variable.\n\n \\param cond the condition variable to destroy\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BroadcastCondition\n \\sa SDL_SignalCondition\n \\sa SDL_WaitCondition\n \\sa SDL_WaitConditionTimeout\n \\sa SDL_CreateCondition"]
+    pub fn SDL_DestroyCondition(cond: *mut SDL_Condition);
 }
 extern "C" {
-    #[doc = " Restart one of the threads that are waiting on the condition variable.\n\n \\param cond the condition variable to signal\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CondBroadcast\n \\sa SDL_CondWait\n \\sa SDL_CondWaitTimeout\n \\sa SDL_CreateCond\n \\sa SDL_DestroyCond"]
-    pub fn SDL_CondSignal(cond: *mut SDL_cond) -> libc::c_int;
+    #[doc = " Restart one of the threads that are waiting on the condition variable.\n\n \\param cond the condition variable to signal\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BroadcastCondition\n \\sa SDL_WaitCondition\n \\sa SDL_WaitConditionTimeout\n \\sa SDL_CreateCondition\n \\sa SDL_DestroyCondition"]
+    pub fn SDL_SignalCondition(cond: *mut SDL_Condition) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Restart all threads that are waiting on the condition variable.\n\n \\param cond the condition variable to signal\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CondSignal\n \\sa SDL_CondWait\n \\sa SDL_CondWaitTimeout\n \\sa SDL_CreateCond\n \\sa SDL_DestroyCond"]
-    pub fn SDL_CondBroadcast(cond: *mut SDL_cond) -> libc::c_int;
+    #[doc = " Restart all threads that are waiting on the condition variable.\n\n \\param cond the condition variable to signal\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_SignalCondition\n \\sa SDL_WaitCondition\n \\sa SDL_WaitConditionTimeout\n \\sa SDL_CreateCondition\n \\sa SDL_DestroyCondition"]
+    pub fn SDL_BroadcastCondition(cond: *mut SDL_Condition) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Wait until a condition variable is signaled.\n\n This function unlocks the specified `mutex` and waits for another thread to\n call SDL_CondSignal() or SDL_CondBroadcast() on the condition variable\n `cond`. Once the condition variable is signaled, the mutex is re-locked and\n the function returns.\n\n The mutex must be locked before calling this function. Locking the mutex\n recursively (more than once) is not supported and leads to undefined\n behavior.\n\n This function is the equivalent of calling SDL_CondWaitTimeout() with a\n time length of `SDL_MUTEX_MAXWAIT`.\n\n \\param cond the condition variable to wait on\n \\param mutex the mutex used to coordinate thread access\n \\returns 0 when it is signaled or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CondBroadcast\n \\sa SDL_CondSignal\n \\sa SDL_CondWaitTimeout\n \\sa SDL_CreateCond\n \\sa SDL_DestroyCond"]
-    pub fn SDL_CondWait(cond: *mut SDL_cond, mutex: *mut SDL_mutex) -> libc::c_int;
+    #[doc = " Wait until a condition variable is signaled.\n\n This function unlocks the specified `mutex` and waits for another thread to\n call SDL_SignalCondition() or SDL_BroadcastCondition() on the condition\n variable `cond`. Once the condition variable is signaled, the mutex is\n re-locked and the function returns.\n\n The mutex must be locked before calling this function. Locking the mutex\n recursively (more than once) is not supported and leads to undefined\n behavior.\n\n This function is the equivalent of calling SDL_WaitConditionTimeout() with\n a time length of `SDL_MUTEX_MAXWAIT`.\n\n \\param cond the condition variable to wait on\n \\param mutex the mutex used to coordinate thread access\n \\returns 0 when it is signaled or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BroadcastCondition\n \\sa SDL_SignalCondition\n \\sa SDL_WaitConditionTimeout\n \\sa SDL_CreateCondition\n \\sa SDL_DestroyCondition"]
+    pub fn SDL_WaitCondition(cond: *mut SDL_Condition, mutex: *mut SDL_Mutex) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Wait until a condition variable is signaled or a certain time has passed.\n\n This function unlocks the specified `mutex` and waits for another thread to\n call SDL_CondSignal() or SDL_CondBroadcast() on the condition variable\n `cond`, or for the specified time to elapse. Once the condition variable is\n signaled or the time elapsed, the mutex is re-locked and the function\n returns.\n\n The mutex must be locked before calling this function. Locking the mutex\n recursively (more than once) is not supported and leads to undefined\n behavior.\n\n \\param cond the condition variable to wait on\n \\param mutex the mutex used to coordinate thread access\n \\param timeoutMS the maximum time to wait, in milliseconds, or\n                  `SDL_MUTEX_MAXWAIT` to wait indefinitely\n \\returns 0 if the condition variable is signaled, `SDL_MUTEX_TIMEDOUT` if\n          the condition is not signaled in the allotted time, or a negative\n          error code on failure; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CondBroadcast\n \\sa SDL_CondSignal\n \\sa SDL_CondWait\n \\sa SDL_CreateCond\n \\sa SDL_DestroyCond"]
-    pub fn SDL_CondWaitTimeout(
-        cond: *mut SDL_cond,
-        mutex: *mut SDL_mutex,
+    #[doc = " Wait until a condition variable is signaled or a certain time has passed.\n\n This function unlocks the specified `mutex` and waits for another thread to\n call SDL_SignalCondition() or SDL_BroadcastCondition() on the condition\n variable `cond`, or for the specified time to elapse. Once the condition\n variable is signaled or the time elapsed, the mutex is re-locked and the\n function returns.\n\n The mutex must be locked before calling this function. Locking the mutex\n recursively (more than once) is not supported and leads to undefined\n behavior.\n\n \\param cond the condition variable to wait on\n \\param mutex the mutex used to coordinate thread access\n \\param timeoutMS the maximum time to wait, in milliseconds, or\n                  `SDL_MUTEX_MAXWAIT` to wait indefinitely\n \\returns 0 if the condition variable is signaled, `SDL_MUTEX_TIMEDOUT` if\n          the condition is not signaled in the allotted time, or a negative\n          error code on failure; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BroadcastCondition\n \\sa SDL_SignalCondition\n \\sa SDL_WaitCondition\n \\sa SDL_CreateCondition\n \\sa SDL_DestroyCondition"]
+    pub fn SDL_WaitConditionTimeout(
+        cond: *mut SDL_Condition,
+        mutex: *mut SDL_Mutex,
         timeoutMS: Sint32,
     ) -> libc::c_int;
 }
@@ -2821,16 +2893,16 @@ extern "C" {
     pub fn SDL_DetachThread(thread: *mut SDL_Thread);
 }
 extern "C" {
-    #[doc = " Create a piece of thread-local storage.\n\n This creates an identifier that is globally visible to all threads but\n refers to data that is thread-specific.\n\n \\returns the newly created thread local storage identifier or 0 on error.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_TLSGet\n \\sa SDL_TLSSet"]
-    pub fn SDL_TLSCreate() -> SDL_TLSID;
+    #[doc = " Create a piece of thread-local storage.\n\n This creates an identifier that is globally visible to all threads but\n refers to data that is thread-specific.\n\n \\returns the newly created thread local storage identifier or 0 on error.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetTLS\n \\sa SDL_SetTLS"]
+    pub fn SDL_CreateTLS() -> SDL_TLSID;
 }
 extern "C" {
-    #[doc = " Get the current thread's value associated with a thread local storage ID.\n\n \\param id the thread local storage ID\n \\returns the value associated with the ID for the current thread or NULL if\n          no value has been set; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_TLSCreate\n \\sa SDL_TLSSet"]
-    pub fn SDL_TLSGet(id: SDL_TLSID) -> *mut libc::c_void;
+    #[doc = " Get the current thread's value associated with a thread local storage ID.\n\n \\param id the thread local storage ID\n \\returns the value associated with the ID for the current thread or NULL if\n          no value has been set; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateTLS\n \\sa SDL_SetTLS"]
+    pub fn SDL_GetTLS(id: SDL_TLSID) -> *mut libc::c_void;
 }
 extern "C" {
-    #[doc = " Set the current thread's value associated with a thread local storage ID.\n\n The function prototype for `destructor` is:\n\n ```c\n void destructor(void *value)\n ```\n\n where its parameter `value` is what was passed as `value` to SDL_TLSSet().\n\n \\param id the thread local storage ID\n \\param value the value to associate with the ID for the current thread\n \\param destructor a function called when the thread exits, to free the\n                   value\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_TLSCreate\n \\sa SDL_TLSGet"]
-    pub fn SDL_TLSSet(
+    #[doc = " Set the current thread's value associated with a thread local storage ID.\n\n The function prototype for `destructor` is:\n\n ```c\n void destructor(void *value)\n ```\n\n where its parameter `value` is what was passed as `value` to SDL_SetTLS().\n\n \\param id the thread local storage ID\n \\param value the value to associate with the ID for the current thread\n \\param destructor a function called when the thread exits, to free the\n                   value\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateTLS\n \\sa SDL_GetTLS"]
+    pub fn SDL_SetTLS(
         id: SDL_TLSID,
         value: *const libc::c_void,
         destructor: ::core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>,
@@ -2838,7 +2910,7 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Cleanup all TLS data for this thread.\n\n \\since This function is available since SDL 3.0.0."]
-    pub fn SDL_TLSCleanup();
+    pub fn SDL_CleanupTLS();
 }
 #[doc = " This is the read/write operation structure -- very basic."]
 #[repr(C)]
@@ -3174,11 +3246,11 @@ extern "C" {
 }
 extern "C" {
     #[doc = " Use this function to prepare a read-write memory buffer for use with\n SDL_RWops.\n\n This function sets up an SDL_RWops struct based on a memory area of a\n certain size, for both read and write access.\n\n This memory buffer is not copied by the RWops; the pointer you provide must\n remain valid until you close the stream. Closing the stream will not free\n the original buffer.\n\n If you need to make sure the RWops never writes to the memory buffer, you\n should use SDL_RWFromConstMem() with a read-only buffer of memory instead.\n\n \\param mem a pointer to a buffer to feed an SDL_RWops stream\n \\param size the buffer size, in bytes\n \\returns a pointer to a new SDL_RWops structure, or NULL if it fails; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_RWclose\n \\sa SDL_RWFromConstMem\n \\sa SDL_RWFromFile\n \\sa SDL_RWFromMem\n \\sa SDL_RWread\n \\sa SDL_RWseek\n \\sa SDL_RWtell\n \\sa SDL_RWwrite"]
-    pub fn SDL_RWFromMem(mem: *mut libc::c_void, size: libc::c_int) -> *mut SDL_RWops;
+    pub fn SDL_RWFromMem(mem: *mut libc::c_void, size: usize) -> *mut SDL_RWops;
 }
 extern "C" {
     #[doc = " Use this function to prepare a read-only memory buffer for use with RWops.\n\n This function sets up an SDL_RWops struct based on a memory area of a\n certain size. It assumes the memory area is not writable.\n\n Attempting to write to this RWops stream will report an error without\n writing to the memory buffer.\n\n This memory buffer is not copied by the RWops; the pointer you provide must\n remain valid until you close the stream. Closing the stream will not free\n the original buffer.\n\n If you need to write to a memory buffer, you should use SDL_RWFromMem()\n with a writable buffer of memory instead.\n\n \\param mem a pointer to a read-only buffer to feed an SDL_RWops stream\n \\param size the buffer size, in bytes\n \\returns a pointer to a new SDL_RWops structure, or NULL if it fails; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_RWclose\n \\sa SDL_RWFromConstMem\n \\sa SDL_RWFromFile\n \\sa SDL_RWFromMem\n \\sa SDL_RWread\n \\sa SDL_RWseek\n \\sa SDL_RWtell"]
-    pub fn SDL_RWFromConstMem(mem: *const libc::c_void, size: libc::c_int) -> *mut SDL_RWops;
+    pub fn SDL_RWFromConstMem(mem: *const libc::c_void, size: usize) -> *mut SDL_RWops;
 }
 extern "C" {
     #[doc = " Use this function to allocate an empty, unpopulated SDL_RWops structure.\n\n Applications do not need to use this function unless they are providing\n their own SDL_RWops implementation. If you just need a SDL_RWops to\n read/write a common data source, you should use the built-in\n implementations in SDL, like SDL_RWFromFile() or SDL_RWFromMem(), etc.\n\n You must free the returned pointer with SDL_DestroyRW(). Depending on your\n operating system and compiler, there may be a difference between the\n malloc() and free() your program uses and the versions SDL calls\n internally. Trying to mix the two can cause crashing such as segmentation\n faults. Since all SDL_RWops must free themselves when their **close**\n method is called, all SDL_RWops must be allocated through this function, so\n they can all be freed correctly with SDL_DestroyRW().\n\n \\returns a pointer to the allocated memory on success, or NULL on failure;\n          call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroyRW"]
@@ -3213,11 +3285,11 @@ extern "C" {
     pub fn SDL_RWclose(context: *mut SDL_RWops) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Load all the data from an SDL data stream.\n\n The data is allocated with a zero byte at the end (null terminated) for\n convenience. This extra byte is not included in the value reported via\n `datasize`.\n\n The data should be freed with SDL_free().\n\n \\param src the SDL_RWops to read all available data from\n \\param datasize if not NULL, will store the number of bytes read\n \\param freesrc if non-zero, calls SDL_RWclose() on `src` before returning\n \\returns the data, or NULL if there was an error.\n\n \\since This function is available since SDL 3.0.0."]
+    #[doc = " Load all the data from an SDL data stream.\n\n The data is allocated with a zero byte at the end (null terminated) for\n convenience. This extra byte is not included in the value reported via\n `datasize`.\n\n The data should be freed with SDL_free().\n\n \\param src the SDL_RWops to read all available data from\n \\param datasize if not NULL, will store the number of bytes read\n \\param freesrc if SDL_TRUE, calls SDL_RWclose() on `src` before returning,\n                even in the case of an error\n \\returns the data, or NULL if there was an error.\n\n \\since This function is available since SDL 3.0.0."]
     pub fn SDL_LoadFile_RW(
         src: *mut SDL_RWops,
         datasize: *mut usize,
-        freesrc: libc::c_int,
+        freesrc: SDL_bool,
     ) -> *mut libc::c_void;
 }
 extern "C" {
@@ -3456,7 +3528,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Open a specific audio device.\n\n Passing in a `device` name of NULL requests the most reasonable default.\n The `device` name is a UTF-8 string reported by SDL_GetAudioDeviceName(),\n but some drivers allow arbitrary and driver-specific strings, such as a\n hostname/IP address for a remote audio server, or a filename in the\n diskaudio driver.\n\n An opened audio device starts out paused, and should be enabled for playing\n by calling SDL_PlayAudioDevice(devid) when you are ready for your audio\n callback function to be called. Since the audio driver may modify the\n requested size of the audio buffer, you should allocate any local mixing\n buffers after you open the audio device.\n\n The audio callback runs in a separate thread in most cases; you can prevent\n race conditions between your callback and other threads without fully\n pausing playback with SDL_LockAudioDevice(). For more information about the\n callback, see SDL_AudioSpec.\n\n Managing the audio spec via 'desired' and 'obtained':\n\n When filling in the desired audio spec structure:\n\n - `desired->freq` should be the frequency in sample-frames-per-second (Hz).\n - `desired->format` should be the audio format (`AUDIO_S16SYS`, etc).\n - `desired->samples` is the desired size of the audio buffer, in _sample\n   frames_ (with stereo output, two samples--left and right--would make a\n   single sample frame). This number should be a power of two, and may be\n   adjusted by the audio driver to a value more suitable for the hardware.\n   Good values seem to range between 512 and 8096 inclusive, depending on\n   the application and CPU speed. Smaller values reduce latency, but can\n   lead to underflow if the application is doing heavy processing and cannot\n   fill the audio buffer in time. Note that the number of sample frames is\n   directly related to time by the following formula: `ms =\n   (sampleframes*1000)/freq`\n - `desired->size` is the size in _bytes_ of the audio buffer, and is\n   calculated by SDL_OpenAudioDevice(). You don't initialize this.\n - `desired->silence` is the value used to set the buffer to silence, and is\n   calculated by SDL_OpenAudioDevice(). You don't initialize this.\n - `desired->callback` should be set to a function that will be called when\n   the audio device is ready for more data. It is passed a pointer to the\n   audio buffer, and the length in bytes of the audio buffer. This function\n   usually runs in a separate thread, and so you should protect data\n   structures that it accesses by calling SDL_LockAudioDevice() and\n   SDL_UnlockAudioDevice() in your code. Alternately, you may pass a NULL\n   pointer here, and call SDL_QueueAudio() with some frequency, to queue\n   more audio samples to be played (or for capture devices, call\n   SDL_DequeueAudio() with some frequency, to obtain audio samples).\n - `desired->userdata` is passed as the first parameter to your callback\n   function. If you passed a NULL callback, this value is ignored.\n\n `allowed_changes` can have the following flags OR'd together:\n\n - `SDL_AUDIO_ALLOW_FREQUENCY_CHANGE`\n - `SDL_AUDIO_ALLOW_FORMAT_CHANGE`\n - `SDL_AUDIO_ALLOW_CHANNELS_CHANGE`\n - `SDL_AUDIO_ALLOW_SAMPLES_CHANGE`\n - `SDL_AUDIO_ALLOW_ANY_CHANGE`\n\n These flags specify how SDL should behave when a device cannot offer a\n specific feature. If the application requests a feature that the hardware\n doesn't offer, SDL will always try to get the closest equivalent.\n\n For example, if you ask for float32 audio format, but the sound card only\n supports int16, SDL will set the hardware to int16. If you had set\n SDL_AUDIO_ALLOW_FORMAT_CHANGE, SDL will change the format in the `obtained`\n structure. If that flag was *not* set, SDL will prepare to convert your\n callback's float32 audio to int16 before feeding it to the hardware and\n will keep the originally requested format in the `obtained` structure.\n\n The resulting audio specs, varying depending on hardware and on what\n changes were allowed, will then be written back to `obtained`.\n\n If your application can only handle one specific data format, pass a zero\n for `allowed_changes` and let SDL transparently handle any differences.\n\n \\param device a UTF-8 string reported by SDL_GetAudioDeviceName() or a\n               driver-specific name as appropriate. NULL requests the most\n               reasonable default device.\n \\param iscapture non-zero to specify a device should be opened for\n                  recording, not playback\n \\param desired an SDL_AudioSpec structure representing the desired output\n                format\n \\param obtained an SDL_AudioSpec structure filled in with the actual output\n                 format\n \\param allowed_changes 0, or one or more flags OR'd together\n \\returns a valid device ID that is > 0 on success or 0 on failure; call\n          SDL_GetError() for more information.\n\n          For compatibility with SDL 1.2, this will never return 1, since\n          SDL reserves that ID for the legacy SDL_OpenAudio() function.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CloseAudioDevice\n \\sa SDL_GetAudioDeviceName\n \\sa SDL_LockAudioDevice\n \\sa SDL_PlayAudioDevice\n \\sa SDL_PauseAudioDevice\n \\sa SDL_UnlockAudioDevice"]
+    #[doc = " Open a specific audio device.\n\n Passing in a `device` name of NULL requests the most reasonable default.\n The `device` name is a UTF-8 string reported by SDL_GetAudioDeviceName(),\n but some drivers allow arbitrary and driver-specific strings, such as a\n hostname/IP address for a remote audio server, or a filename in the\n diskaudio driver.\n\n An opened audio device starts out paused, and should be enabled for playing\n by calling SDL_PlayAudioDevice(devid) when you are ready for your audio\n callback function to be called. Since the audio driver may modify the\n requested size of the audio buffer, you should allocate any local mixing\n buffers after you open the audio device.\n\n The audio callback runs in a separate thread in most cases; you can prevent\n race conditions between your callback and other threads without fully\n pausing playback with SDL_LockAudioDevice(). For more information about the\n callback, see SDL_AudioSpec.\n\n Managing the audio spec via 'desired' and 'obtained':\n\n When filling in the desired audio spec structure:\n\n - `desired->freq` should be the frequency in sample-frames-per-second (Hz).\n - `desired->format` should be the audio format (`SDL_AUDIO_S16SYS`, etc).\n - `desired->samples` is the desired size of the audio buffer, in _sample\n   frames_ (with stereo output, two samples--left and right--would make a\n   single sample frame). This number should be a power of two, and may be\n   adjusted by the audio driver to a value more suitable for the hardware.\n   Good values seem to range between 512 and 8096 inclusive, depending on\n   the application and CPU speed. Smaller values reduce latency, but can\n   lead to underflow if the application is doing heavy processing and cannot\n   fill the audio buffer in time. Note that the number of sample frames is\n   directly related to time by the following formula: `ms =\n   (sampleframes*1000)/freq`\n - `desired->size` is the size in _bytes_ of the audio buffer, and is\n   calculated by SDL_OpenAudioDevice(). You don't initialize this.\n - `desired->silence` is the value used to set the buffer to silence, and is\n   calculated by SDL_OpenAudioDevice(). You don't initialize this.\n - `desired->callback` should be set to a function that will be called when\n   the audio device is ready for more data. It is passed a pointer to the\n   audio buffer, and the length in bytes of the audio buffer. This function\n   usually runs in a separate thread, and so you should protect data\n   structures that it accesses by calling SDL_LockAudioDevice() and\n   SDL_UnlockAudioDevice() in your code. Alternately, you may pass a NULL\n   pointer here, and call SDL_QueueAudio() with some frequency, to queue\n   more audio samples to be played (or for capture devices, call\n   SDL_DequeueAudio() with some frequency, to obtain audio samples).\n - `desired->userdata` is passed as the first parameter to your callback\n   function. If you passed a NULL callback, this value is ignored.\n\n `allowed_changes` can have the following flags OR'd together:\n\n - `SDL_AUDIO_ALLOW_FREQUENCY_CHANGE`\n - `SDL_AUDIO_ALLOW_FORMAT_CHANGE`\n - `SDL_AUDIO_ALLOW_CHANNELS_CHANGE`\n - `SDL_AUDIO_ALLOW_SAMPLES_CHANGE`\n - `SDL_AUDIO_ALLOW_ANY_CHANGE`\n\n These flags specify how SDL should behave when a device cannot offer a\n specific feature. If the application requests a feature that the hardware\n doesn't offer, SDL will always try to get the closest equivalent.\n\n For example, if you ask for float32 audio format, but the sound card only\n supports int16, SDL will set the hardware to int16. If you had set\n SDL_AUDIO_ALLOW_FORMAT_CHANGE, SDL will change the format in the `obtained`\n structure. If that flag was *not* set, SDL will prepare to convert your\n callback's float32 audio to int16 before feeding it to the hardware and\n will keep the originally requested format in the `obtained` structure.\n\n The resulting audio specs, varying depending on hardware and on what\n changes were allowed, will then be written back to `obtained`.\n\n If your application can only handle one specific data format, pass a zero\n for `allowed_changes` and let SDL transparently handle any differences.\n\n \\param device a UTF-8 string reported by SDL_GetAudioDeviceName() or a\n               driver-specific name as appropriate. NULL requests the most\n               reasonable default device.\n \\param iscapture non-zero to specify a device should be opened for\n                  recording, not playback\n \\param desired an SDL_AudioSpec structure representing the desired output\n                format\n \\param obtained an SDL_AudioSpec structure filled in with the actual output\n                 format\n \\param allowed_changes 0, or one or more flags OR'd together\n \\returns a valid device ID that is > 0 on success or 0 on failure; call\n          SDL_GetError() for more information.\n\n          For compatibility with SDL 1.2, this will never return 1, since\n          SDL reserves that ID for the legacy SDL_OpenAudio() function.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CloseAudioDevice\n \\sa SDL_GetAudioDeviceName\n \\sa SDL_LockAudioDevice\n \\sa SDL_PlayAudioDevice\n \\sa SDL_PauseAudioDevice\n \\sa SDL_UnlockAudioDevice"]
     pub fn SDL_OpenAudioDevice(
         device: *const libc::c_char,
         iscapture: libc::c_int,
@@ -3485,10 +3557,10 @@ extern "C" {
     pub fn SDL_PauseAudioDevice(dev: SDL_AudioDeviceID) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Load the audio data of a WAVE file into memory.\n\n Loading a WAVE file requires `src`, `spec`, `audio_buf` and `audio_len` to\n be valid pointers. The entire data portion of the file is then loaded into\n memory and decoded if necessary.\n\n If `freesrc` is non-zero, the data source gets automatically closed and\n freed before the function returns.\n\n Supported formats are RIFF WAVE files with the formats PCM (8, 16, 24, and\n 32 bits), IEEE Float (32 bits), Microsoft ADPCM and IMA ADPCM (4 bits), and\n A-law and mu-law (8 bits). Other formats are currently unsupported and\n cause an error.\n\n If this function succeeds, the pointer returned by it is equal to `spec`\n and the pointer to the audio data allocated by the function is written to\n `audio_buf` and its length in bytes to `audio_len`. The SDL_AudioSpec\n members `freq`, `channels`, and `format` are set to the values of the audio\n data in the buffer. The `samples` member is set to a sane default and all\n others are set to zero.\n\n It's necessary to use SDL_free() to free the audio data returned in\n `audio_buf` when it is no longer used.\n\n Because of the underspecification of the .WAV format, there are many\n problematic files in the wild that cause issues with strict decoders. To\n provide compatibility with these files, this decoder is lenient in regards\n to the truncation of the file, the fact chunk, and the size of the RIFF\n chunk. The hints `SDL_HINT_WAVE_RIFF_CHUNK_SIZE`,\n `SDL_HINT_WAVE_TRUNCATION`, and `SDL_HINT_WAVE_FACT_CHUNK` can be used to\n tune the behavior of the loading process.\n\n Any file that is invalid (due to truncation, corruption, or wrong values in\n the headers), too big, or unsupported causes an error. Additionally, any\n critical I/O error from the data source will terminate the loading process\n with an error. The function returns NULL on error and in all cases (with\n the exception of `src` being NULL), an appropriate error message will be\n set.\n\n It is required that the data source supports seeking.\n\n Example:\n\n ```c\n SDL_LoadWAV_RW(SDL_RWFromFile(\"sample.wav\", \"rb\"), 1, &spec, &buf, &len);\n ```\n\n Note that the SDL_LoadWAV macro does this same thing for you, but in a less\n messy way:\n\n ```c\n SDL_LoadWAV(\"sample.wav\", &spec, &buf, &len);\n ```\n\n \\param src The data source for the WAVE data\n \\param freesrc If non-zero, SDL will _always_ free the data source\n \\param spec An SDL_AudioSpec that will be filled in with the wave file's\n             format details\n \\param audio_buf A pointer filled with the audio data, allocated by the\n                  function.\n \\param audio_len A pointer filled with the length of the audio data buffer\n                  in bytes\n \\returns This function, if successfully called, returns `spec`, which will\n          be filled with the audio data format of the wave source data.\n          `audio_buf` will be filled with a pointer to an allocated buffer\n          containing the audio data, and `audio_len` is filled with the\n          length of that audio buffer in bytes.\n\n          This function returns NULL if the .WAV file cannot be opened, uses\n          an unknown data format, or is corrupt; call SDL_GetError() for\n          more information.\n\n          When the application is done with the data returned in\n          `audio_buf`, it should call SDL_free() to dispose of it.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_free\n \\sa SDL_LoadWAV"]
+    #[doc = " Load the audio data of a WAVE file into memory.\n\n Loading a WAVE file requires `src`, `spec`, `audio_buf` and `audio_len` to\n be valid pointers. The entire data portion of the file is then loaded into\n memory and decoded if necessary.\n\n Supported formats are RIFF WAVE files with the formats PCM (8, 16, 24, and\n 32 bits), IEEE Float (32 bits), Microsoft ADPCM and IMA ADPCM (4 bits), and\n A-law and mu-law (8 bits). Other formats are currently unsupported and\n cause an error.\n\n If this function succeeds, the pointer returned by it is equal to `spec`\n and the pointer to the audio data allocated by the function is written to\n `audio_buf` and its length in bytes to `audio_len`. The SDL_AudioSpec\n members `freq`, `channels`, and `format` are set to the values of the audio\n data in the buffer. The `samples` member is set to a sane default and all\n others are set to zero.\n\n It's necessary to use SDL_free() to free the audio data returned in\n `audio_buf` when it is no longer used.\n\n Because of the underspecification of the .WAV format, there are many\n problematic files in the wild that cause issues with strict decoders. To\n provide compatibility with these files, this decoder is lenient in regards\n to the truncation of the file, the fact chunk, and the size of the RIFF\n chunk. The hints `SDL_HINT_WAVE_RIFF_CHUNK_SIZE`,\n `SDL_HINT_WAVE_TRUNCATION`, and `SDL_HINT_WAVE_FACT_CHUNK` can be used to\n tune the behavior of the loading process.\n\n Any file that is invalid (due to truncation, corruption, or wrong values in\n the headers), too big, or unsupported causes an error. Additionally, any\n critical I/O error from the data source will terminate the loading process\n with an error. The function returns NULL on error and in all cases (with\n the exception of `src` being NULL), an appropriate error message will be\n set.\n\n It is required that the data source supports seeking.\n\n Example:\n\n ```c\n SDL_LoadWAV_RW(SDL_RWFromFile(\"sample.wav\", \"rb\"), 1, &spec, &buf, &len);\n ```\n\n Note that the SDL_LoadWAV macro does this same thing for you, but in a less\n messy way:\n\n ```c\n SDL_LoadWAV(\"sample.wav\", &spec, &buf, &len);\n ```\n\n \\param src The data source for the WAVE data\n \\param freesrc if SDL_TRUE, calls SDL_RWclose() on `src` before returning,\n                even in the case of an error\n \\param spec An SDL_AudioSpec that will be filled in with the wave file's\n             format details\n \\param audio_buf A pointer filled with the audio data, allocated by the\n                  function\n \\param audio_len A pointer filled with the length of the audio data buffer\n                  in bytes\n \\returns This function, if successfully called, returns `spec`, which will\n          be filled with the audio data format of the wave source data.\n          `audio_buf` will be filled with a pointer to an allocated buffer\n          containing the audio data, and `audio_len` is filled with the\n          length of that audio buffer in bytes.\n\n          This function returns NULL if the .WAV file cannot be opened, uses\n          an unknown data format, or is corrupt; call SDL_GetError() for\n          more information.\n\n          When the application is done with the data returned in\n          `audio_buf`, it should call SDL_free() to dispose of it.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_free\n \\sa SDL_LoadWAV"]
     pub fn SDL_LoadWAV_RW(
         src: *mut SDL_RWops,
-        freesrc: libc::c_int,
+        freesrc: SDL_bool,
         spec: *mut SDL_AudioSpec,
         audio_buf: *mut *mut Uint8,
         audio_len: *mut Uint32,
@@ -3500,18 +3572,42 @@ pub struct SDL_AudioStream {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[doc = " Create a new audio stream.\n\n \\param src_format The format of the source audio\n \\param src_channels The number of channels of the source audio\n \\param src_rate The sampling rate of the source audio\n \\param dst_format The format of the desired audio output\n \\param dst_channels The number of channels of the desired audio output\n \\param dst_rate The sampling rate of the desired audio output\n \\returns 0 on success, or -1 on error.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_PutAudioStreamData\n \\sa SDL_GetAudioStreamData\n \\sa SDL_GetAudioStreamAvailable\n \\sa SDL_FlushAudioStream\n \\sa SDL_ClearAudioStream\n \\sa SDL_DestroyAudioStream"]
+    #[doc = " Create a new audio stream.\n\n \\param src_format The format of the source audio\n \\param src_channels The number of channels of the source audio\n \\param src_rate The sampling rate of the source audio\n \\param dst_format The format of the desired audio output\n \\param dst_channels The number of channels of the desired audio output\n \\param dst_rate The sampling rate of the desired audio output\n \\returns 0 on success, or -1 on error.\n\n \\threadsafety It is safe to call this function from any thread.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_PutAudioStreamData\n \\sa SDL_GetAudioStreamData\n \\sa SDL_GetAudioStreamAvailable\n \\sa SDL_FlushAudioStream\n \\sa SDL_ClearAudioStream\n \\sa SDL_ChangeAudioStreamOutput\n \\sa SDL_DestroyAudioStream"]
     pub fn SDL_CreateAudioStream(
         src_format: SDL_AudioFormat,
-        src_channels: Uint8,
+        src_channels: libc::c_int,
         src_rate: libc::c_int,
         dst_format: SDL_AudioFormat,
-        dst_channels: Uint8,
+        dst_channels: libc::c_int,
         dst_rate: libc::c_int,
     ) -> *mut SDL_AudioStream;
 }
 extern "C" {
-    #[doc = " Add data to be converted/resampled to the stream.\n\n \\param stream The stream the audio data is being added to\n \\param buf A pointer to the audio data to add\n \\param len The number of bytes to write to the stream\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateAudioStream\n \\sa SDL_GetAudioStreamData\n \\sa SDL_GetAudioStreamAvailable\n \\sa SDL_FlushAudioStream\n \\sa SDL_ClearAudioStream\n \\sa SDL_DestroyAudioStream"]
+    #[doc = " Query the current format of an audio stream.\n\n \\param stream the SDL_AudioStream to query.\n \\param src_format Where to store the input audio format; ignored if NULL.\n \\param src_channels Where to store the input channel count; ignored if\n                     NULL.\n \\param src_rate Where to store the input sample rate; ignored if NULL.\n \\param dst_format Where to store the output audio format; ignored if NULL.\n \\param dst_channels Where to store the output channel count; ignored if\n                     NULL.\n \\param dst_rate Where to store the output sample rate; ignored if NULL.\n \\returns 0 on success, or -1 on error.\n\n \\threadsafety It is safe to call this function from any thread, as it holds\n               a stream-specific mutex while running.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_GetAudioStreamFormat(
+        stream: *mut SDL_AudioStream,
+        src_format: *mut SDL_AudioFormat,
+        src_channels: *mut libc::c_int,
+        src_rate: *mut libc::c_int,
+        dst_format: *mut SDL_AudioFormat,
+        dst_channels: *mut libc::c_int,
+        dst_rate: *mut libc::c_int,
+    ) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Change the input and output formats of an audio stream.\n\n Future calls to and SDL_GetAudioStreamAvailable and SDL_GetAudioStreamData\n will reflect the new format, and future calls to SDL_PutAudioStreamData\n must provide data in the new input formats.\n\n \\param stream The stream the format is being changed\n \\param src_format The format of the audio input\n \\param src_channels The number of channels of the audio input\n \\param src_rate The sampling rate of the audio input\n \\param dst_format The format of the desired audio output\n \\param dst_channels The number of channels of the desired audio output\n \\param dst_rate The sampling rate of the desired audio output\n \\returns 0 on success, or -1 on error.\n\n \\threadsafety It is safe to call this function from any thread, as it holds\n               a stream-specific mutex while running.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetAudioStreamFormat\n \\sa SDL_PutAudioStreamData\n \\sa SDL_GetAudioStreamData\n \\sa SDL_GetAudioStreamAvailable"]
+    pub fn SDL_SetAudioStreamFormat(
+        stream: *mut SDL_AudioStream,
+        src_format: SDL_AudioFormat,
+        src_channels: libc::c_int,
+        src_rate: libc::c_int,
+        dst_format: SDL_AudioFormat,
+        dst_channels: libc::c_int,
+        dst_rate: libc::c_int,
+    ) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Add data to be converted/resampled to the stream.\n\n This data must match the format/channels/samplerate specified in the latest\n call to SDL_SetAudioStreamFormat, or the format specified when creating the\n stream if it hasn't been changed.\n\n Note that this call simply queues unconverted data for later. This is\n different than SDL2, where data was converted during the Put call and the\n Get call would just dequeue the previously-converted data.\n\n \\param stream The stream the audio data is being added to\n \\param buf A pointer to the audio data to add\n \\param len The number of bytes to write to the stream\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateAudioStream\n \\sa SDL_GetAudioStreamData\n \\sa SDL_GetAudioStreamAvailable\n \\sa SDL_FlushAudioStream\n \\sa SDL_ClearAudioStream\n \\sa SDL_DestroyAudioStream"]
     pub fn SDL_PutAudioStreamData(
         stream: *mut SDL_AudioStream,
         buf: *const libc::c_void,
@@ -3519,7 +3615,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get converted/resampled data from the stream\n\n \\param stream The stream the audio is being requested from\n \\param buf A buffer to fill with audio data\n \\param len The maximum number of bytes to fill\n \\returns the number of bytes read from the stream, or -1 on error\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateAudioStream\n \\sa SDL_PutAudioStreamData\n \\sa SDL_GetAudioStreamAvailable\n \\sa SDL_FlushAudioStream\n \\sa SDL_ClearAudioStream\n \\sa SDL_DestroyAudioStream"]
+    #[doc = " Get converted/resampled data from the stream.\n\n The input/output data format/channels/samplerate is specified when creating\n the stream, and can be changed after creation by calling\n SDL_SetAudioStreamFormat.\n\n Note that any conversion and resampling necessary is done during this call,\n and SDL_PutAudioStreamData simply queues unconverted data for later. This\n is different than SDL2, where that work was done while inputting new data\n to the stream and requesting the output just copied the converted data.\n\n \\param stream The stream the audio is being requested from\n \\param buf A buffer to fill with audio data\n \\param len The maximum number of bytes to fill\n \\returns the number of bytes read from the stream, or -1 on error\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateAudioStream\n \\sa SDL_PutAudioStreamData\n \\sa SDL_GetAudioStreamAvailable\n \\sa SDL_SetAudioStreamFormat\n \\sa SDL_FlushAudioStream\n \\sa SDL_ClearAudioStream\n \\sa SDL_DestroyAudioStream"]
     pub fn SDL_GetAudioStreamData(
         stream: *mut SDL_AudioStream,
         buf: *mut libc::c_void,
@@ -3527,7 +3623,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the number of converted/resampled bytes available.\n\n The stream may be buffering data behind the scenes until it has enough to\n resample correctly, so this number might be lower than what you expect, or\n even be zero. Add more data or flush the stream if you need the data now.\n\n \\param stream The audio stream to query\n \\returns the number of converted/resampled bytes available.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateAudioStream\n \\sa SDL_PutAudioStreamData\n \\sa SDL_GetAudioStreamData\n \\sa SDL_FlushAudioStream\n \\sa SDL_ClearAudioStream\n \\sa SDL_DestroyAudioStream"]
+    #[doc = " Get the number of converted/resampled bytes available.\n\n The stream may be buffering data behind the scenes until it has enough to\n resample correctly, so this number might be lower than what you expect, or\n even be zero. Add more data or flush the stream if you need the data now.\n\n If the stream has so much data that it would overflow an int, the return\n value is clamped to a maximum value, but no queued data is lost; if there\n are gigabytes of data queued, the app might need to read some of it with\n SDL_GetAudioStreamData before this function's return value is no longer\n clamped.\n\n \\param stream The audio stream to query\n \\returns the number of converted/resampled bytes available.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateAudioStream\n \\sa SDL_PutAudioStreamData\n \\sa SDL_GetAudioStreamData\n \\sa SDL_FlushAudioStream\n \\sa SDL_ClearAudioStream\n \\sa SDL_DestroyAudioStream"]
     pub fn SDL_GetAudioStreamAvailable(stream: *mut SDL_AudioStream) -> libc::c_int;
 }
 extern "C" {
@@ -3586,7 +3682,7 @@ extern "C" {
     pub fn SDL_CloseAudioDevice(dev: SDL_AudioDeviceID);
 }
 extern "C" {
-    #[doc = " Convert some audio data of one format to another format.\n\n \\param src_format The format of the source audio\n \\param src_channels The number of channels of the source audio\n \\param src_rate The sampling rate of the source audio\n \\param src_data The audio data to be converted\n \\param src_len The len of src_data\n \\param dst_format The format of the desired audio output\n \\param dst_channels The number of channels of the desired audio output\n \\param dst_rate The sampling rate of the desired audio output\n \\param dst_data Will be filled with a pointer to converted audio data,\n                 which should be freed with SDL_free(). On error, it will be\n                 NULL.\n \\param dst_len Will be filled with the len of dst_data\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateAudioStream"]
+    #[doc = " Convert some audio data of one format to another format.\n\n Please note that this function is for convenience, but should not be used\n to resample audio in blocks, as it will introduce audio artifacts on the\n boundaries. You should only use this function if you are converting audio\n data in its entirety in one call. If you want to convert audio in smaller\n chunks, use an SDL_AudioStream, which is designed for this situation.\n\n Internally, this function creates and destroys an SDL_AudioStream on each\n use, so it's also less efficient than using one directly, if you need to\n convert multiple times.\n\n \\param src_format The format of the source audio\n \\param src_channels The number of channels of the source audio\n \\param src_rate The sampling rate of the source audio\n \\param src_data The audio data to be converted\n \\param src_len The len of src_data\n \\param dst_format The format of the desired audio output\n \\param dst_channels The number of channels of the desired audio output\n \\param dst_rate The sampling rate of the desired audio output\n \\param dst_data Will be filled with a pointer to converted audio data,\n                 which should be freed with SDL_free(). On error, it will be\n                 NULL.\n \\param dst_len Will be filled with the len of dst_data\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateAudioStream"]
     pub fn SDL_ConvertAudioSamples(
         src_format: SDL_AudioFormat,
         src_channels: Uint8,
@@ -3690,6 +3786,42 @@ extern "C" {
 extern "C" {
     #[doc = " Query whether the primary selection exists and contains a non-empty text\n string.\n\n \\returns SDL_TRUE if the primary selection has text, or SDL_FALSE if it\n          does not.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetPrimarySelectionText\n \\sa SDL_SetPrimarySelectionText"]
     pub fn SDL_HasPrimarySelectionText() -> SDL_bool;
+}
+#[doc = " Callback function that will be called when data for the specified mime-type\n is requested by the OS.\n\n The callback function is called with NULL as the mime_type when the clipboard\n is cleared or new data is set. The clipboard is automatically cleared in SDL_Quit().\n\n \\param userdata  A pointer to provided user data\n \\param mime_type The requested mime-type\n \\param size      A pointer filled in with the length of the returned data\n \\returns a pointer to the data for the provided mime-type. Returning NULL or\n          setting length to 0 will cause no data to be sent to the \"receiver\". It is\n          up to the receiver to handle this. Essentially returning no data is more or\n          less undefined behavior and may cause breakage in receiving applications.\n          The returned data will not be freed so it needs to be retained and dealt\n          with internally.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_SetClipboardData"]
+pub type SDL_ClipboardDataCallback = ::core::option::Option<
+    unsafe extern "C" fn(
+        userdata: *mut libc::c_void,
+        mime_type: *const libc::c_char,
+        size: *mut usize,
+    ) -> *const libc::c_void,
+>;
+#[doc = " Callback function that will be called when the clipboard is cleared, or new data is set.\n\n \\param userdata A pointer to provided user data\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_SetClipboardData"]
+pub type SDL_ClipboardCleanupCallback =
+    ::core::option::Option<unsafe extern "C" fn(userdata: *mut libc::c_void)>;
+extern "C" {
+    #[doc = " Offer clipboard data to the OS\n\n Tell the operating system that the application is offering clipboard data\n for each of the proivded mime-types. Once another application requests the\n data the callback function will be called allowing it to generate and\n respond with the data for the requested mime-type.\n\n The size of text data does not include any terminator, and the text does\n not need to be null terminated (e.g. you can directly copy a portion of a\n document)\n\n \\param callback A function pointer to the function that provides the\n                 clipboard data\n \\param cleanup A function pointer to the function that cleans up the\n                clipboard data\n \\param userdata An opaque pointer that will be forwarded to the callbacks\n \\param mime_types A list of mime-types that are being offered\n \\param num_mime_types The number of mime-types in the mime_types list\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_ClipboardDataCallback\n \\sa SDL_SetClipboardData\n \\sa SDL_GetClipboardData\n \\sa SDL_HasClipboardData"]
+    pub fn SDL_SetClipboardData(
+        callback: SDL_ClipboardDataCallback,
+        cleanup: SDL_ClipboardCleanupCallback,
+        userdata: *mut libc::c_void,
+        mime_types: *mut *const libc::c_char,
+        num_mime_types: usize,
+    ) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Clear the clipboard data\n\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_SetClipboardData"]
+    pub fn SDL_ClearClipboardData() -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Get the data from clipboard for a given mime type\n\n The size of text data does not include the terminator, but the text is\n guaranteed to be null terminated.\n\n \\param mime_type The mime type to read from the clipboard\n \\param size A pointer filled in with the length of the returned data\n \\returns the retrieved data buffer or NULL on failure; call SDL_GetError()\n          for more information. Caller must call SDL_free() on the returned\n          pointer when done with it.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_SetClipboardData"]
+    pub fn SDL_GetClipboardData(
+        mime_type: *const libc::c_char,
+        size: *mut usize,
+    ) -> *mut libc::c_void;
+}
+extern "C" {
+    #[doc = " Query whether there is data in the clipboard for the provided mime type\n\n \\param mime_type The mime type to check for data for\n \\returns SDL_TRUE if there exists data in clipboard for the provided mime\n          type, SDL_FALSE if it does not.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_SetClipboardData\n \\sa SDL_GetClipboardData"]
+    pub fn SDL_HasClipboardData(mime_type: *const libc::c_char) -> SDL_bool;
 }
 extern "C" {
     #[doc = " Get the number of CPU cores available.\n\n \\returns the total number of logical CPU cores. On CPUs that include\n          technologies such as hyperthreading, the number of logical cores\n          may be more than the number of physical cores.\n\n \\since This function is available since SDL 3.0.0."]
@@ -4475,7 +4607,7 @@ pub struct SDL_Gamepad {
 #[derive(Copy, Clone, Hash, PartialEq, Eq)]
 pub enum SDL_GamepadType {
     SDL_GAMEPAD_TYPE_UNKNOWN = 0,
-    SDL_GAMEPAD_TYPE_VIRTUAL = 1,
+    SDL_GAMEPAD_TYPE_STANDARD = 1,
     SDL_GAMEPAD_TYPE_XBOX360 = 2,
     SDL_GAMEPAD_TYPE_XBOXONE = 3,
     SDL_GAMEPAD_TYPE_PS3 = 4,
@@ -4485,9 +4617,7 @@ pub enum SDL_GamepadType {
     SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT = 8,
     SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT = 9,
     SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR = 10,
-    SDL_GAMEPAD_TYPE_AMAZON_LUNA = 11,
-    SDL_GAMEPAD_TYPE_GOOGLE_STADIA = 12,
-    SDL_GAMEPAD_TYPE_NVIDIA_SHIELD = 13,
+    SDL_GAMEPAD_TYPE_MAX = 11,
 }
 #[repr(i32)]
 #[doc = "  The list of buttons available on a gamepad"]
@@ -4530,167 +4660,21 @@ pub enum SDL_GamepadAxis {
     SDL_GAMEPAD_AXIS_RIGHT_TRIGGER = 5,
     SDL_GAMEPAD_AXIS_MAX = 6,
 }
-#[repr(u32)]
-#[derive(Copy, Clone, Hash, PartialEq, Eq)]
-pub enum SDL_GamepadBindingType {
-    SDL_GAMEPAD_BINDTYPE_NONE = 0,
-    SDL_GAMEPAD_BINDTYPE_BUTTON = 1,
-    SDL_GAMEPAD_BINDTYPE_AXIS = 2,
-    SDL_GAMEPAD_BINDTYPE_HAT = 3,
-}
-#[doc = "  Get the SDL joystick layer binding for this gamepad button/axis mapping"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct SDL_GamepadBinding {
-    pub bindType: SDL_GamepadBindingType,
-    pub value: SDL_GamepadBinding__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union SDL_GamepadBinding__bindgen_ty_1 {
-    pub button: libc::c_int,
-    pub axis: libc::c_int,
-    pub hat: SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1 {
-    pub hat: libc::c_int,
-    pub hat_mask: libc::c_int,
-}
-#[test]
-fn bindgen_test_layout_SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1() {
-    const UNINIT: ::core::mem::MaybeUninit<SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hat) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(hat)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hat_mask) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_GamepadBinding__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(hat_mask)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_SDL_GamepadBinding__bindgen_ty_1() {
-    const UNINIT: ::core::mem::MaybeUninit<SDL_GamepadBinding__bindgen_ty_1> =
-        ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<SDL_GamepadBinding__bindgen_ty_1>(),
-        8usize,
-        concat!("Size of: ", stringify!(SDL_GamepadBinding__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<SDL_GamepadBinding__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(SDL_GamepadBinding__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).button) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_GamepadBinding__bindgen_ty_1),
-            "::",
-            stringify!(button)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).axis) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_GamepadBinding__bindgen_ty_1),
-            "::",
-            stringify!(axis)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).hat) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_GamepadBinding__bindgen_ty_1),
-            "::",
-            stringify!(hat)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_SDL_GamepadBinding() {
-    const UNINIT: ::core::mem::MaybeUninit<SDL_GamepadBinding> = ::core::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::core::mem::size_of::<SDL_GamepadBinding>(),
-        12usize,
-        concat!("Size of: ", stringify!(SDL_GamepadBinding))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<SDL_GamepadBinding>(),
-        4usize,
-        concat!("Alignment of ", stringify!(SDL_GamepadBinding))
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).bindType) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_GamepadBinding),
-            "::",
-            stringify!(bindType)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).value) as usize - ptr as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_GamepadBinding),
-            "::",
-            stringify!(value)
-        )
-    );
+extern "C" {
+    #[doc = " Add support for gamepads that SDL is unaware of or change the binding of an\n existing gamepad.\n\n The mapping string has the format \"GUID,name,mapping\", where GUID is the\n string value from SDL_GetJoystickGUIDString(), name is the human readable\n string for the device and mappings are gamepad mappings to joystick ones.\n Under Windows there is a reserved GUID of \"xinput\" that covers all XInput\n devices. The mapping format for joystick is:\n\n - `bX`: a joystick button, index X\n - `hX.Y`: hat X with value Y\n - `aX`: axis X of the joystick\n\n Buttons can be used as a gamepad axes and vice versa.\n\n This string shows an example of a valid mapping for a gamepad:\n\n ```c\n \"341a3608000000000000504944564944,Afterglow PS3 Controller,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,back:b8,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftshoulder:b4,rightshoulder:b5,leftstick:b10,rightstick:b11,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,righttrigger:b7\"\n ```\n\n \\param mapping the mapping string\n \\returns 1 if a new mapping is added, 0 if an existing mapping is updated,\n          -1 on error; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadMapping\n \\sa SDL_GetGamepadMappingForGUID"]
+    pub fn SDL_AddGamepadMapping(mapping: *const libc::c_char) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Add support for gamepads that SDL is unaware of or change the binding of an\n existing gamepad.\n\n The mapping string has the format \"GUID,name,mapping\", where GUID is the\n string value from SDL_GetJoystickGUIDString(), name is the human readable\n string for the device and mappings are gamepad mappings to joystick ones.\n Under Windows there is a reserved GUID of \"xinput\" that covers all XInput\n devices. The mapping format for joystick is:\n\n - `bX`: a joystick button, index X\n - `hX.Y`: hat X with value Y\n - `aX`: axis X of the joystick\n\n Buttons can be used as a gamepad axes and vice versa.\n\n This string shows an example of a valid mapping for a gamepad:\n\n ```c\n \"341a3608000000000000504944564944,Afterglow PS3 Controller,a:b1,b:b2,y:b3,x:b0,start:b9,guide:b12,back:b8,dpup:h0.1,dpleft:h0.8,dpdown:h0.4,dpright:h0.2,leftshoulder:b4,rightshoulder:b5,leftstick:b10,rightstick:b11,leftx:a0,lefty:a1,rightx:a2,righty:a3,lefttrigger:b6,righttrigger:b7\"\n ```\n\n \\param mappingString the mapping string\n \\returns 1 if a new mapping is added, 0 if an existing mapping is updated,\n          -1 on error; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadMapping\n \\sa SDL_GetGamepadMappingForGUID"]
-    pub fn SDL_AddGamepadMapping(mappingString: *const libc::c_char) -> libc::c_int;
+    #[doc = " Load a set of gamepad mappings from a seekable SDL data stream.\n\n You can call this function several times, if needed, to load different\n database files.\n\n If a new mapping is loaded for an already known gamepad GUID, the later\n version will overwrite the one currently loaded.\n\n Mappings not belonging to the current platform or with no platform field\n specified will be ignored (i.e. mappings for Linux will be ignored in\n Windows, etc).\n\n This function will load the text database entirely in memory before\n processing it, so take this into consideration if you are in a memory\n constrained environment.\n\n \\param src the data stream for the mappings to be added\n \\param freesrc non-zero to close the stream after being read\n \\returns the number of mappings added or -1 on error; call SDL_GetError()\n          for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_AddGamepadMapping\n \\sa SDL_AddGamepadMappingsFromFile\n \\sa SDL_GetGamepadMappingForGUID"]
+    pub fn SDL_AddGamepadMappingsFromRW(src: *mut SDL_RWops, freesrc: libc::c_int) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Load a set of gamepad mappings from a seekable SDL data stream.\n\n You can call this function several times, if needed, to load different\n database files.\n\n If a new mapping is loaded for an already known gamepad GUID, the later\n version will overwrite the one currently loaded.\n\n Mappings not belonging to the current platform or with no platform field\n specified will be ignored (i.e. mappings for Linux will be ignored in\n Windows, etc).\n\n This function will load the text database entirely in memory before\n processing it, so take this into consideration if you are in a memory\n constrained environment.\n\n \\param rw the data stream for the mappings to be added\n \\param freerw non-zero to close the stream after being read\n \\returns the number of mappings added or -1 on error; call SDL_GetError()\n          for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_AddGamepadMapping\n \\sa SDL_AddGamepadMappingsFromFile\n \\sa SDL_GetGamepadMappingForGUID"]
-    pub fn SDL_AddGamepadMappingsFromRW(rw: *mut SDL_RWops, freerw: libc::c_int) -> libc::c_int;
+    #[doc = " Load a set of gamepad mappings from a file.\n\n You can call this function several times, if needed, to load different\n database files.\n\n If a new mapping is loaded for an already known gamepad GUID, the later\n version will overwrite the one currently loaded.\n\n Mappings not belonging to the current platform or with no platform field\n specified will be ignored (i.e. mappings for Linux will be ignored in\n Windows, etc).\n\n \\param file the mappings file to load\n \\returns the number of mappings added or -1 on error; call SDL_GetError()\n          for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_AddGamepadMapping\n \\sa SDL_AddGamepadMappingsFromRW\n \\sa SDL_GetGamepadMappingForGUID"]
+    pub fn SDL_AddGamepadMappingsFromFile(file: *const libc::c_char) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Reinitialize the SDL mapping database to its initial state.\n\n This will generate gamepad events as needed if device mappings change.\n\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_ReloadGamepadMappings() -> libc::c_int;
 }
 extern "C" {
     #[doc = " Get the number of mappings installed.\n\n \\returns the number of mappings.\n\n \\since This function is available since SDL 3.0.0."]
@@ -4705,8 +4689,15 @@ extern "C" {
     pub fn SDL_GetGamepadMappingForGUID(guid: SDL_JoystickGUID) -> *mut libc::c_char;
 }
 extern "C" {
-    #[doc = " Get the current mapping of a gamepad.\n\n The returned string must be freed with SDL_free().\n\n Details about mappings are discussed with SDL_AddGamepadMapping().\n\n \\param gamepad the gamepad you want to get the current mapping for\n \\returns a string that has the gamepad's mapping or NULL if no mapping is\n          available; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_AddGamepadMapping\n \\sa SDL_GetGamepadMappingForGUID"]
+    #[doc = " Get the current mapping of a gamepad.\n\n The returned string must be freed with SDL_free().\n\n Details about mappings are discussed with SDL_AddGamepadMapping().\n\n \\param gamepad the gamepad you want to get the current mapping for\n \\returns a string that has the gamepad's mapping or NULL if no mapping is\n          available; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_AddGamepadMapping\n \\sa SDL_GetGamepadMappingForGUID\n \\sa SDL_SetGamepadMapping"]
     pub fn SDL_GetGamepadMapping(gamepad: *mut SDL_Gamepad) -> *mut libc::c_char;
+}
+extern "C" {
+    #[doc = " Set the current mapping of a joystick or gamepad.\n\n Details about mappings are discussed with SDL_AddGamepadMapping().\n\n \\param instance_id the joystick instance ID\n \\param mapping the mapping to use for this device, or NULL to clear the\n                mapping\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_AddGamepadMapping\n \\sa SDL_GetGamepadMapping"]
+    pub fn SDL_SetGamepadMapping(
+        instance_id: SDL_JoystickID,
+        mapping: *const libc::c_char,
+    ) -> libc::c_int;
 }
 extern "C" {
     #[doc = " Get a list of currently connected gamepads.\n\n \\param count a pointer filled in with the number of gamepads returned\n \\returns a 0 terminated array of joystick instance IDs which should be\n          freed with SDL_free(), or NULL on error; call SDL_GetError() for\n          more details.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_OpenGamepad"]
@@ -4749,6 +4740,10 @@ extern "C" {
     pub fn SDL_GetGamepadInstanceType(instance_id: SDL_JoystickID) -> SDL_GamepadType;
 }
 extern "C" {
+    #[doc = " Get the type of a gamepad, ignoring any mapping override.\n\n This can be called before any gamepads are opened.\n\n \\param instance_id the joystick instance ID\n \\returns the gamepad type.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_GetRealGamepadInstanceType(instance_id: SDL_JoystickID) -> SDL_GamepadType;
+}
+extern "C" {
     #[doc = " Get the mapping of a gamepad.\n\n This can be called before any gamepads are opened.\n\n \\param instance_id the joystick instance ID\n \\returns the mapping string. Must be freed with SDL_free(). Returns NULL if\n          no mapping is available.\n\n \\since This function is available since SDL 3.0.0."]
     pub fn SDL_GetGamepadInstanceMapping(instance_id: SDL_JoystickID) -> *mut libc::c_char;
 }
@@ -4765,16 +4760,24 @@ extern "C" {
     pub fn SDL_GetGamepadFromPlayerIndex(player_index: libc::c_int) -> *mut SDL_Gamepad;
 }
 extern "C" {
-    #[doc = " Get the implementation-dependent name for an opened gamepad.\n\n This is the same name as returned by SDL_GetGamepadNameForIndex(), but it\n takes a gamepad identifier instead of the (unstable) device index.\n\n \\param gamepad a gamepad identifier previously returned by\n                SDL_OpenGamepad()\n \\returns the implementation dependent name for the gamepad, or NULL if\n          there is no name or the identifier passed is invalid.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadNameForIndex\n \\sa SDL_OpenGamepad"]
+    #[doc = " Get the instance ID of an opened gamepad.\n\n \\param gamepad a gamepad identifier previously returned by\n                SDL_OpenGamepad()\n \\returns the instance ID of the specified gamepad on success or 0 on\n          failure; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_OpenGamepad"]
+    pub fn SDL_GetGamepadInstanceID(gamepad: *mut SDL_Gamepad) -> SDL_JoystickID;
+}
+extern "C" {
+    #[doc = " Get the implementation-dependent name for an opened gamepad.\n\n \\param gamepad a gamepad identifier previously returned by\n                SDL_OpenGamepad()\n \\returns the implementation dependent name for the gamepad, or NULL if\n          there is no name or the identifier passed is invalid.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadNameForIndex\n \\sa SDL_OpenGamepad"]
     pub fn SDL_GetGamepadName(gamepad: *mut SDL_Gamepad) -> *const libc::c_char;
 }
 extern "C" {
-    #[doc = " Get the implementation-dependent path for an opened gamepad.\n\n This is the same path as returned by SDL_GetGamepadNameForIndex(), but it\n takes a gamepad identifier instead of the (unstable) device index.\n\n \\param gamepad a gamepad identifier previously returned by\n                SDL_OpenGamepad()\n \\returns the implementation dependent path for the gamepad, or NULL if\n          there is no path or the identifier passed is invalid.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadInstancePath"]
+    #[doc = " Get the implementation-dependent path for an opened gamepad.\n\n \\param gamepad a gamepad identifier previously returned by\n                SDL_OpenGamepad()\n \\returns the implementation dependent path for the gamepad, or NULL if\n          there is no path or the identifier passed is invalid.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadInstancePath"]
     pub fn SDL_GetGamepadPath(gamepad: *mut SDL_Gamepad) -> *const libc::c_char;
 }
 extern "C" {
-    #[doc = " Get the type of this currently opened gamepad\n\n This is the same name as returned by SDL_GetGamepadInstanceType(), but it\n takes a gamepad identifier instead of the (unstable) device index.\n\n \\param gamepad the gamepad object to query.\n \\returns the gamepad type.\n\n \\since This function is available since SDL 3.0.0."]
+    #[doc = " Get the type of an opened gamepad.\n\n \\param gamepad the gamepad object to query.\n \\returns the gamepad type, or SDL_GAMEPAD_TYPE_UNKNOWN if it's not\n          available.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadInstanceType"]
     pub fn SDL_GetGamepadType(gamepad: *mut SDL_Gamepad) -> SDL_GamepadType;
+}
+extern "C" {
+    #[doc = " Get the type of an opened gamepad, ignoring any mapping override.\n\n \\param gamepad the gamepad object to query.\n \\returns the gamepad type, or SDL_GAMEPAD_TYPE_UNKNOWN if it's not\n          available.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetRealGamepadInstanceType"]
+    pub fn SDL_GetRealGamepadType(gamepad: *mut SDL_Gamepad) -> SDL_GamepadType;
 }
 extern "C" {
     #[doc = " Get the player index of an opened gamepad.\n\n For XInput gamepads this returns the XInput user index.\n\n \\param gamepad the gamepad object to query.\n \\returns the player index for gamepad, or -1 if it's not available.\n\n \\since This function is available since SDL 3.0.0."]
@@ -4808,6 +4811,10 @@ extern "C" {
     pub fn SDL_GetGamepadSerial(gamepad: *mut SDL_Gamepad) -> *const libc::c_char;
 }
 extern "C" {
+    #[doc = " Get the battery level of a gamepad, if available.\n\n \\param gamepad a gamepad identifier previously returned by\n                SDL_OpenGamepad()\n \\returns the current battery level as SDL_JoystickPowerLevel on success or\n          `SDL_JOYSTICK_POWER_UNKNOWN` if it is unknown\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_GetGamepadPowerLevel(gamepad: *mut SDL_Gamepad) -> SDL_JoystickPowerLevel;
+}
+extern "C" {
     #[doc = " Check if a gamepad has been opened and is currently connected.\n\n \\param gamepad a gamepad identifier previously returned by\n                SDL_OpenGamepad()\n \\returns SDL_TRUE if the gamepad has been opened and is currently\n          connected, or SDL_FALSE if not.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CloseGamepad\n \\sa SDL_OpenGamepad"]
     pub fn SDL_GamepadConnected(gamepad: *mut SDL_Gamepad) -> SDL_bool;
 }
@@ -4828,19 +4835,20 @@ extern "C" {
     pub fn SDL_UpdateGamepads();
 }
 extern "C" {
+    #[doc = " Convert a string into SDL_GamepadType enum.\n\n This function is called internally to translate SDL_Gamepad mapping strings\n for the underlying joystick device into the consistent SDL_Gamepad mapping.\n You do not normally need to call this function unless you are parsing\n SDL_Gamepad mappings in your own code.\n\n \\param str string representing a SDL_GamepadType type\n \\returns the SDL_GamepadType enum corresponding to the input string, or\n          `SDL_GAMEPAD_TYPE_UNKNOWN` if no match was found.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadStringForType"]
+    pub fn SDL_GetGamepadTypeFromString(str_: *const libc::c_char) -> SDL_GamepadType;
+}
+extern "C" {
+    #[doc = " Convert from an SDL_GamepadType enum to a string.\n\n The caller should not SDL_free() the returned string.\n\n \\param type an enum value for a given SDL_GamepadType\n \\returns a string for the given type, or NULL if an invalid type is\n          specified. The string returned is of the format used by\n          SDL_Gamepad mapping strings.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadTypeFromString"]
+    pub fn SDL_GetGamepadStringForType(type_: SDL_GamepadType) -> *const libc::c_char;
+}
+extern "C" {
     #[doc = " Convert a string into SDL_GamepadAxis enum.\n\n This function is called internally to translate SDL_Gamepad mapping strings\n for the underlying joystick device into the consistent SDL_Gamepad mapping.\n You do not normally need to call this function unless you are parsing\n SDL_Gamepad mappings in your own code.\n\n Note specially that \"righttrigger\" and \"lefttrigger\" map to\n `SDL_GAMEPAD_AXIS_RIGHT_TRIGGER` and `SDL_GAMEPAD_AXIS_LEFT_TRIGGER`,\n respectively.\n\n \\param str string representing a SDL_Gamepad axis\n \\returns the SDL_GamepadAxis enum corresponding to the input string, or\n          `SDL_GAMEPAD_AXIS_INVALID` if no match was found.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadStringForAxis"]
     pub fn SDL_GetGamepadAxisFromString(str_: *const libc::c_char) -> SDL_GamepadAxis;
 }
 extern "C" {
     #[doc = " Convert from an SDL_GamepadAxis enum to a string.\n\n The caller should not SDL_free() the returned string.\n\n \\param axis an enum value for a given SDL_GamepadAxis\n \\returns a string for the given axis, or NULL if an invalid axis is\n          specified. The string returned is of the format used by\n          SDL_Gamepad mapping strings.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadAxisFromString"]
     pub fn SDL_GetGamepadStringForAxis(axis: SDL_GamepadAxis) -> *const libc::c_char;
-}
-extern "C" {
-    #[doc = " Get the SDL joystick layer binding for a gamepad axis mapping.\n\n \\param gamepad a gamepad\n \\param axis an axis enum value (one of the SDL_GamepadAxis values)\n \\returns a SDL_GamepadBinding describing the bind. On failure (like the\n          given Controller axis doesn't exist on the device), its\n          `.bindType` will be `SDL_GAMEPAD_BINDTYPE_NONE`.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadBindForButton"]
-    pub fn SDL_GetGamepadBindForAxis(
-        gamepad: *mut SDL_Gamepad,
-        axis: SDL_GamepadAxis,
-    ) -> SDL_GamepadBinding;
 }
 extern "C" {
     #[doc = " Query whether a gamepad has a given axis.\n\n This merely reports whether the gamepad's mapping defined this axis, as\n that is all the information SDL has about the physical device.\n\n \\param gamepad a gamepad\n \\param axis an axis enum value (an SDL_GamepadAxis value)\n \\returns SDL_TRUE if the gamepad has this axis, SDL_FALSE otherwise.\n\n \\since This function is available since SDL 3.0.0."]
@@ -4857,13 +4865,6 @@ extern "C" {
 extern "C" {
     #[doc = " Convert from an SDL_GamepadButton enum to a string.\n\n The caller should not SDL_free() the returned string.\n\n \\param button an enum value for a given SDL_GamepadButton\n \\returns a string for the given button, or NULL if an invalid button is\n          specified. The string returned is of the format used by\n          SDL_Gamepad mapping strings.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadButtonFromString"]
     pub fn SDL_GetGamepadStringForButton(button: SDL_GamepadButton) -> *const libc::c_char;
-}
-extern "C" {
-    #[doc = " Get the SDL joystick layer binding for a gamepad button mapping.\n\n \\param gamepad a gamepad\n \\param button an button enum value (an SDL_GamepadButton value)\n \\returns a SDL_GamepadBinding describing the bind. On failure (like the\n          given Controller button doesn't exist on the device), its\n          `.bindType` will be `SDL_GAMEPAD_BINDTYPE_NONE`.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGamepadBindForAxis"]
-    pub fn SDL_GetGamepadBindForButton(
-        gamepad: *mut SDL_Gamepad,
-        button: SDL_GamepadButton,
-    ) -> SDL_GamepadBinding;
 }
 extern "C" {
     #[doc = " Query whether a gamepad has a given button.\n\n This merely reports whether the gamepad's mapping defined this button, as\n that is all the information SDL has about the physical device.\n\n \\param gamepad a gamepad\n \\param button a button enum value (an SDL_GamepadButton value)\n \\returns SDL_TRUE if the gamepad has this button, SDL_FALSE otherwise.\n\n \\since This function is available since SDL 3.0.0."]
@@ -5294,7 +5295,7 @@ pub enum SDL_Scancode {
     #[doc = "< not a key, just marks the number of scancodes\nfor array bounds"]
     SDL_NUM_SCANCODES = 512,
 }
-#[doc = "  \\brief The SDL virtual key representation.\n\n  Values of this type are used to represent keyboard keys using the current\n  layout of the keyboard.  These values include Unicode values representing\n  the unmodified character that would be generated by pressing the key, or\n  an SDLK_* constant for those keys that do not generate characters.\n\n  A special exception is the number keys at the top of the keyboard which\n  always map to SDLK_0...SDLK_9, regardless of layout."]
+#[doc = "  \\brief The SDL virtual key representation.\n\n  Values of this type are used to represent keyboard keys using the current\n  layout of the keyboard.  These values include Unicode values representing\n  the unmodified character that would be generated by pressing the key, or\n  an SDLK_* constant for those keys that do not generate characters.\n\n  A special exception is the number keys at the top of the keyboard which\n  map to SDLK_0...SDLK_9 on AZERTY layouts."]
 pub type SDL_Keycode = Sint32;
 #[repr(u32)]
 #[derive(Copy, Clone, Hash, PartialEq, Eq)]
@@ -5647,14 +5648,6 @@ impl SDL_PixelFormatEnum {
         SDL_PixelFormatEnum::SDL_PIXELFORMAT_XBGR1555;
 }
 impl SDL_PixelFormatEnum {
-    pub const SDL_PIXELFORMAT_RGB888: SDL_PixelFormatEnum =
-        SDL_PixelFormatEnum::SDL_PIXELFORMAT_XRGB8888;
-}
-impl SDL_PixelFormatEnum {
-    pub const SDL_PIXELFORMAT_BGR888: SDL_PixelFormatEnum =
-        SDL_PixelFormatEnum::SDL_PIXELFORMAT_XBGR8888;
-}
-impl SDL_PixelFormatEnum {
     pub const SDL_PIXELFORMAT_RGBA32: SDL_PixelFormatEnum =
         SDL_PixelFormatEnum::SDL_PIXELFORMAT_ABGR8888;
 }
@@ -5669,6 +5662,22 @@ impl SDL_PixelFormatEnum {
 impl SDL_PixelFormatEnum {
     pub const SDL_PIXELFORMAT_ABGR32: SDL_PixelFormatEnum =
         SDL_PixelFormatEnum::SDL_PIXELFORMAT_RGBA8888;
+}
+impl SDL_PixelFormatEnum {
+    pub const SDL_PIXELFORMAT_RGBX32: SDL_PixelFormatEnum =
+        SDL_PixelFormatEnum::SDL_PIXELFORMAT_XBGR8888;
+}
+impl SDL_PixelFormatEnum {
+    pub const SDL_PIXELFORMAT_XRGB32: SDL_PixelFormatEnum =
+        SDL_PixelFormatEnum::SDL_PIXELFORMAT_BGRX8888;
+}
+impl SDL_PixelFormatEnum {
+    pub const SDL_PIXELFORMAT_BGRX32: SDL_PixelFormatEnum =
+        SDL_PixelFormatEnum::SDL_PIXELFORMAT_XRGB8888;
+}
+impl SDL_PixelFormatEnum {
+    pub const SDL_PIXELFORMAT_XBGR32: SDL_PixelFormatEnum =
+        SDL_PixelFormatEnum::SDL_PIXELFORMAT_RGBX8888;
 }
 #[repr(u32)]
 #[derive(Copy, Clone, Hash, PartialEq, Eq)]
@@ -6633,9 +6642,9 @@ fn bindgen_test_layout_SDL_Surface() {
 pub type SDL_blit = ::core::option::Option<
     unsafe extern "C" fn(
         src: *mut SDL_Surface,
-        srcrect: *mut SDL_Rect,
+        srcrect: *const SDL_Rect,
         dst: *mut SDL_Surface,
-        dstrect: *mut SDL_Rect,
+        dstrect: *const SDL_Rect,
     ) -> libc::c_int,
 >;
 #[repr(u32)]
@@ -6660,7 +6669,7 @@ extern "C" {
     ) -> *mut SDL_Surface;
 }
 extern "C" {
-    #[doc = " Allocate a new RGB surface with with a specific pixel format and existing\n pixel data.\n\n No copy is made of the pixel data. Pixel data is not managed automatically;\n you must free the surface before you free the pixel data.\n\n You may pass NULL for pixels and 0 for pitch to create a surface that you\n will fill in with valid values later.\n\n \\param pixels a pointer to existing pixel data\n \\param width the width of the surface\n \\param height the height of the surface\n \\param pitch the pitch of the surface in bytes\n \\param format the SDL_PixelFormatEnum for the new surface's pixel format.\n \\returns the new SDL_Surface structure that is created or NULL if it fails;\n          call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSurface\n \\sa SDL_DestroySurface"]
+    #[doc = " Allocate a new RGB surface with a specific pixel format and existing pixel\n data.\n\n No copy is made of the pixel data. Pixel data is not managed automatically;\n you must free the surface before you free the pixel data.\n\n Pitch is the offset in bytes from one row of pixels to the next, e.g.\n `width*4` for `SDL_PIXELFORMAT_RGBA8888`.\n\n You may pass NULL for pixels and 0 for pitch to create a surface that you\n will fill in with valid values later.\n\n \\param pixels a pointer to existing pixel data\n \\param width the width of the surface\n \\param height the height of the surface\n \\param pitch the pitch of the surface in bytes\n \\param format the SDL_PixelFormatEnum for the new surface's pixel format.\n \\returns the new SDL_Surface structure that is created or NULL if it fails;\n          call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSurface\n \\sa SDL_DestroySurface"]
     pub fn SDL_CreateSurfaceFrom(
         pixels: *mut libc::c_void,
         width: libc::c_int,
@@ -6689,8 +6698,12 @@ extern "C" {
     pub fn SDL_UnlockSurface(surface: *mut SDL_Surface);
 }
 extern "C" {
-    #[doc = " Load a BMP image from a seekable SDL data stream.\n\n The new surface should be freed with SDL_DestroySurface(). Not doing so\n will result in a memory leak.\n\n src is an open SDL_RWops buffer, typically loaded with SDL_RWFromFile.\n Alternitavely, you might also use the macro SDL_LoadBMP to load a bitmap\n from a file, convert it to an SDL_Surface and then close the file.\n\n \\param src the data stream for the surface\n \\param freesrc non-zero to close the stream after being read\n \\returns a pointer to a new SDL_Surface structure or NULL if there was an\n          error; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroySurface\n \\sa SDL_RWFromFile\n \\sa SDL_LoadBMP\n \\sa SDL_SaveBMP_RW"]
-    pub fn SDL_LoadBMP_RW(src: *mut SDL_RWops, freesrc: libc::c_int) -> *mut SDL_Surface;
+    #[doc = " Load a BMP image from a seekable SDL data stream.\n\n The new surface should be freed with SDL_DestroySurface(). Not doing so\n will result in a memory leak.\n\n \\param src the data stream for the surface\n \\param freesrc if SDL_TRUE, calls SDL_RWclose() on `src` before returning,\n                even in the case of an error\n \\returns a pointer to a new SDL_Surface structure or NULL if there was an\n          error; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroySurface\n \\sa SDL_LoadBMP\n \\sa SDL_SaveBMP_RW"]
+    pub fn SDL_LoadBMP_RW(src: *mut SDL_RWops, freesrc: SDL_bool) -> *mut SDL_Surface;
+}
+extern "C" {
+    #[doc = " Load a BMP image from a file.\n\n The new surface should be freed with SDL_DestroySurface(). Not doing so\n will result in a memory leak.\n\n \\param file the BMP file to load\n \\returns a pointer to a new SDL_Surface structure or NULL if there was an\n          error; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroySurface\n \\sa SDL_LoadBMP_RW\n \\sa SDL_SaveBMP"]
+    pub fn SDL_LoadBMP(file: *const libc::c_char) -> *mut SDL_Surface;
 }
 extern "C" {
     #[doc = " Save a surface to a seekable SDL data stream in BMP format.\n\n Surfaces with a 24-bit, 32-bit and paletted 8-bit format get saved in the\n BMP directly. Other RGB formats with 8-bit or higher get converted to a\n 24-bit surface or, if they have an alpha mask or a colorkey, to a 32-bit\n surface before they are saved. YUV and paletted 1-bit and 4-bit formats are\n not supported.\n\n \\param surface the SDL_Surface structure containing the image to be saved\n \\param dst a data stream to save to\n \\param freedst non-zero to close the stream after being written\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_LoadBMP_RW\n \\sa SDL_SaveBMP"]
@@ -6699,6 +6712,10 @@ extern "C" {
         dst: *mut SDL_RWops,
         freedst: libc::c_int,
     ) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Save a surface to a file.\n\n Surfaces with a 24-bit, 32-bit and paletted 8-bit format get saved in the\n BMP directly. Other RGB formats with 8-bit or higher get converted to a\n 24-bit surface or, if they have an alpha mask or a colorkey, to a 32-bit\n surface before they are saved. YUV and paletted 1-bit and 4-bit formats are\n not supported.\n\n \\param surface the SDL_Surface structure containing the image to be saved\n \\param file a file to save to\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_LoadBMP\n \\sa SDL_SaveBMP_RW"]
+    pub fn SDL_SaveBMP(surface: *mut SDL_Surface, file: *const libc::c_char) -> libc::c_int;
 }
 extern "C" {
     #[doc = " Set the RLE acceleration hint for a surface.\n\n If RLE is enabled, color key and alpha blending blits are much faster, but\n the surface must be locked before directly accessing the pixels.\n\n \\param surface the SDL_Surface structure to optimize\n \\param flag 0 to disable, non-zero to enable RLE acceleration\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BlitSurface\n \\sa SDL_LockSurface\n \\sa SDL_UnlockSurface"]
@@ -6833,7 +6850,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Performs a fast blit from the source surface to the destination surface.\n\n This assumes that the source and destination rectangles are the same size.\n If either `srcrect` or `dstrect` are NULL, the entire surface (`src` or\n `dst`) is copied. The final blit rectangles are saved in `srcrect` and\n `dstrect` after all clipping is performed.\n\n The blit function should not be called on a locked surface.\n\n The blit semantics for surfaces with and without blending and colorkey are\n defined as follows:\n\n ```c\n    RGBA->RGB:\n      Source surface blend mode set to SDL_BLENDMODE_BLEND:\n       alpha-blend (using the source alpha-channel and per-surface alpha)\n       SDL_SRCCOLORKEY ignored.\n     Source surface blend mode set to SDL_BLENDMODE_NONE:\n       copy RGB.\n       if SDL_SRCCOLORKEY set, only copy the pixels matching the\n       RGB values of the source color key, ignoring alpha in the\n       comparison.\n\n   RGB->RGBA:\n     Source surface blend mode set to SDL_BLENDMODE_BLEND:\n       alpha-blend (using the source per-surface alpha)\n     Source surface blend mode set to SDL_BLENDMODE_NONE:\n       copy RGB, set destination alpha to source per-surface alpha value.\n     both:\n       if SDL_SRCCOLORKEY set, only copy the pixels matching the\n       source color key.\n\n   RGBA->RGBA:\n     Source surface blend mode set to SDL_BLENDMODE_BLEND:\n       alpha-blend (using the source alpha-channel and per-surface alpha)\n       SDL_SRCCOLORKEY ignored.\n     Source surface blend mode set to SDL_BLENDMODE_NONE:\n       copy all of RGBA to the destination.\n       if SDL_SRCCOLORKEY set, only copy the pixels matching the\n       RGB values of the source color key, ignoring alpha in the\n       comparison.\n\n   RGB->RGB:\n     Source surface blend mode set to SDL_BLENDMODE_BLEND:\n       alpha-blend (using the source per-surface alpha)\n     Source surface blend mode set to SDL_BLENDMODE_NONE:\n       copy RGB.\n     both:\n       if SDL_SRCCOLORKEY set, only copy the pixels matching the\n       source color key.\n ```\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied, or NULL to copy the entire surface\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the rectangle that is\n                copied into\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BlitSurface"]
+    #[doc = " Performs a fast blit from the source surface to the destination surface.\n\n This assumes that the source and destination rectangles are the same size.\n If either `srcrect` or `dstrect` are NULL, the entire surface (`src` or\n `dst`) is copied. The final blit rectangles are saved in `srcrect` and\n `dstrect` after all clipping is performed.\n\n The blit function should not be called on a locked surface.\n\n The blit semantics for surfaces with and without blending and colorkey are\n defined as follows:\n\n ```c\n    RGBA->RGB:\n      Source surface blend mode set to SDL_BLENDMODE_BLEND:\n       alpha-blend (using the source alpha-channel and per-surface alpha)\n       SDL_SRCCOLORKEY ignored.\n     Source surface blend mode set to SDL_BLENDMODE_NONE:\n       copy RGB.\n       if SDL_SRCCOLORKEY set, only copy the pixels matching the\n       RGB values of the source color key, ignoring alpha in the\n       comparison.\n\n   RGB->RGBA:\n     Source surface blend mode set to SDL_BLENDMODE_BLEND:\n       alpha-blend (using the source per-surface alpha)\n     Source surface blend mode set to SDL_BLENDMODE_NONE:\n       copy RGB, set destination alpha to source per-surface alpha value.\n     both:\n       if SDL_SRCCOLORKEY set, only copy the pixels matching the\n       source color key.\n\n   RGBA->RGBA:\n     Source surface blend mode set to SDL_BLENDMODE_BLEND:\n       alpha-blend (using the source alpha-channel and per-surface alpha)\n       SDL_SRCCOLORKEY ignored.\n     Source surface blend mode set to SDL_BLENDMODE_NONE:\n       copy all of RGBA to the destination.\n       if SDL_SRCCOLORKEY set, only copy the pixels matching the\n       RGB values of the source color key, ignoring alpha in the\n       comparison.\n\n   RGB->RGB:\n     Source surface blend mode set to SDL_BLENDMODE_BLEND:\n       alpha-blend (using the source per-surface alpha)\n     Source surface blend mode set to SDL_BLENDMODE_NONE:\n       copy RGB.\n     both:\n       if SDL_SRCCOLORKEY set, only copy the pixels matching the\n       source color key.\n ```\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied, or NULL to copy the entire surface\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the target rectangle in\n                the destination surface, filled with the actual rectangle\n                used after clipping\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BlitSurface"]
     pub fn SDL_BlitSurface(
         src: *mut SDL_Surface,
         srcrect: *const SDL_Rect,
@@ -6842,16 +6859,16 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Perform low-level surface blitting only.\n\n This is a semi-private blit function and it performs low-level surface\n blitting, assuming the input rectangles have already been clipped.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied, or NULL to copy the entire surface\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the rectangle that is\n                copied into\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BlitSurface"]
+    #[doc = " Perform low-level surface blitting only.\n\n This is a semi-private blit function and it performs low-level surface\n blitting, assuming the input rectangles have already been clipped.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied, or NULL to copy the entire surface\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the target rectangle in\n                the destination surface\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BlitSurface"]
     pub fn SDL_BlitSurfaceUnchecked(
         src: *mut SDL_Surface,
-        srcrect: *mut SDL_Rect,
+        srcrect: *const SDL_Rect,
         dst: *mut SDL_Surface,
-        dstrect: *mut SDL_Rect,
+        dstrect: *const SDL_Rect,
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Perform a fast, low quality, stretch blit between two surfaces of the same\n format.\n\n **WARNING**: Please use SDL_BlitScaled() instead.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the rectangle that is\n                copied into\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
+    #[doc = " Perform a fast, low quality, stretch blit between two surfaces of the same\n format.\n\n **WARNING**: Please use SDL_BlitSurfaceScaled() instead.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the target rectangle in\n                the destination surface\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
     pub fn SDL_SoftStretch(
         src: *mut SDL_Surface,
         srcrect: *const SDL_Rect,
@@ -6860,7 +6877,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Perform bilinear scaling between two surfaces of the same format, 32BPP.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the rectangle that is\n                copied into\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
+    #[doc = " Perform bilinear scaling between two surfaces of the same format, 32BPP.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the target rectangle in\n                the destination surface\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
     pub fn SDL_SoftStretchLinear(
         src: *mut SDL_Surface,
         srcrect: *const SDL_Rect,
@@ -6869,7 +6886,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Perform a scaled surface copy to a destination surface.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the rectangle that is\n                copied into\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BlitScaled"]
+    #[doc = " Perform a scaled surface copy to a destination surface.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the target rectangle in\n                the destination surface, filled with the actual rectangle\n                used after clipping\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
     pub fn SDL_BlitSurfaceScaled(
         src: *mut SDL_Surface,
         srcrect: *const SDL_Rect,
@@ -6878,12 +6895,12 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Perform low-level surface scaled blitting only.\n\n This is a semi-private function and it performs low-level surface blitting,\n assuming the input rectangles have already been clipped.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the rectangle that is\n                copied into\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BlitScaled"]
+    #[doc = " Perform low-level surface scaled blitting only.\n\n This is a semi-private function and it performs low-level surface blitting,\n assuming the input rectangles have already been clipped.\n\n \\param src the SDL_Surface structure to be copied from\n \\param srcrect the SDL_Rect structure representing the rectangle to be\n                copied\n \\param dst the SDL_Surface structure that is the blit target\n \\param dstrect the SDL_Rect structure representing the target rectangle in\n                the destination surface\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_BlitSurfaceScaled"]
     pub fn SDL_BlitSurfaceUncheckedScaled(
         src: *mut SDL_Surface,
-        srcrect: *mut SDL_Rect,
+        srcrect: *const SDL_Rect,
         dst: *mut SDL_Surface,
-        dstrect: *mut SDL_Rect,
+        dstrect: *const SDL_Rect,
     ) -> libc::c_int;
 }
 extern "C" {
@@ -6922,16 +6939,12 @@ pub struct SDL_DisplayMode {
     pub displayID: SDL_DisplayID,
     #[doc = "< pixel format"]
     pub format: Uint32,
-    #[doc = "< width in pixels (used for creating back buffers)"]
-    pub pixel_w: libc::c_int,
-    #[doc = "< height in pixels (used for creating back buffers)"]
-    pub pixel_h: libc::c_int,
-    #[doc = "< width in screen coordinates (used for creating windows)"]
-    pub screen_w: libc::c_int,
-    #[doc = "< height in screen coordinates (used for creating windows)"]
-    pub screen_h: libc::c_int,
-    #[doc = "< scale converting screen coordinates to pixels (e.g. a 2560x1440 screen size mode with 1.5 scale would have 3840x2160 pixels)"]
-    pub display_scale: f32,
+    #[doc = "< width"]
+    pub w: libc::c_int,
+    #[doc = "< height"]
+    pub h: libc::c_int,
+    #[doc = "< scale converting size to pixels (e.g. a 1920x1080 mode with 2.0 scale would have 3840x2160 pixels)"]
+    pub pixel_density: f32,
     #[doc = "< refresh rate (or zero for unspecified)"]
     pub refresh_rate: f32,
     #[doc = "< driver-specific data, initialize to 0"]
@@ -6943,7 +6956,7 @@ fn bindgen_test_layout_SDL_DisplayMode() {
     let ptr = UNINIT.as_ptr();
     assert_eq!(
         ::core::mem::size_of::<SDL_DisplayMode>(),
-        40usize,
+        32usize,
         concat!("Size of: ", stringify!(SDL_DisplayMode))
     );
     assert_eq!(
@@ -6972,58 +6985,38 @@ fn bindgen_test_layout_SDL_DisplayMode() {
         )
     );
     assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).pixel_w) as usize - ptr as usize },
+        unsafe { ::core::ptr::addr_of!((*ptr).w) as usize - ptr as usize },
         8usize,
         concat!(
             "Offset of field: ",
             stringify!(SDL_DisplayMode),
             "::",
-            stringify!(pixel_w)
+            stringify!(w)
         )
     );
     assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).pixel_h) as usize - ptr as usize },
+        unsafe { ::core::ptr::addr_of!((*ptr).h) as usize - ptr as usize },
         12usize,
         concat!(
             "Offset of field: ",
             stringify!(SDL_DisplayMode),
             "::",
-            stringify!(pixel_h)
+            stringify!(h)
         )
     );
     assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).screen_w) as usize - ptr as usize },
+        unsafe { ::core::ptr::addr_of!((*ptr).pixel_density) as usize - ptr as usize },
         16usize,
         concat!(
             "Offset of field: ",
             stringify!(SDL_DisplayMode),
             "::",
-            stringify!(screen_w)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).screen_h) as usize - ptr as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_DisplayMode),
-            "::",
-            stringify!(screen_h)
-        )
-    );
-    assert_eq!(
-        unsafe { ::core::ptr::addr_of!((*ptr).display_scale) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(SDL_DisplayMode),
-            "::",
-            stringify!(display_scale)
+            stringify!(pixel_density)
         )
     );
     assert_eq!(
         unsafe { ::core::ptr::addr_of!((*ptr).refresh_rate) as usize - ptr as usize },
-        28usize,
+        20usize,
         concat!(
             "Offset of field: ",
             stringify!(SDL_DisplayMode),
@@ -7033,7 +7026,7 @@ fn bindgen_test_layout_SDL_DisplayMode() {
     );
     assert_eq!(
         unsafe { ::core::ptr::addr_of!((*ptr).driverdata) as usize - ptr as usize },
-        32usize,
+        24usize,
         concat!(
             "Offset of field: ",
             stringify!(SDL_DisplayMode),
@@ -7070,6 +7063,8 @@ pub enum SDL_WindowFlags {
     SDL_WINDOW_FULLSCREEN = 1,
     #[doc = "< window usable with OpenGL context"]
     SDL_WINDOW_OPENGL = 2,
+    #[doc = "< window is occluded"]
+    SDL_WINDOW_OCCLUDED = 4,
     #[doc = "< window is not visible"]
     SDL_WINDOW_HIDDEN = 8,
     #[doc = "< no window decoration"]
@@ -7088,17 +7083,17 @@ pub enum SDL_WindowFlags {
     SDL_WINDOW_MOUSE_FOCUS = 1024,
     #[doc = "< window not created by SDL"]
     SDL_WINDOW_FOREIGN = 2048,
+    #[doc = "< window uses high pixel density back buffer if possible"]
+    SDL_WINDOW_HIGH_PIXEL_DENSITY = 8192,
     #[doc = "< window has mouse captured (unrelated to MOUSE_GRABBED)"]
     SDL_WINDOW_MOUSE_CAPTURE = 16384,
     #[doc = "< window should always be above others"]
     SDL_WINDOW_ALWAYS_ON_TOP = 32768,
-    #[doc = "< window should not be added to the taskbar"]
-    SDL_WINDOW_SKIP_TASKBAR = 65536,
-    #[doc = "< window should be treated as a utility window"]
+    #[doc = "< window should be treated as a utility window, not showing in the task bar and window list"]
     SDL_WINDOW_UTILITY = 131072,
-    #[doc = "< window should be treated as a tooltip"]
+    #[doc = "< window should be treated as a tooltip and must be created using SDL_CreatePopupWindow()"]
     SDL_WINDOW_TOOLTIP = 262144,
-    #[doc = "< window should be treated as a popup menu"]
+    #[doc = "< window should be treated as a popup menu and must be created using SDL_CreatePopupWindow()"]
     SDL_WINDOW_POPUP_MENU = 524288,
     #[doc = "< window has grabbed keyboard input"]
     SDL_WINDOW_KEYBOARD_GRABBED = 1048576,
@@ -7223,7 +7218,7 @@ extern "C" {
     pub fn SDL_GetDisplayName(displayID: SDL_DisplayID) -> *const libc::c_char;
 }
 extern "C" {
-    #[doc = " Get the desktop area represented by a display, in screen coordinates.\n\n The primary display is always located at (0,0).\n\n \\param displayID the instance ID of the display to query\n \\param rect the SDL_Rect structure filled in with the display bounds\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplayUsableBounds\n \\sa SDL_GetDisplays"]
+    #[doc = " Get the desktop area represented by a display.\n\n The primary display is always located at (0,0).\n\n \\param displayID the instance ID of the display to query\n \\param rect the SDL_Rect structure filled in with the display bounds\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplayUsableBounds\n \\sa SDL_GetDisplays"]
     pub fn SDL_GetDisplayBounds(displayID: SDL_DisplayID, rect: *mut SDL_Rect) -> libc::c_int;
 }
 extern "C" {
@@ -7232,23 +7227,32 @@ extern "C" {
         -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the orientation of a display.\n\n \\param displayID the instance ID of the display to query\n \\returns The SDL_DisplayOrientation enum value of the display, or\n          `SDL_ORIENTATION_UNKNOWN` if it isn't available.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplays"]
-    pub fn SDL_GetDisplayOrientation(displayID: SDL_DisplayID) -> SDL_DisplayOrientation;
+    #[doc = " Get the orientation of a display when it is unrotated.\n\n \\param displayID the instance ID of the display to query\n \\returns The SDL_DisplayOrientation enum value of the display, or\n          `SDL_ORIENTATION_UNKNOWN` if it isn't available.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplays"]
+    pub fn SDL_GetNaturalDisplayOrientation(displayID: SDL_DisplayID) -> SDL_DisplayOrientation;
 }
 extern "C" {
-    #[doc = " Get a list of fullscreen display modes available on a display.\n\n The display modes are sorted in this priority:\n\n - screen_w -> largest to smallest\n - screen_h -> largest to smallest\n - pixel_w -> largest to smallest\n - pixel_h -> largest to smallest\n - bits per pixel -> more colors to fewer colors\n - packed pixel layout -> largest to smallest\n - refresh rate -> highest to lowest\n\n \\param displayID the instance ID of the display to query\n \\param count a pointer filled in with the number of displays returned\n \\returns a NULL terminated array of display mode pointers which should be\n          freed with SDL_free(), or NULL on error; call SDL_GetError() for\n          more details.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplays"]
+    #[doc = " Get the orientation of a display.\n\n \\param displayID the instance ID of the display to query\n \\returns The SDL_DisplayOrientation enum value of the display, or\n          `SDL_ORIENTATION_UNKNOWN` if it isn't available.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplays"]
+    pub fn SDL_GetCurrentDisplayOrientation(displayID: SDL_DisplayID) -> SDL_DisplayOrientation;
+}
+extern "C" {
+    #[doc = " Get the content scale of a display.\n\n The content scale is the expected scale for content based on the DPI\n settings of the display. For example, a 4K display might have a 2.0 (200%)\n display scale, which means that the user expects UI elements to be twice as\n big on this display, to aid in readability.\n\n \\param displayID the instance ID of the display to query\n \\returns The content scale of the display, or 0.0f on error; call\n          SDL_GetError() for more details.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplays"]
+    pub fn SDL_GetDisplayContentScale(displayID: SDL_DisplayID) -> f32;
+}
+extern "C" {
+    #[doc = " Get a list of fullscreen display modes available on a display.\n\n The display modes are sorted in this priority:\n\n - w -> largest to smallest\n - h -> largest to smallest\n - bits per pixel -> more colors to fewer colors\n - packed pixel layout -> largest to smallest\n - refresh rate -> highest to lowest\n - pixel density -> lowest to highest\n\n \\param displayID the instance ID of the display to query\n \\param count a pointer filled in with the number of displays returned\n \\returns a NULL terminated array of display mode pointers which should be\n          freed with SDL_free(), or NULL on error; call SDL_GetError() for\n          more details.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplays"]
     pub fn SDL_GetFullscreenDisplayModes(
         displayID: SDL_DisplayID,
         count: *mut libc::c_int,
     ) -> *mut *const SDL_DisplayMode;
 }
 extern "C" {
-    #[doc = " Get the closest match to the requested display mode.\n\n The available display modes are scanned and `closest` is filled in with the\n closest mode matching the requested mode and returned. The mode format and\n refresh rate default to the desktop mode if they are set to 0. The modes\n are scanned with size being first priority, format being second priority,\n and finally checking the refresh rate. If all the available modes are too\n small, then NULL is returned.\n\n \\param displayID the instance ID of the display to query\n \\param w the width in pixels of the desired display mode\n \\param h the height in pixels of the desired display mode\n \\param refresh_rate the refresh rate of the desired display mode, or 0.0f\n                     for the desktop refresh rate\n \\returns a pointer to the closest display mode equal to or larger than the\n          desired mode, or NULL on error; call SDL_GetError() for more\n          information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplays\n \\sa SDL_GetFullscreenDisplayModes"]
+    #[doc = " Get the closest match to the requested display mode.\n\n The available display modes are scanned and `closest` is filled in with the\n closest mode matching the requested mode and returned. The mode format and\n refresh rate default to the desktop mode if they are set to 0. The modes\n are scanned with size being first priority, format being second priority,\n and finally checking the refresh rate. If all the available modes are too\n small, then NULL is returned.\n\n \\param displayID the instance ID of the display to query\n \\param w the width in pixels of the desired display mode\n \\param h the height in pixels of the desired display mode\n \\param refresh_rate the refresh rate of the desired display mode, or 0.0f\n                     for the desktop refresh rate\n \\param include_high_density_modes Boolean to include high density modes in\n                                   the search\n \\returns a pointer to the closest display mode equal to or larger than the\n          desired mode, or NULL on error; call SDL_GetError() for more\n          information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplays\n \\sa SDL_GetFullscreenDisplayModes"]
     pub fn SDL_GetClosestFullscreenDisplayMode(
         displayID: SDL_DisplayID,
         w: libc::c_int,
         h: libc::c_int,
         refresh_rate: f32,
+        include_high_density_modes: SDL_bool,
     ) -> *const SDL_DisplayMode;
 }
 extern "C" {
@@ -7260,16 +7264,24 @@ extern "C" {
     pub fn SDL_GetCurrentDisplayMode(displayID: SDL_DisplayID) -> *const SDL_DisplayMode;
 }
 extern "C" {
-    #[doc = " Get the display containing a point, in screen coordinates.\n\n \\param point the point to query\n \\returns the instance ID of the display containing the point or 0 on\n          failure; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplayBounds\n \\sa SDL_GetDisplays"]
+    #[doc = " Get the display containing a point.\n\n \\param point the point to query\n \\returns the instance ID of the display containing the point or 0 on\n          failure; call SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplayBounds\n \\sa SDL_GetDisplays"]
     pub fn SDL_GetDisplayForPoint(point: *const SDL_Point) -> SDL_DisplayID;
 }
 extern "C" {
-    #[doc = " Get the display primarily containing a rect, in screen coordinates.\n\n \\param rect the rect to query\n \\returns the instance ID of the display entirely containing the rect or\n          closest to the center of the rect on success or 0 on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplayBounds\n \\sa SDL_GetDisplays"]
+    #[doc = " Get the display primarily containing a rect.\n\n \\param rect the rect to query\n \\returns the instance ID of the display entirely containing the rect or\n          closest to the center of the rect on success or 0 on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplayBounds\n \\sa SDL_GetDisplays"]
     pub fn SDL_GetDisplayForRect(rect: *const SDL_Rect) -> SDL_DisplayID;
 }
 extern "C" {
     #[doc = " Get the display associated with a window.\n\n \\param window the window to query\n \\returns the instance ID of the display containing the center of the window\n          on success or 0 on failure; call SDL_GetError() for more\n          information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetDisplayBounds\n \\sa SDL_GetDisplays"]
     pub fn SDL_GetDisplayForWindow(window: *mut SDL_Window) -> SDL_DisplayID;
+}
+extern "C" {
+    #[doc = " Get the pixel density of a window.\n\n This is a ratio of pixel size to window size. For example, if the window is\n 1920x1080 and it has a high density back buffer of 3840x2160 pixels, it\n would have a pixel density of 2.0.\n\n \\param window the window to query\n \\returns the pixel density or 0.0f on failure; call SDL_GetError() for more\n          information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowDisplayScale"]
+    pub fn SDL_GetWindowPixelDensity(window: *mut SDL_Window) -> f32;
+}
+extern "C" {
+    #[doc = " Get the content display scale relative to a window's pixel size.\n\n This is a combination of the window pixel density and the display content\n scale, and is the expected scale for displaying content in this window. For\n example, if a 3840x2160 window had a display scale of 2.0, the user expects\n the content to take twice as many pixels and be the same physical size as\n if it were being displayed in a 1920x1080 window with a display scale of\n 1.0.\n\n Conceptually this value corresponds to the scale display setting, and is\n updated when that setting is changed, or the window moves to a display with\n a different scale setting.\n\n \\param window the window to query\n \\returns the display scale, or 0.0f on failure; call SDL_GetError() for\n          more information.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_GetWindowDisplayScale(window: *mut SDL_Window) -> f32;
 }
 extern "C" {
     #[doc = " Set the display mode to use when a window is visible and fullscreen.\n\n This only affects the display mode used when the window is fullscreen. To\n change the window size when the window is not fullscreen, use\n SDL_SetWindowSize().\n\n \\param window the window to affect\n \\param mode a pointer to the display mode to use, which can be NULL for\n             desktop mode, or one of the fullscreen modes returned by\n             SDL_GetFullscreenDisplayModes().\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowFullscreenMode\n \\sa SDL_SetWindowFullscreen"]
@@ -7291,7 +7303,7 @@ extern "C" {
     pub fn SDL_GetWindowPixelFormat(window: *mut SDL_Window) -> Uint32;
 }
 extern "C" {
-    #[doc = " Create a window with the specified dimensions and flags.\n\n `flags` may be any of the following OR'd together:\n\n - `SDL_WINDOW_FULLSCREEN`: fullscreen window at desktop resolution\n - `SDL_WINDOW_OPENGL`: window usable with an OpenGL context\n - `SDL_WINDOW_VULKAN`: window usable with a Vulkan instance\n - `SDL_WINDOW_METAL`: window usable with a Metal instance\n - `SDL_WINDOW_HIDDEN`: window is not visible\n - `SDL_WINDOW_BORDERLESS`: no window decoration\n - `SDL_WINDOW_RESIZABLE`: window can be resized\n - `SDL_WINDOW_MINIMIZED`: window is minimized\n - `SDL_WINDOW_MAXIMIZED`: window is maximized\n - `SDL_WINDOW_MOUSE_GRABBED`: window has grabbed mouse focus\n\n The SDL_Window is implicitly shown if SDL_WINDOW_HIDDEN is not set.\n\n On Apple's macOS, you **must** set the NSHighResolutionCapable Info.plist\n property to YES, otherwise you will not receive a High-DPI OpenGL canvas.\n\n The window size in pixels may differ from its size in screen coordinates if\n the window is on a high density display (one with an OS scaling factor).\n Use SDL_GetWindowSize() to query the client area's size in screen\n coordinates, and SDL_GetWindowSizeInPixels() or SDL_GetRenderOutputSize()\n to query the drawable size in pixels. Note that the drawable size can vary\n after the window is created and should be queried again if you get an\n SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED event.\n\n If the window is set fullscreen, the width and height parameters `w` and\n `h` will not be used. However, invalid size parameters (e.g. too large) may\n still fail. Window size is actually limited to 16384 x 16384 for all\n platforms at window creation.\n\n If the window is created with any of the SDL_WINDOW_OPENGL or\n SDL_WINDOW_VULKAN flags, then the corresponding LoadLibrary function\n (SDL_GL_LoadLibrary or SDL_Vulkan_LoadLibrary) is called and the\n corresponding UnloadLibrary function is called by SDL_DestroyWindow().\n\n If SDL_WINDOW_VULKAN is specified and there isn't a working Vulkan driver,\n SDL_CreateWindow() will fail because SDL_Vulkan_LoadLibrary() will fail.\n\n If SDL_WINDOW_METAL is specified on an OS that does not support Metal,\n SDL_CreateWindow() will fail.\n\n On non-Apple devices, SDL requires you to either not link to the Vulkan\n loader or link to a dynamic library version. This limitation may be removed\n in a future version of SDL.\n\n \\param title the title of the window, in UTF-8 encoding\n \\param w the width of the window, in screen coordinates\n \\param h the height of the window, in screen coordinates\n \\param flags 0, or one or more SDL_WindowFlags OR'd together\n \\returns the window that was created or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreatePopupWindow\n \\sa SDL_CreateWindowFrom\n \\sa SDL_CreateWindowWithPosition\n \\sa SDL_DestroyWindow"]
+    #[doc = " Create a window with the specified dimensions and flags.\n\n `flags` may be any of the following OR'd together:\n\n - `SDL_WINDOW_FULLSCREEN`: fullscreen window at desktop resolution\n - `SDL_WINDOW_OPENGL`: window usable with an OpenGL context\n - `SDL_WINDOW_VULKAN`: window usable with a Vulkan instance\n - `SDL_WINDOW_METAL`: window usable with a Metal instance\n - `SDL_WINDOW_HIDDEN`: window is not visible\n - `SDL_WINDOW_BORDERLESS`: no window decoration\n - `SDL_WINDOW_RESIZABLE`: window can be resized\n - `SDL_WINDOW_MINIMIZED`: window is minimized\n - `SDL_WINDOW_MAXIMIZED`: window is maximized\n - `SDL_WINDOW_MOUSE_GRABBED`: window has grabbed mouse focus\n\n The SDL_Window is implicitly shown if SDL_WINDOW_HIDDEN is not set.\n\n On Apple's macOS, you **must** set the NSHighResolutionCapable Info.plist\n property to YES, otherwise you will not receive a High-DPI OpenGL canvas.\n\n The window pixel size may differ from its window coordinate size if the\n window is on a high pixel density display. Use SDL_GetWindowSize() to query\n the client area's size in window coordinates, and\n SDL_GetWindowSizeInPixels() or SDL_GetRenderOutputSize() to query the\n drawable size in pixels. Note that the drawable size can vary after the\n window is created and should be queried again if you get an\n SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED event.\n\n If the window is set fullscreen, the width and height parameters `w` and\n `h` will not be used. However, invalid size parameters (e.g. too large) may\n still fail. Window size is actually limited to 16384 x 16384 for all\n platforms at window creation.\n\n If the window is created with any of the SDL_WINDOW_OPENGL or\n SDL_WINDOW_VULKAN flags, then the corresponding LoadLibrary function\n (SDL_GL_LoadLibrary or SDL_Vulkan_LoadLibrary) is called and the\n corresponding UnloadLibrary function is called by SDL_DestroyWindow().\n\n If SDL_WINDOW_VULKAN is specified and there isn't a working Vulkan driver,\n SDL_CreateWindow() will fail because SDL_Vulkan_LoadLibrary() will fail.\n\n If SDL_WINDOW_METAL is specified on an OS that does not support Metal,\n SDL_CreateWindow() will fail.\n\n On non-Apple devices, SDL requires you to either not link to the Vulkan\n loader or link to a dynamic library version. This limitation may be removed\n in a future version of SDL.\n\n \\param title the title of the window, in UTF-8 encoding\n \\param w the width of the window\n \\param h the height of the window\n \\param flags 0, or one or more SDL_WindowFlags OR'd together\n \\returns the window that was created or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreatePopupWindow\n \\sa SDL_CreateWindowFrom\n \\sa SDL_CreateWindowWithPosition\n \\sa SDL_DestroyWindow"]
     pub fn SDL_CreateWindow(
         title: *const libc::c_char,
         w: libc::c_int,
@@ -7300,7 +7312,7 @@ extern "C" {
     ) -> *mut SDL_Window;
 }
 extern "C" {
-    #[doc = " Create a window with the specified position, dimensions, and flags.\n\n `flags` may be any of the following OR'd together:\n\n - `SDL_WINDOW_FULLSCREEN`: fullscreen window at desktop resolution\n - `SDL_WINDOW_OPENGL`: window usable with an OpenGL context\n - `SDL_WINDOW_VULKAN`: window usable with a Vulkan instance\n - `SDL_WINDOW_METAL`: window usable with a Metal instance\n - `SDL_WINDOW_HIDDEN`: window is not visible\n - `SDL_WINDOW_BORDERLESS`: no window decoration\n - `SDL_WINDOW_RESIZABLE`: window can be resized\n - `SDL_WINDOW_MINIMIZED`: window is minimized\n - `SDL_WINDOW_MAXIMIZED`: window is maximized\n - `SDL_WINDOW_MOUSE_GRABBED`: window has grabbed mouse focus\n\n The SDL_Window is implicitly shown if SDL_WINDOW_HIDDEN is not set.\n\n On Apple's macOS, you **must** set the NSHighResolutionCapable Info.plist\n property to YES, otherwise you will not receive a High-DPI OpenGL canvas.\n\n The window size in pixels may differ from its size in screen coordinates if\n the window is on a high density display (one with an OS scaling factor).\n Use SDL_GetWindowSize() to query the client area's size in screen\n coordinates, and SDL_GetWindowSizeInPixels() or SDL_GetRenderOutputSize()\n to query the drawable size in pixels. Note that the drawable size can vary\n after the window is created and should be queried again if you get an\n SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED event.\n\n If the window is set fullscreen, the width and height parameters `w` and\n `h` will not be used. However, invalid size parameters (e.g. too large) may\n still fail. Window size is actually limited to 16384 x 16384 for all\n platforms at window creation.\n\n If the window is created with any of the SDL_WINDOW_OPENGL or\n SDL_WINDOW_VULKAN flags, then the corresponding LoadLibrary function\n (SDL_GL_LoadLibrary or SDL_Vulkan_LoadLibrary) is called and the\n corresponding UnloadLibrary function is called by SDL_DestroyWindow().\n\n If SDL_WINDOW_VULKAN is specified and there isn't a working Vulkan driver,\n SDL_CreateWindow() will fail because SDL_Vulkan_LoadLibrary() will fail.\n\n If SDL_WINDOW_METAL is specified on an OS that does not support Metal,\n SDL_CreateWindow() will fail.\n\n On non-Apple devices, SDL requires you to either not link to the Vulkan\n loader or link to a dynamic library version. This limitation may be removed\n in a future version of SDL.\n\n \\param title the title of the window, in UTF-8 encoding\n \\param x the x position of the window, or `SDL_WINDOWPOS_CENTERED`\n \\param y the y position of the window, or `SDL_WINDOWPOS_CENTERED`\n \\param w the width of the window, in screen coordinates\n \\param h the height of the window, in screen coordinates\n \\param flags 0, or one or more SDL_WindowFlags OR'd together\n \\returns the window that was created or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreatePopupWindow\n \\sa SDL_CreateWindow\n \\sa SDL_CreateWindowFrom\n \\sa SDL_DestroyWindow"]
+    #[doc = " Create a window with the specified position, dimensions, and flags.\n\n `flags` may be any of the following OR'd together:\n\n - `SDL_WINDOW_FULLSCREEN`: fullscreen window at desktop resolution\n - `SDL_WINDOW_OPENGL`: window usable with an OpenGL context\n - `SDL_WINDOW_VULKAN`: window usable with a Vulkan instance\n - `SDL_WINDOW_METAL`: window usable with a Metal instance\n - `SDL_WINDOW_HIDDEN`: window is not visible\n - `SDL_WINDOW_BORDERLESS`: no window decoration\n - `SDL_WINDOW_RESIZABLE`: window can be resized\n - `SDL_WINDOW_MINIMIZED`: window is minimized\n - `SDL_WINDOW_MAXIMIZED`: window is maximized\n - `SDL_WINDOW_MOUSE_GRABBED`: window has grabbed mouse focus\n\n The SDL_Window is implicitly shown if SDL_WINDOW_HIDDEN is not set.\n\n On Apple's macOS, you **must** set the NSHighResolutionCapable Info.plist\n property to YES, otherwise you will not receive a High-DPI OpenGL canvas.\n\n The window pixel size may differ from its window coordinate size if the\n window is on a high pixel density display. Use SDL_GetWindowSize() to query\n the client area's size in window coordinates, and\n SDL_GetWindowSizeInPixels() or SDL_GetRenderOutputSize() to query the\n drawable size in pixels. Note that the drawable size can vary after the\n window is created and should be queried again if you get an\n SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED event.\n\n If the window is set fullscreen, the width and height parameters `w` and\n `h` will not be used. However, invalid size parameters (e.g. too large) may\n still fail. Window size is actually limited to 16384 x 16384 for all\n platforms at window creation.\n\n If the window is created with any of the SDL_WINDOW_OPENGL or\n SDL_WINDOW_VULKAN flags, then the corresponding LoadLibrary function\n (SDL_GL_LoadLibrary or SDL_Vulkan_LoadLibrary) is called and the\n corresponding UnloadLibrary function is called by SDL_DestroyWindow().\n\n If SDL_WINDOW_VULKAN is specified and there isn't a working Vulkan driver,\n SDL_CreateWindow() will fail because SDL_Vulkan_LoadLibrary() will fail.\n\n If SDL_WINDOW_METAL is specified on an OS that does not support Metal,\n SDL_CreateWindow() will fail.\n\n On non-Apple devices, SDL requires you to either not link to the Vulkan\n loader or link to a dynamic library version. This limitation may be removed\n in a future version of SDL.\n\n \\param title the title of the window, in UTF-8 encoding\n \\param x the x position of the window, or `SDL_WINDOWPOS_CENTERED`\n \\param y the y position of the window, or `SDL_WINDOWPOS_CENTERED`\n \\param w the width of the window\n \\param h the height of the window\n \\param flags 0, or one or more SDL_WindowFlags OR'd together\n \\returns the window that was created or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreatePopupWindow\n \\sa SDL_CreateWindow\n \\sa SDL_CreateWindowFrom\n \\sa SDL_DestroyWindow"]
     pub fn SDL_CreateWindowWithPosition(
         title: *const libc::c_char,
         x: libc::c_int,
@@ -7311,7 +7323,7 @@ extern "C" {
     ) -> *mut SDL_Window;
 }
 extern "C" {
-    #[doc = " Create a child popup window of the specified parent window.\n\n 'flags' **must** contain exactly one of the following: -\n 'SDL_WINDOW_TOOLTIP': The popup window is a tooltip and will not pass any\n input events. - 'SDL_WINDOW_POPUP_MENU': The popup window is a popup menu.\n The topmost popup menu will implicitly gain the keyboard focus.\n\n The following flags are not relevant to popup window creation and will be\n ignored: - 'SDL_WINDOW_MINIMIZED' - 'SDL_WINDOW_MAXIMIZED' -\n 'SDL_WINDOW_FULLSCREEN' - 'SDL_WINDOW_BORDERLESS' -\n 'SDL_WINDOW_SKIP_TASKBAR'\n\n The parent parameter **must** be non-null and a valid window. The parent of\n a popup window can be either a regular, toplevel window, or another popup\n window.\n\n Popup windows cannot be minimized, maximized, made fullscreen, raised,\n flash, be made a modal window, be the parent of a modal window, or grab the\n mouse and/or keyboard. Attempts to do so will fail.\n\n Popup windows implicitly do not have a border/decorations and do not appear\n on the taskbar/dock or in lists of windows such as alt-tab menus.\n\n If a parent window is hidden, any child popup windows will be recursively\n hidden as well. Child popup windows not explicitly hidden will be restored\n when the parent is shown.\n\n If the parent window is destroyed, any child popup windows will be\n recursively destroyed as well.\n\n \\param parent the parent of the window, must not be NULL\n \\param offset_x the x position of the popup window relative to the origin\n                 of the parent, in screen coordinates\n \\param offset_y the y position of the popup window relative to the origin\n                 of the parent window, in screen coordinates\n \\param w the width of the window, in screen coordinates\n \\param h the height of the window, in screen coordinates\n \\param flags SDL_WINDOW_TOOLTIP or SDL_WINDOW_POPUP MENU, and zero or more\n              additional SDL_WindowFlags OR'd together.\n \\returns the window that was created or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateWindow\n \\sa SDL_DestroyWindow\n \\sa SDL_GetWindowParent"]
+    #[doc = " Create a child popup window of the specified parent window.\n\n 'flags' **must** contain exactly one of the following: -\n 'SDL_WINDOW_TOOLTIP': The popup window is a tooltip and will not pass any\n input events. - 'SDL_WINDOW_POPUP_MENU': The popup window is a popup menu.\n The topmost popup menu will implicitly gain the keyboard focus.\n\n The following flags are not relevant to popup window creation and will be\n ignored: - 'SDL_WINDOW_MINIMIZED' - 'SDL_WINDOW_MAXIMIZED' -\n 'SDL_WINDOW_FULLSCREEN' - 'SDL_WINDOW_BORDERLESS' -\n 'SDL_WINDOW_SKIP_TASKBAR'\n\n The parent parameter **must** be non-null and a valid window. The parent of\n a popup window can be either a regular, toplevel window, or another popup\n window.\n\n Popup windows cannot be minimized, maximized, made fullscreen, raised,\n flash, be made a modal window, be the parent of a modal window, or grab the\n mouse and/or keyboard. Attempts to do so will fail.\n\n Popup windows implicitly do not have a border/decorations and do not appear\n on the taskbar/dock or in lists of windows such as alt-tab menus.\n\n If a parent window is hidden, any child popup windows will be recursively\n hidden as well. Child popup windows not explicitly hidden will be restored\n when the parent is shown.\n\n If the parent window is destroyed, any child popup windows will be\n recursively destroyed as well.\n\n \\param parent the parent of the window, must not be NULL\n \\param offset_x the x position of the popup window relative to the origin\n                 of the parent\n \\param offset_y the y position of the popup window relative to the origin\n                 of the parent window\n \\param w the width of the window\n \\param h the height of the window\n \\param flags SDL_WINDOW_TOOLTIP or SDL_WINDOW_POPUP MENU, and zero or more\n              additional SDL_WindowFlags OR'd together.\n \\returns the window that was created or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateWindow\n \\sa SDL_DestroyWindow\n \\sa SDL_GetWindowParent"]
     pub fn SDL_CreatePopupWindow(
         parent: *mut SDL_Window,
         offset_x: libc::c_int,
@@ -7369,7 +7381,7 @@ extern "C" {
     ) -> *mut libc::c_void;
 }
 extern "C" {
-    #[doc = " Set the position of a window, in screen coordinates.\n\n \\param window the window to reposition\n \\param x the x coordinate of the window, or `SDL_WINDOWPOS_CENTERED` or\n          `SDL_WINDOWPOS_UNDEFINED`\n \\param y the y coordinate of the window, or `SDL_WINDOWPOS_CENTERED` or\n          `SDL_WINDOWPOS_UNDEFINED`\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowPosition"]
+    #[doc = " Set the position of a window.\n\n \\param window the window to reposition\n \\param x the x coordinate of the window, or `SDL_WINDOWPOS_CENTERED` or\n          `SDL_WINDOWPOS_UNDEFINED`\n \\param y the y coordinate of the window, or `SDL_WINDOWPOS_CENTERED` or\n          `SDL_WINDOWPOS_UNDEFINED`\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowPosition"]
     pub fn SDL_SetWindowPosition(
         window: *mut SDL_Window,
         x: libc::c_int,
@@ -7377,7 +7389,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the position of a window, in screen coordinates.\n\n If you do not need the value for one of the positions a NULL may be passed\n in the `x` or `y` parameter.\n\n \\param window the window to query\n \\param x a pointer filled in with the x position of the window, may be NULL\n \\param y a pointer filled in with the y position of the window, may be NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_SetWindowPosition"]
+    #[doc = " Get the position of a window.\n\n If you do not need the value for one of the positions a NULL may be passed\n in the `x` or `y` parameter.\n\n \\param window the window to query\n \\param x a pointer filled in with the x position of the window, may be NULL\n \\param y a pointer filled in with the y position of the window, may be NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_SetWindowPosition"]
     pub fn SDL_GetWindowPosition(
         window: *mut SDL_Window,
         x: *mut libc::c_int,
@@ -7385,7 +7397,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Set the size of a window's client area, in screen coordinates.\n\n The window size in screen coordinates may differ from the size in pixels if\n the window is on a high density display (one with an OS scaling factor).\n\n This only affects the size of the window when not in fullscreen mode. To\n change the fullscreen mode of a window, use SDL_SetWindowFullscreenMode()\n\n \\param window the window to change\n \\param w the width of the window, must be > 0\n \\param h the height of the window, must be > 0\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowSize\n \\sa SDL_SetWindowFullscreenMode"]
+    #[doc = " Set the size of a window's client area.\n\n This only affects the size of the window when not in fullscreen mode. To\n change the fullscreen mode of a window, use SDL_SetWindowFullscreenMode()\n\n \\param window the window to change\n \\param w the width of the window, must be > 0\n \\param h the height of the window, must be > 0\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowSize\n \\sa SDL_SetWindowFullscreenMode"]
     pub fn SDL_SetWindowSize(
         window: *mut SDL_Window,
         w: libc::c_int,
@@ -7393,7 +7405,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the size of a window's client area, in screen coordinates.\n\n NULL can safely be passed as the `w` or `h` parameter if the width or\n height value is not desired.\n\n The window size in screen coordinates may differ from the size in pixels if\n the window is on a high density display (one with an OS scaling factor).\n Use SDL_GetWindowSizeInPixels() or SDL_GetRenderOutputSize() to get the\n real client area size in pixels.\n\n \\param window the window to query the width and height from\n \\param w a pointer filled in with the width of the window, may be NULL\n \\param h a pointer filled in with the height of the window, may be NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetRenderOutputSize\n \\sa SDL_GetWindowSizeInPixels\n \\sa SDL_SetWindowSize"]
+    #[doc = " Get the size of a window's client area.\n\n NULL can safely be passed as the `w` or `h` parameter if the width or\n height value is not desired.\n\n The window pixel size may differ from its window coordinate size if the\n window is on a high pixel density display. Use SDL_GetWindowSizeInPixels()\n or SDL_GetRenderOutputSize() to get the real client area size in pixels.\n\n \\param window the window to query the width and height from\n \\param w a pointer filled in with the width of the window, may be NULL\n \\param h a pointer filled in with the height of the window, may be NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetRenderOutputSize\n \\sa SDL_GetWindowSizeInPixels\n \\sa SDL_SetWindowSize"]
     pub fn SDL_GetWindowSize(
         window: *mut SDL_Window,
         w: *mut libc::c_int,
@@ -7401,7 +7413,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the size of a window's borders (decorations) around the client area, in\n screen coordinates.\n\n Note: If this function fails (returns -1), the size values will be\n initialized to 0, 0, 0, 0 (if a non-NULL pointer is provided), as if the\n window in question was borderless.\n\n Note: This function may fail on systems where the window has not yet been\n decorated by the display server (for example, immediately after calling\n SDL_CreateWindow). It is recommended that you wait at least until the\n window has been presented and composited, so that the window system has a\n chance to decorate the window and provide the border dimensions to SDL.\n\n This function also returns -1 if getting the information is not supported.\n\n \\param window the window to query the size values of the border\n               (decorations) from\n \\param top pointer to variable for storing the size of the top border; NULL\n            is permitted\n \\param left pointer to variable for storing the size of the left border;\n             NULL is permitted\n \\param bottom pointer to variable for storing the size of the bottom\n               border; NULL is permitted\n \\param right pointer to variable for storing the size of the right border;\n              NULL is permitted\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowSize"]
+    #[doc = " Get the size of a window's borders (decorations) around the client area.\n\n Note: If this function fails (returns -1), the size values will be\n initialized to 0, 0, 0, 0 (if a non-NULL pointer is provided), as if the\n window in question was borderless.\n\n Note: This function may fail on systems where the window has not yet been\n decorated by the display server (for example, immediately after calling\n SDL_CreateWindow). It is recommended that you wait at least until the\n window has been presented and composited, so that the window system has a\n chance to decorate the window and provide the border dimensions to SDL.\n\n This function also returns -1 if getting the information is not supported.\n\n \\param window the window to query the size values of the border\n               (decorations) from\n \\param top pointer to variable for storing the size of the top border; NULL\n            is permitted\n \\param left pointer to variable for storing the size of the left border;\n             NULL is permitted\n \\param bottom pointer to variable for storing the size of the bottom\n               border; NULL is permitted\n \\param right pointer to variable for storing the size of the right border;\n              NULL is permitted\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowSize"]
     pub fn SDL_GetWindowBordersSize(
         window: *mut SDL_Window,
         top: *mut libc::c_int,
@@ -7411,7 +7423,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the size of a window's client area, in pixels.\n\n The window size in pixels may differ from the size in screen coordinates if\n the window is on a high density display (one with an OS scaling factor).\n\n \\param window the window from which the drawable size should be queried\n \\param w a pointer to variable for storing the width in pixels, may be NULL\n \\param h a pointer to variable for storing the height in pixels, may be\n          NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateWindow\n \\sa SDL_GetWindowSize"]
+    #[doc = " Get the size of a window's client area, in pixels.\n\n \\param window the window from which the drawable size should be queried\n \\param w a pointer to variable for storing the width in pixels, may be NULL\n \\param h a pointer to variable for storing the height in pixels, may be\n          NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateWindow\n \\sa SDL_GetWindowSize"]
     pub fn SDL_GetWindowSizeInPixels(
         window: *mut SDL_Window,
         w: *mut libc::c_int,
@@ -7419,7 +7431,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Set the minimum size of a window's client area, in screen coordinates.\n\n \\param window the window to change\n \\param min_w the minimum width of the window, or 0 for no limit\n \\param min_h the minimum height of the window, or 0 for no limit\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowMinimumSize\n \\sa SDL_SetWindowMaximumSize"]
+    #[doc = " Set the minimum size of a window's client area.\n\n \\param window the window to change\n \\param min_w the minimum width of the window, or 0 for no limit\n \\param min_h the minimum height of the window, or 0 for no limit\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowMinimumSize\n \\sa SDL_SetWindowMaximumSize"]
     pub fn SDL_SetWindowMinimumSize(
         window: *mut SDL_Window,
         min_w: libc::c_int,
@@ -7427,7 +7439,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the minimum size of a window's client area, in screen coordinates.\n\n \\param window the window to query\n \\param w a pointer filled in with the minimum width of the window, may be\n          NULL\n \\param h a pointer filled in with the minimum height of the window, may be\n          NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowMaximumSize\n \\sa SDL_SetWindowMinimumSize"]
+    #[doc = " Get the minimum size of a window's client area.\n\n \\param window the window to query\n \\param w a pointer filled in with the minimum width of the window, may be\n          NULL\n \\param h a pointer filled in with the minimum height of the window, may be\n          NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowMaximumSize\n \\sa SDL_SetWindowMinimumSize"]
     pub fn SDL_GetWindowMinimumSize(
         window: *mut SDL_Window,
         w: *mut libc::c_int,
@@ -7435,7 +7447,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Set the maximum size of a window's client area, in screen coordinates.\n\n \\param window the window to change\n \\param max_w the maximum width of the window, or 0 for no limit\n \\param max_h the maximum height of the window, or 0 for no limit\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowMaximumSize\n \\sa SDL_SetWindowMinimumSize"]
+    #[doc = " Set the maximum size of a window's client area.\n\n \\param window the window to change\n \\param max_w the maximum width of the window, or 0 for no limit\n \\param max_h the maximum height of the window, or 0 for no limit\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowMaximumSize\n \\sa SDL_SetWindowMinimumSize"]
     pub fn SDL_SetWindowMaximumSize(
         window: *mut SDL_Window,
         max_w: libc::c_int,
@@ -7443,7 +7455,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the maximum size of a window's client area, in screen coordinates.\n\n \\param window the window to query\n \\param w a pointer filled in with the maximum width of the window, may be\n          NULL\n \\param h a pointer filled in with the maximum height of the window, may be\n          NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowMinimumSize\n \\sa SDL_SetWindowMaximumSize"]
+    #[doc = " Get the maximum size of a window's client area.\n\n \\param window the window to query\n \\param w a pointer filled in with the maximum width of the window, may be\n          NULL\n \\param h a pointer filled in with the maximum height of the window, may be\n          NULL\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowMinimumSize\n \\sa SDL_SetWindowMaximumSize"]
     pub fn SDL_GetWindowMaximumSize(
         window: *mut SDL_Window,
         w: *mut libc::c_int,
@@ -7491,7 +7503,11 @@ extern "C" {
     pub fn SDL_SetWindowFullscreen(window: *mut SDL_Window, fullscreen: SDL_bool) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Get the SDL surface associated with the window.\n\n A new surface will be created with the optimal format for the window, if\n necessary. This surface will be freed when the window is destroyed. Do not\n free this surface.\n\n This surface will be invalidated if the window is resized. After resizing a\n window this function must be called again to return a valid surface.\n\n You may not combine this with 3D or the rendering API on this window.\n\n This function is affected by `SDL_HINT_FRAMEBUFFER_ACCELERATION`.\n\n \\param window the window to query\n \\returns the surface associated with the window, or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_UpdateWindowSurface\n \\sa SDL_UpdateWindowSurfaceRects"]
+    #[doc = " Return whether the window has a surface associated with it.\n\n \\param window the window to query\n \\returns SDL_TRUE if there is a surface associated with the window, or\n          SDL_FALSE otherwise.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowSurface"]
+    pub fn SDL_HasWindowSurface(window: *mut SDL_Window) -> SDL_bool;
+}
+extern "C" {
+    #[doc = " Get the SDL surface associated with the window.\n\n A new surface will be created with the optimal format for the window, if\n necessary. This surface will be freed when the window is destroyed. Do not\n free this surface.\n\n This surface will be invalidated if the window is resized. After resizing a\n window this function must be called again to return a valid surface.\n\n You may not combine this with 3D or the rendering API on this window.\n\n This function is affected by `SDL_HINT_FRAMEBUFFER_ACCELERATION`.\n\n \\param window the window to query\n \\returns the surface associated with the window, or NULL on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_DestroyWindowSurface\n \\sa SDL_HasWindowSurface\n \\sa SDL_UpdateWindowSurface\n \\sa SDL_UpdateWindowSurfaceRects"]
     pub fn SDL_GetWindowSurface(window: *mut SDL_Window) -> *mut SDL_Surface;
 }
 extern "C" {
@@ -7505,6 +7521,10 @@ extern "C" {
         rects: *const SDL_Rect,
         numrects: libc::c_int,
     ) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Destroy the surface associated with the window.\n\n \\param window the window to update\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetWindowSurface\n \\sa SDL_HasWindowSurface"]
+    pub fn SDL_DestroyWindowSurface(window: *mut SDL_Window) -> libc::c_int;
 }
 extern "C" {
     #[doc = " Set a window's input grab mode.\n\n When input is grabbed, the mouse is confined to the window. This function\n will also grab the keyboard if `SDL_HINT_GRAB_KEYBOARD` is set. To grab the\n keyboard without also grabbing the mouse, use SDL_SetWindowKeyboardGrab().\n\n If the caller enables a grab while another window is currently grabbed, the\n other window loses its grab in favor of the caller's window.\n\n \\param window the window for which the input grab mode should be set\n \\param grabbed SDL_TRUE to grab input or SDL_FALSE to release input\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetGrabbedWindow\n \\sa SDL_GetWindowGrab"]
@@ -8075,14 +8095,13 @@ impl SDL_EventType {
 }
 impl SDL_EventType {
     pub const SDL_EVENT_DISPLAY_LAST: SDL_EventType =
-        SDL_EventType::SDL_EVENT_DISPLAY_SCALE_CHANGED;
+        SDL_EventType::SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED;
 }
 impl SDL_EventType {
     pub const SDL_EVENT_WINDOW_FIRST: SDL_EventType = SDL_EventType::SDL_EVENT_WINDOW_SHOWN;
 }
 impl SDL_EventType {
-    pub const SDL_EVENT_WINDOW_LAST: SDL_EventType =
-        SDL_EventType::SDL_EVENT_WINDOW_DISPLAY_CHANGED;
+    pub const SDL_EVENT_WINDOW_LAST: SDL_EventType = SDL_EventType::SDL_EVENT_WINDOW_DESTROYED;
 }
 #[repr(u32)]
 #[doc = " The types of events that can be delivered."]
@@ -8116,8 +8135,8 @@ pub enum SDL_EventType {
     SDL_EVENT_DISPLAY_DISCONNECTED = 339,
     #[doc = "< Display has changed position"]
     SDL_EVENT_DISPLAY_MOVED = 340,
-    #[doc = "< Display has changed desktop display scale"]
-    SDL_EVENT_DISPLAY_SCALE_CHANGED = 341,
+    #[doc = "< Display has changed content scale"]
+    SDL_EVENT_DISPLAY_CONTENT_SCALE_CHANGED = 341,
     #[doc = "< System specific event"]
     SDL_EVENT_SYSWM = 513,
     #[doc = "< Window has been shown"]
@@ -8156,6 +8175,12 @@ pub enum SDL_EventType {
     SDL_EVENT_WINDOW_ICCPROF_CHANGED = 530,
     #[doc = "< Window has been moved to display data1"]
     SDL_EVENT_WINDOW_DISPLAY_CHANGED = 531,
+    #[doc = "< Window display scale has been changed"]
+    SDL_EVENT_WINDOW_DISPLAY_SCALE_CHANGED = 532,
+    #[doc = "< The window has been occluded"]
+    SDL_EVENT_WINDOW_OCCLUDED = 533,
+    #[doc = "< The window with the associated ID is being or has been destroyed. If this message is being handled\nin an event watcher, the window handle is still valid and can still be used to retrieve any userdata\nassociated with the window. Otherwise, the handle has already been destroyed and all resources\nassociated with it are invalid"]
+    SDL_EVENT_WINDOW_DESTROYED = 534,
     #[doc = "< Key pressed"]
     SDL_EVENT_KEY_DOWN = 768,
     #[doc = "< Key released"]
@@ -8190,6 +8215,8 @@ pub enum SDL_EventType {
     SDL_EVENT_JOYSTICK_REMOVED = 1542,
     #[doc = "< Joystick battery level change"]
     SDL_EVENT_JOYSTICK_BATTERY_UPDATED = 1543,
+    #[doc = "< Joystick update is complete (disabled by default)"]
+    SDL_EVENT_JOYSTICK_UPDATE_COMPLETE = 1544,
     #[doc = "< Gamepad axis motion"]
     SDL_EVENT_GAMEPAD_AXIS_MOTION = 1616,
     #[doc = "< Gamepad button pressed"]
@@ -8210,6 +8237,8 @@ pub enum SDL_EventType {
     SDL_EVENT_GAMEPAD_TOUCHPAD_UP = 1624,
     #[doc = "< Gamepad sensor was updated"]
     SDL_EVENT_GAMEPAD_SENSOR_UPDATE = 1625,
+    #[doc = "< Gamepad update is complete (disabled by default)"]
+    SDL_EVENT_GAMEPAD_UPDATE_COMPLETE = 1626,
     SDL_EVENT_FINGER_DOWN = 1792,
     SDL_EVENT_FINGER_UP = 1793,
     SDL_EVENT_FINGER_MOTION = 1794,
@@ -9531,7 +9560,7 @@ fn bindgen_test_layout_SDL_JoyButtonEvent() {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SDL_JoyDeviceEvent {
-    #[doc = "< ::SDL_EVENT_JOYSTICK_ADDED or ::SDL_EVENT_JOYSTICK_REMOVED"]
+    #[doc = "< ::SDL_EVENT_JOYSTICK_ADDED or ::SDL_EVENT_JOYSTICK_REMOVED or ::SDL_EVENT_JOYSTICK_UPDATE_COMPLETE"]
     pub type_: Uint32,
     #[doc = "< In nanoseconds, populated using SDL_GetTicksNS()"]
     pub timestamp: Uint64,
@@ -9884,7 +9913,7 @@ fn bindgen_test_layout_SDL_GamepadButtonEvent() {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct SDL_GamepadDeviceEvent {
-    #[doc = "< ::SDL_EVENT_GAMEPAD_ADDED, ::SDL_EVENT_GAMEPAD_REMOVED, or ::SDL_EVENT_GAMEPAD_REMAPPED"]
+    #[doc = "< ::SDL_EVENT_GAMEPAD_ADDED, ::SDL_EVENT_GAMEPAD_REMOVED, or ::SDL_EVENT_GAMEPAD_REMAPPED or ::SDL_EVENT_GAMEPAD_UPDATE_COMPLETE"]
     pub type_: Uint32,
     #[doc = "< In nanoseconds, populated using SDL_GetTicksNS()"]
     pub timestamp: Uint64,
@@ -10481,6 +10510,50 @@ fn bindgen_test_layout_SDL_DropEvent() {
         )
     );
 }
+#[doc = " \\brief An event triggered when the clipboard contents have changed (event.clipboard.*)"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct SDL_ClipboardEvent {
+    #[doc = "< ::SDL_EVENT_CLIPBOARD_UPDATE"]
+    pub type_: Uint32,
+    #[doc = "< In nanoseconds, populated using SDL_GetTicksNS()"]
+    pub timestamp: Uint64,
+}
+#[test]
+fn bindgen_test_layout_SDL_ClipboardEvent() {
+    const UNINIT: ::core::mem::MaybeUninit<SDL_ClipboardEvent> = ::core::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::core::mem::size_of::<SDL_ClipboardEvent>(),
+        16usize,
+        concat!("Size of: ", stringify!(SDL_ClipboardEvent))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<SDL_ClipboardEvent>(),
+        8usize,
+        concat!("Alignment of ", stringify!(SDL_ClipboardEvent))
+    );
+    assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).type_) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(SDL_ClipboardEvent),
+            "::",
+            stringify!(type_)
+        )
+    );
+    assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).timestamp) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(SDL_ClipboardEvent),
+            "::",
+            stringify!(timestamp)
+        )
+    );
+}
 #[doc = "  \\brief Sensor event structure (event.sensor.*)"]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -10857,6 +10930,8 @@ pub union SDL_Event {
     pub tfinger: SDL_TouchFingerEvent,
     #[doc = "< Drag and drop event data"]
     pub drop: SDL_DropEvent,
+    #[doc = "< Clipboard cancelled event data"]
+    pub clipboard: SDL_ClipboardEvent,
     pub padding: [Uint8; 128usize],
 }
 #[test]
@@ -11154,6 +11229,16 @@ fn bindgen_test_layout_SDL_Event() {
         )
     );
     assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).clipboard) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(SDL_Event),
+            "::",
+            stringify!(clipboard)
+        )
+    );
+    assert_eq!(
         unsafe { ::core::ptr::addr_of!((*ptr).padding) as usize - ptr as usize },
         0usize,
         concat!(
@@ -11264,6 +11349,37 @@ extern "C" {
     #[doc = " Get the user-and-app-specific path where files can be written.\n\n Get the \"pref dir\". This is meant to be where users can write personal\n files (preferences and save games, etc) that are specific to your\n application. This directory is unique per user, per application.\n\n This function will decide the appropriate location in the native\n filesystem, create the directory if necessary, and return a string of the\n absolute path to the directory in UTF-8 encoding.\n\n On Windows, the string might look like:\n\n `C:\\\\Users\\\\bob\\\\AppData\\\\Roaming\\\\My Company\\\\My Program Name\\\\`\n\n On Linux, the string might look like:\n\n `/home/bob/.local/share/My Program Name/`\n\n On macOS, the string might look like:\n\n `/Users/bob/Library/Application Support/My Program Name/`\n\n You should assume the path returned by this function is the only safe place\n to write files (and that SDL_GetBasePath(), while it might be writable, or\n even the parent of the returned path, isn't where you should be writing\n things).\n\n Both the org and app strings may become part of a directory name, so please\n follow these rules:\n\n - Try to use the same org string (_including case-sensitivity_) for all\n   your applications that use this function.\n - Always use a unique app string for each one, and make sure it never\n   changes for an app once you've decided on it.\n - Unicode characters are legal, as long as it's UTF-8 encoded, but...\n - ...only use letters, numbers, and spaces. Avoid punctuation like \"Game\n   Name 2: Bad Guy's Revenge!\" ... \"Game Name 2\" is sufficient.\n\n The returned path is guaranteed to end with a path separator ('\\' on\n Windows, '/' on most other platforms).\n\n The pointer returned is owned by the caller. Please call SDL_free() on the\n pointer when done with it.\n\n \\param org the name of your organization\n \\param app the name of your application\n \\returns a UTF-8 string of the user directory in platform-dependent\n          notation. NULL if there's a problem (creating directory failed,\n          etc.).\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetBasePath"]
     pub fn SDL_GetPrefPath(org: *const libc::c_char, app: *const libc::c_char)
         -> *mut libc::c_char;
+}
+#[repr(u32)]
+#[doc = " The type of the OS-provided default folder for a specific purpose.\n\n Note that the Trash folder isn't included here, because trashing files usually\n involves extra OS-specific functionality to remember the file's original\n location.\n\n The folders supported per platform are:\n\n |             | Windows | macOS/iOS | tvOS | Unix (XDG) | Haiku | Emscripten |\n | ----------- | ------- | --------- | ---- | ---------- | ----- | ---------- |\n | HOME        | X       | X         |      | X          | X     | X          |\n | DESKTOP     | X       | X         |      | X          | X     |            |\n | DOCUMENTS   | X       | X         |      | X          |       |            |\n | DOWNLOADS   | Vista+  | X         |      | X          |       |            |\n | MUSIC       | X       | X         |      | X          |       |            |\n | PICTURES    | X       | X         |      | X          |       |            |\n | PUBLICSHARE |         | X         |      | X          |       |            |\n | SAVEDGAMES  | Vista+  |           |      |            |       |            |\n | SCREENSHOTS | Vista+  |           |      |            |       |            |\n | TEMPLATES   | X       | X         |      | X          |       |            |\n | VIDEOS      | X       | X         |      | X          |       |            |\n\n Note that on macOS/iOS, the Videos folder is called \"Movies\".\n\n \\sa SDL_GetPath"]
+#[derive(Copy, Clone, Hash, PartialEq, Eq)]
+pub enum SDL_Folder {
+    #[doc = " The folder which contains all of the current user's data, preferences,\nand documents. It usually contains most of the other folders. If a\nrequested folder does not exist, the home folder can be considered a safe\nfallback to store a user's documents."]
+    SDL_FOLDER_HOME = 0,
+    #[doc = " The folder of files that are displayed on the desktop. Note that the\nexistence of a desktop folder does not guarantee that the system does\nshow icons on its desktop; certain GNU/Linux distros with a graphical\nenvironment may not have desktop icons."]
+    SDL_FOLDER_DESKTOP = 1,
+    #[doc = " User document files, possibly application-specific. This is a good\nplace to save a user's projects."]
+    SDL_FOLDER_DOCUMENTS = 2,
+    #[doc = " Standard folder for user files downloaded from the internet."]
+    SDL_FOLDER_DOWNLOADS = 3,
+    #[doc = " Music files that can be played using a standard music player (mp3,\nogg...)."]
+    SDL_FOLDER_MUSIC = 4,
+    #[doc = " Image files that can be displayed using a standard viewer (png,\njpg...)."]
+    SDL_FOLDER_PICTURES = 5,
+    #[doc = " Files that are meant to be shared with other users on the same\ncomputer."]
+    SDL_FOLDER_PUBLICSHARE = 6,
+    #[doc = " Save files for games."]
+    SDL_FOLDER_SAVEDGAMES = 7,
+    #[doc = " Application screenshots."]
+    SDL_FOLDER_SCREENSHOTS = 8,
+    #[doc = " Template files to be used when the user requests the desktop environment\nto create a new file in a certain folder, such as \"New Text File.txt\".\nAny file in the Templates folder can be used as a starting point for a\nnew file."]
+    SDL_FOLDER_TEMPLATES = 9,
+    #[doc = " Video files that can be played using a standard video player (mp4,\nwebm...)."]
+    SDL_FOLDER_VIDEOS = 10,
+}
+extern "C" {
+    #[doc = " Finds the most suitable OS-provided folder for @p folder, and returns its\n path in OS-specific notation.\n\n Many OSes provide certain standard folders for certain purposes, such as\n storing pictures, music or videos for a certain user. This function gives\n the path for many of those special locations.\n\n Note that the function is expensive, and should be called once at the\n beginning of the execution and kept for as long as needed.\n\n The returned value is owned by the caller and should be freed with\n SDL_free().\n\n If NULL is returned, the error may be obtained with SDL_GetError().\n\n \\param folder The type of folder to find\n \\returns Either a null-terminated C string containing the full path to the\n          folder, or NULL if an error happened.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_Folder"]
+    pub fn SDL_GetPath(folder: SDL_Folder) -> *mut libc::c_char;
 }
 #[doc = "  \\typedef SDL_Haptic\n\n  \\brief The haptic structure used to identify an SDL haptic.\n\n  \\sa SDL_HapticOpen\n  \\sa SDL_HapticOpenFromJoystick\n  \\sa SDL_HapticClose"]
 #[repr(C)]
@@ -12492,6 +12608,21 @@ pub struct SDL_hid_device_ {
     _unused: [u8; 0],
 }
 pub type SDL_hid_device = SDL_hid_device_;
+#[repr(u32)]
+#[doc = "  \\brief HID underlying bus types."]
+#[derive(Copy, Clone, Hash, PartialEq, Eq)]
+pub enum SDL_hid_bus_type {
+    #[doc = " Unknown bus type"]
+    SDL_HID_API_BUS_UNKNOWN = 0,
+    #[doc = " USB bus\nSpecifications:\nhttps://usb.org/hid"]
+    SDL_HID_API_BUS_USB = 1,
+    #[doc = " Bluetooth or Bluetooth LE bus\nSpecifications:\nhttps://www.bluetooth.com/specifications/specs/human-interface-device-profile-1-1-1/\nhttps://www.bluetooth.com/specifications/specs/hid-service-1-0/\nhttps://www.bluetooth.com/specifications/specs/hid-over-gatt-profile-1-0/"]
+    SDL_HID_API_BUS_BLUETOOTH = 2,
+    #[doc = " I2C bus\nSpecifications:\nhttps://docs.microsoft.com/previous-versions/windows/hardware/design/dn642101(v=vs.85)"]
+    SDL_HID_API_BUS_I2C = 3,
+    #[doc = " SPI bus\nSpecifications:\nhttps://www.microsoft.com/download/details.aspx?id=103325"]
+    SDL_HID_API_BUS_SPI = 4,
+}
 #[doc = " hidapi info structure */\n/**\n  \\brief  Information about a connected HID device"]
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -12510,16 +12641,18 @@ pub struct SDL_hid_device_info {
     pub manufacturer_string: *mut wchar_t,
     #[doc = " Product string"]
     pub product_string: *mut wchar_t,
-    #[doc = " Usage Page for this Device/Interface\n(Windows/Mac only)."]
+    #[doc = " Usage Page for this Device/Interface\n(Windows/Mac/hidraw only)"]
     pub usage_page: libc::c_ushort,
-    #[doc = " Usage for this Device/Interface\n(Windows/Mac only)."]
+    #[doc = " Usage for this Device/Interface\n(Windows/Mac/hidraw only)"]
     pub usage: libc::c_ushort,
-    #[doc = " The USB interface which this logical device\nrepresents.\n\n Valid on both Linux implementations in all cases.\n Valid on the Windows implementation only if the device\ncontains more than one interface."]
+    #[doc = " The USB interface which this logical device\nrepresents.\n\nValid only if the device is a USB HID device.\nSet to -1 in all other cases."]
     pub interface_number: libc::c_int,
     #[doc = " Additional information about the USB interface.\nValid on libusb and Android implementations."]
     pub interface_class: libc::c_int,
     pub interface_subclass: libc::c_int,
     pub interface_protocol: libc::c_int,
+    #[doc = " Underlying bus type"]
+    pub bus_type: SDL_hid_bus_type,
     #[doc = " Pointer to the next device"]
     pub next: *mut SDL_hid_device_info,
 }
@@ -12669,6 +12802,16 @@ fn bindgen_test_layout_SDL_hid_device_info() {
         )
     );
     assert_eq!(
+        unsafe { ::core::ptr::addr_of!((*ptr).bus_type) as usize - ptr as usize },
+        68usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(SDL_hid_device_info),
+            "::",
+            stringify!(bus_type)
+        )
+    );
+    assert_eq!(
         unsafe { ::core::ptr::addr_of!((*ptr).next) as usize - ptr as usize },
         72usize,
         concat!(
@@ -12692,7 +12835,7 @@ extern "C" {
     pub fn SDL_hid_device_change_count() -> Uint32;
 }
 extern "C" {
-    #[doc = " Enumerate the HID Devices.\n\n This function returns a linked list of all the HID devices attached to the\n system which match vendor_id and product_id. If `vendor_id` is set to 0\n then any vendor matches. If `product_id` is set to 0 then any product\n matches. If `vendor_id` and `product_id` are both set to 0, then all HID\n devices will be returned.\n\n \\param vendor_id The Vendor ID (VID) of the types of device to open.\n \\param product_id The Product ID (PID) of the types of device to open.\n \\returns a pointer to a linked list of type SDL_hid_device_info, containing\n          information about the HID devices attached to the system, or NULL\n          in the case of failure. Free this linked list by calling\n          SDL_hid_free_enumeration().\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_hid_device_change_count"]
+    #[doc = " Enumerate the HID Devices.\n\n This function returns a linked list of all the HID devices attached to the\n system which match vendor_id and product_id. If `vendor_id` is set to 0\n then any vendor matches. If `product_id` is set to 0 then any product\n matches. If `vendor_id` and `product_id` are both set to 0, then all HID\n devices will be returned.\n\n By default SDL will only enumerate controllers, to reduce risk of hanging\n or crashing on bad drivers, but SDL_HINT_HIDAPI_ENUMERATE_ONLY_CONTROLLERS\n can be set to \"0\" to enumerate all HID devices.\n\n \\param vendor_id The Vendor ID (VID) of the types of device to open, or 0\n                  to match any vendor.\n \\param product_id The Product ID (PID) of the types of device to open, or 0\n                   to match any product.\n \\returns a pointer to a linked list of type SDL_hid_device_info, containing\n          information about the HID devices attached to the system, or NULL\n          in the case of failure. Free this linked list by calling\n          SDL_hid_free_enumeration().\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_hid_device_change_count"]
     pub fn SDL_hid_enumerate(
         vendor_id: libc::c_ushort,
         product_id: libc::c_ushort,
@@ -12711,11 +12854,8 @@ extern "C" {
     ) -> *mut SDL_hid_device;
 }
 extern "C" {
-    #[doc = " Open a HID device by its path name.\n\n The path name be determined by calling SDL_hid_enumerate(), or a\n platform-specific path name can be used (eg: /dev/hidraw0 on Linux).\n\n \\param path The path name of the device to open\n \\param bExclusive Open device in exclusive mode (Windows only)\n \\returns a pointer to a SDL_hid_device object on success or NULL on\n          failure.\n\n \\since This function is available since SDL 3.0.0."]
-    pub fn SDL_hid_open_path(
-        path: *const libc::c_char,
-        bExclusive: libc::c_int,
-    ) -> *mut SDL_hid_device;
+    #[doc = " Open a HID device by its path name.\n\n The path name be determined by calling SDL_hid_enumerate(), or a\n platform-specific path name can be used (eg: /dev/hidraw0 on Linux).\n\n \\param path The path name of the device to open\n \\returns a pointer to a SDL_hid_device object on success or NULL on\n          failure.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_hid_open_path(path: *const libc::c_char) -> *mut SDL_hid_device;
 }
 extern "C" {
     #[doc = " Write an Output report to a HID device.\n\n The first byte of `data` must contain the Report ID. For devices which only\n support a single report, this must be set to 0x0. The remaining bytes\n contain the report data. Since the Report ID is mandatory, calls to\n SDL_hid_write() will always contain one more byte than the report contains.\n For example, if a hid report is 16 bytes long, 17 bytes must be passed to\n SDL_hid_write(), the Report ID (or 0x0, for devices with a single report),\n followed by the report data (16 bytes). In this example, the length passed\n in would be 17.\n\n SDL_hid_write() will send the data on the first OUT endpoint, if one\n exists. If it does not, it will send the data through the Control Endpoint\n (Endpoint 0).\n\n \\param dev A device handle returned from SDL_hid_open().\n \\param data The data to send, including the report number as the first\n             byte.\n \\param length The length in bytes of the data to send.\n \\returns the actual number of bytes written and -1 on error.\n\n \\since This function is available since SDL 3.0.0."]
@@ -12763,6 +12903,14 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
+    #[doc = " Get an input report from a HID device.\n\n Set the first byte of `data` to the Report ID of the report to be read.\n Make sure to allow space for this extra byte in `data`. Upon return, the\n first byte will still contain the Report ID, and the report data will start\n in data[1].\n\n \\param dev A device handle returned from SDL_hid_open().\n \\param data A buffer to put the read data into, including the Report ID.\n             Set the first byte of `data` to the Report ID of the report to\n             be read, or set it to zero if your device does not use numbered\n             reports.\n \\param length The number of bytes to read, including an extra byte for the\n               report ID. The buffer can be longer than the actual report.\n \\returns the number of bytes read plus one for the report ID (which is\n          still in the first byte), or -1 on error.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_hid_get_input_report(
+        dev: *mut SDL_hid_device,
+        data: *mut libc::c_uchar,
+        length: usize,
+    ) -> libc::c_int;
+}
+extern "C" {
     #[doc = " Close a HID device.\n\n \\param dev A device handle returned from SDL_hid_open().\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
     pub fn SDL_hid_close(dev: *mut SDL_hid_device) -> libc::c_int;
 }
@@ -12797,6 +12945,18 @@ extern "C" {
         string_index: libc::c_int,
         string: *mut wchar_t,
         maxlen: usize,
+    ) -> libc::c_int;
+}
+extern "C" {
+    #[doc = " Get the device info from a HID device.\n\n \\param dev A device handle returned from SDL_hid_open().\n \\returns a pointer to the SDL_hid_device_info for this hid_device, or NULL\n          in the case of failure; call SDL_GetError() for more information.\n          This struct is valid until the device is closed with\n          SDL_hid_close().\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_hid_get_device_info(dev: *mut SDL_hid_device) -> *mut SDL_hid_device_info;
+}
+extern "C" {
+    #[doc = " Get a report descriptor from a HID device.\n\n User has to provide a preallocated buffer where descriptor will be copied\n to. The recommended size for a preallocated buffer is 4096 bytes.\n\n \\param dev A device handle returned from SDL_hid_open().\n \\param buf The buffer to copy descriptor into.\n \\param buf_size The size of the buffer in bytes.\n \\returns the number of bytes actually copied, or -1 on error; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0."]
+    pub fn SDL_hid_get_report_descriptor(
+        dev: *mut SDL_hid_device,
+        buf: *mut libc::c_uchar,
+        buf_size: usize,
     ) -> libc::c_int;
 }
 extern "C" {
@@ -13631,16 +13791,14 @@ pub enum SDL_RendererFlip {
 pub enum SDL_RendererLogicalPresentation {
     #[doc = "< There is no logical size in effect"]
     SDL_LOGICAL_PRESENTATION_DISABLED = 0,
-    #[doc = "< The rendered content matches the window size in screen coordinates"]
-    SDL_LOGICAL_PRESENTATION_MATCH = 1,
     #[doc = "< The rendered content is stretched to the output resolution"]
-    SDL_LOGICAL_PRESENTATION_STRETCH = 2,
+    SDL_LOGICAL_PRESENTATION_STRETCH = 1,
     #[doc = "< The rendered content is fit to the largest dimension and the other dimension is letterboxed with black bars"]
-    SDL_LOGICAL_PRESENTATION_LETTERBOX = 3,
+    SDL_LOGICAL_PRESENTATION_LETTERBOX = 2,
     #[doc = "< The rendered content is fit to the smallest dimension and the other dimension extends beyond the output bounds"]
-    SDL_LOGICAL_PRESENTATION_OVERSCAN = 4,
+    SDL_LOGICAL_PRESENTATION_OVERSCAN = 3,
     #[doc = "< The rendered content is scaled up by integer multiples to fit the output resolution"]
-    SDL_LOGICAL_PRESENTATION_INTEGER_SCALE = 5,
+    SDL_LOGICAL_PRESENTATION_INTEGER_SCALE = 4,
 }
 #[doc = " A structure representing rendering state"]
 #[repr(C)]
@@ -13673,7 +13831,7 @@ extern "C" {
     ) -> libc::c_int;
 }
 extern "C" {
-    #[doc = " Create a 2D rendering context for a window.\n\n If you want a specific renderer, you can specify its name here. A list of\n available renderers can be obtained by calling SDL_GetRenderDriver multiple\n times, with indices from 0 to SDL_GetNumRenderDrivers()-1. If you don't\n need a specific renderer, specify NULL and SDL will attempt to chooes the\n best option for you, based on what is available on the user's system.\n\n By default the rendering size matches the window size in screen\n coordinates, but you can call SDL_SetRenderLogicalPresentation() to enable\n high DPI rendering or change the content size and scaling options.\n\n \\param window the window where rendering is displayed\n \\param name the name of the rendering driver to initialize, or NULL to\n             initialize the first one supporting the requested flags\n \\param flags 0, or one or more SDL_RendererFlags OR'd together\n \\returns a valid rendering context or NULL if there was an error; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSoftwareRenderer\n \\sa SDL_DestroyRenderer\n \\sa SDL_GetNumRenderDrivers\n \\sa SDL_GetRenderDriver\n \\sa SDL_GetRendererInfo"]
+    #[doc = " Create a 2D rendering context for a window.\n\n If you want a specific renderer, you can specify its name here. A list of\n available renderers can be obtained by calling SDL_GetRenderDriver multiple\n times, with indices from 0 to SDL_GetNumRenderDrivers()-1. If you don't\n need a specific renderer, specify NULL and SDL will attempt to chooes the\n best option for you, based on what is available on the user's system.\n\n By default the rendering size matches the window size in pixels, but you\n can call SDL_SetRenderLogicalPresentation() to change the content size and\n scaling options.\n\n \\param window the window where rendering is displayed\n \\param name the name of the rendering driver to initialize, or NULL to\n             initialize the first one supporting the requested flags\n \\param flags 0, or one or more SDL_RendererFlags OR'd together\n \\returns a valid rendering context or NULL if there was an error; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_CreateSoftwareRenderer\n \\sa SDL_DestroyRenderer\n \\sa SDL_GetNumRenderDrivers\n \\sa SDL_GetRenderDriver\n \\sa SDL_GetRendererInfo"]
     pub fn SDL_CreateRenderer(
         window: *mut SDL_Window,
         name: *const libc::c_char,
@@ -13697,14 +13855,6 @@ extern "C" {
     pub fn SDL_GetRendererInfo(
         renderer: *mut SDL_Renderer,
         info: *mut SDL_RendererInfo,
-    ) -> libc::c_int;
-}
-extern "C" {
-    #[doc = " Get the output size in screen coordinates of a rendering context.\n\n This returns the true output size in screen coordinates, ignoring any\n render targets or logical size and presentation.\n\n \\param renderer the rendering context\n \\param w a pointer filled in with the width in screen coordinates\n \\param h a pointer filled in with the height in screen coordinates\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_GetRenderer"]
-    pub fn SDL_GetRenderWindowSize(
-        renderer: *mut SDL_Renderer,
-        w: *mut libc::c_int,
-        h: *mut libc::c_int,
     ) -> libc::c_int;
 }
 extern "C" {
@@ -13881,7 +14031,7 @@ extern "C" {
     pub fn SDL_GetRenderTarget(renderer: *mut SDL_Renderer) -> *mut SDL_Texture;
 }
 extern "C" {
-    #[doc = " Set a device independent resolution and presentation mode for rendering.\n\n This function sets the width and height of the logical rendering output. A\n render target is created at the specified size and used for rendering and\n then copied to the output during presentation.\n\n When a renderer is created, the logical size is set to match the window\n size in screen coordinates. The actual output size may be higher pixel\n density, and can be queried with SDL_GetRenderOutputSize().\n\n You can disable logical coordinates by setting the mode to\n SDL_LOGICAL_PRESENTATION_DISABLED, and in that case you get the full\n resolution of the output window.\n\n You can convert coordinates in an event into rendering coordinates using\n SDL_ConvertEventToRenderCoordinates().\n\n \\param renderer the rendering context\n \\param w the width of the logical resolution\n \\param h the height of the logical resolution\n \\param mode the presentation mode used\n \\param scale_mode the scale mode used\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_ConvertEventToRenderCoordinates\n \\sa SDL_GetRenderLogicalPresentation"]
+    #[doc = " Set a device independent resolution and presentation mode for rendering.\n\n This function sets the width and height of the logical rendering output. A\n render target is created at the specified size and used for rendering and\n then copied to the output during presentation.\n\n You can disable logical coordinates by setting the mode to\n SDL_LOGICAL_PRESENTATION_DISABLED, and in that case you get the full pixel\n resolution of the output window.\n\n You can convert coordinates in an event into rendering coordinates using\n SDL_ConvertEventToRenderCoordinates().\n\n \\param renderer the rendering context\n \\param w the width of the logical resolution\n \\param h the height of the logical resolution\n \\param mode the presentation mode used\n \\param scale_mode the scale mode used\n \\returns 0 on success or a negative error code on failure; call\n          SDL_GetError() for more information.\n\n \\since This function is available since SDL 3.0.0.\n\n \\sa SDL_ConvertEventToRenderCoordinates\n \\sa SDL_GetRenderLogicalPresentation"]
     pub fn SDL_SetRenderLogicalPresentation(
         renderer: *mut SDL_Renderer,
         w: libc::c_int,
@@ -25228,6 +25378,9 @@ extern "C" {
 }
 extern "C" {
     pub fn XInitThreads() -> libc::c_int;
+}
+extern "C" {
+    pub fn XFreeThreads() -> libc::c_int;
 }
 extern "C" {
     pub fn XLockDisplay(arg1: *mut Display);
